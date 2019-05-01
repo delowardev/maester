@@ -1,0 +1,123 @@
+#top-bar-menu,
+#top-bar-menu > ul{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    li{
+        display: inline-block;
+        a{
+            color: var(--mr-light-color);
+            font-weight: 400;
+            &:hover{
+                color: var(--mr-major-color);
+            }
+        }
+        &:not(:last-child){
+            margin-right: 10px;
+            &.top-bar-custom-links{
+                margin-right: 14px;
+            }
+        }
+    }
+}
+
+/**
+ * Main Navigation Menu
+ */
+#secondary-menu,
+#secondary-menu > ul,
+#primary-menu > ul,
+#primary-menu{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    > li{
+        display: inline-block;
+        > a{
+            padding: 28px 10px;
+            display: inline-block;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        &:first-child > a{
+            padding-left: 0;
+        }
+        &:last-child > a{
+            padding-right: 0;
+        }
+    }
+}
+
+
+#secondary-menu,
+#secondary-menu > ul{
+    font-size: 14px;
+    > li{
+        > a{
+            padding: 8px;
+        }
+        &:first-child > a{
+            padding-left: 0;
+        }
+        &:last-child > a{
+            padding-right: 0;
+        }
+    }
+}
+
+/**
+ * Menu Bar Right Menu
+ */
+
+.header-right-menu{
+    font-size: 16px;
+    margin: 0;
+    > li{
+        display: inline-block;
+        > a,
+        > .cart-menu-parent {
+            text-decoration: none;
+            padding: 28px 6px;
+        }
+        &.header-cart-menu{
+            a span:last-child:not(:first-child){
+                font-size: 11px;
+                opacity: .8;
+                margin-right: 8px;
+                margin-left: 5px;
+            }
+            .woocommerce-Price-currencySymbol{
+                margin-right: 0;
+            }
+        }
+        &:last-child > a,
+        &:last-child > .cart-menu-parent{
+            padding-right: 0;
+        }
+    }
+}
+
+/**
+ * Footer Menu
+ */
+
+#footer-menu ul,
+#footer-menu{
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: right;
+    li{
+        display: inline-block;
+        a{
+            padding: 0 8px;
+            color: var(--mr-text-color);
+            font-weight: 500;
+            text-decoration: underline;
+            &:hover{
+                color: var(--mr-major-color);
+            }
+        }
+    }
+}
