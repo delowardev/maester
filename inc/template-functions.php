@@ -324,3 +324,38 @@ if ( ! function_exists( 'maester_comment' ) ) {
         <?php
     }
 }
+
+add_action('maester_menubar_column_hook', 'header_right_menu', 30);
+function header_right_menu(){
+    global $wp;
+    $enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
+    $enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);
+    if($enable_header_cart || $enable_header_login_icon){
+        ?>
+        <div class="col-auto">
+            <ul class="header-right-menu">
+                <?php if($enable_header_cart) {?>
+                    <li class="header-cart-menu">
+                        <div class="cart-menu-parent">
+                            <?php echo maester_header_cart(); ?><i class="fas fa-shopping-basket"></i>
+                        </div>
+                    </li>
+                <?php } if($enable_header_login_icon) {
+                    if(is_user_logged_in()){ ?>
+                        <li>
+                            <a href='<?php echo esc_url(wp_logout_url(home_url($wp->request))); ?>'>
+                                <i class='fas fa-sign-out-alt'></i>
+                            </a>
+                        </li>
+                        <?php
+
+                    }else{
+                        ?>
+                        <li><a href='#open_user_modal'><i class='fas fa-lock'></i></a></li>
+                        <?php
+                    }
+                } ?>
+            </ul>
+        </div>
+    <?php  }
+}

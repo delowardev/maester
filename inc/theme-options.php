@@ -43,6 +43,14 @@ if(!function_exists('maester_theme_options')){
                 'section'  => 'maester_topbar_options',
                 'default'  => esc_html__( 'Maester | Multipurpose WordPress LMS Theme with Elementor Page Builder', 'maester' ),
                 'priority' => 10,
+                'partial_refresh'    => [
+                    'topbar_text' => [
+                        'selector'        => '.top-bar-description',
+                        'render_callback' => function() {
+                            return get_theme_mod('topbar_text');
+                        },
+                    ]
+                ],
             ]);
 
             Kirki::add_field( $config_id, [
@@ -149,6 +157,36 @@ if(!function_exists('maester_theme_options')){
                 'default'     => '1',
                 'priority'    => 10,
             ] );
+
+            /**
+             * Footer Options
+             */
+
+            Kirki::add_section( 'maester_footer_options', array(
+                'title'          => esc_html__( 'Footer', 'maester' ),
+                'description'    => esc_html__( 'Footer Settings.', 'maester' ),
+                'panel'          => 'maester_options_panel',
+                'priority'       => 160,
+            ) );
+
+            Kirki::add_field( $config_id, [
+                'type'     => 'text',
+                'settings' => 'footer_text',
+                'label'    => esc_html__( 'Footer Text', 'maester' ),
+                'section'  => 'maester_footer_options',
+                'default'  => esc_html__( '&copy; Maester, Developed by idea420', 'maester' ),
+                'priority' => 10,
+                'partial_refresh'    => [
+                    'footer_text' => [
+                        'selector'        => '.site-info p',
+                        'render_callback' => function() {
+                            return get_theme_mod('footer_text');
+                        },
+                    ]
+                ],
+            ]);
+
+
 
 
         }

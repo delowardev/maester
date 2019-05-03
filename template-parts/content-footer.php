@@ -34,10 +34,17 @@
         <div class="row">
             <div class="col">
                 <div class="site-info">
-                    <p><?php _e('&copy;2019 Maester. Trademarks and brands are the property of their respective owners.', 'maester') ?></p>
+                    <p>
+                        <?php
+                            $footer_text = get_theme_mod('footer_text', __("&copy; Maester, Developed by idea420", 'maester'));
+                            if($footer_text){
+                                echo esc_html($footer_text);
+                            }
+                        ?>
+                    </p>
                 </div><!-- .site-info -->
             </div>
-            <div class="col footer-menu-column">
+            <div class="col-auto footer-menu-column">
                 <?php
                     if(has_nav_menu('menu-3')){
                         wp_nav_menu(array(

@@ -7,8 +7,7 @@
  * @package Maester
  */
 
-//    maester_var_dump(get_object_taxonomies(get_theme_mod('header_search_post_types', 'post')));
-//    maester_var_dump(get_theme_mod('header_search_post_types', 'post'));
+
 
 ?>
 
@@ -21,12 +20,14 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                <p class='top-bar-description'>
                 <?php
                     $topbar_text = get_theme_mod('topbar_text');
                     if($topbar_text){
-                        printf("<p>%s</p>", esc_html($topbar_text));
+                        echo esc_html($topbar_text);
                     }
                 ?>
+                </p>
             </div>
             <div class="col-auto">
                 <?php
@@ -96,36 +97,39 @@
                 </nav><!-- #site-navigation -->
             </div>
             <?php
+                global $wp;
                 $enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
                 $enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);
                 if($enable_header_cart || $enable_header_login_icon){
             ?>
-                    <div class="col-auto">
-                        <ul class="header-right-menu">
-                            <?php if($enable_header_cart) {?>
-                                <li class="header-cart-menu">
-                                    <div class="cart-menu-parent">
-                                        <?php echo maester_header_cart(); ?><i class="fas fa-shopping-basket"></i>
-                                    </div>
+                <div class="col-auto">
+                    <ul class="header-right-menu">
+                        <?php if($enable_header_cart) {?>
+                            <li class="header-cart-menu">
+                                <div class="cart-menu-parent">
+                                    <?php echo maester_header_cart(); ?><i class="fas fa-shopping-basket"></i>
+                                </div>
+                            </li>
+                        <?php } if($enable_header_login_icon) {
+                            if(is_user_logged_in()){ ?>
+                                <li>
+                                    <a href='<?php echo esc_url(wp_logout_url(home_url($wp->request))); ?>'>
+                                        <i class='fas fa-sign-out-alt'></i>
+                                    </a>
                                 </li>
-                            <?php } if($enable_header_login_icon) {
-                                if(is_user_logged_in()){ ?>
-                                        <li>
-                                            <a href='<?php echo esc_url(wp_logout_url(home_url($wp->request))); ?>'>
-                                                <i class='fas fa-sign-out-alt'></i>
-                                            </a>
-                                        </li>
-                                    <?php
+                                <?php
 
-                                }else{
-                                    ?>
-                                        <li><a href='#open_user_modal'><i class='fas fa-lock'></i></a></li>
-                                    <?php
-                                }
-                            } ?>
-                        </ul>
-                    </div>
-            <?php  } ?>
+                            }else{
+                                ?>
+                                <li><a href='#open_user_modal'><i class='fas fa-lock'></i></a></li>
+                                <?php
+                            }
+                        } ?>
+                    </ul>
+                </div>
+
+            <?php } ?>
+
 
         </div>
     </div>
