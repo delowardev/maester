@@ -1434,6 +1434,17 @@ table#wp-calendar caption {
   padding: 20px;
   border-radius: 4px;
 }
+@media (max-width: 767px) {
+  .comments-area .comment-body .comment-meta,
+  .comments-area .comment-body .comment-content {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  .comments-area .comment-body .comment-meta .avatar {
+    float: none;
+  }
+}
 
 #comments .comment-list .reply {
   padding-top: .6180469716em;
