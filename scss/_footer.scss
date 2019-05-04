@@ -12,14 +12,19 @@
         font-weight: 600;
         margin: 0 0 13px;
     }
-    ul {
-        padding-left: 0;
-        ul{
-            padding-left: 10px;
-        }
-    }
     .widget.footer-widget{
         margin-bottom: 50px;
+    }
+}
+
+.widget{
+    
+    ul {
+        padding-left: 0;
+        margin: 0;
+        ul{
+            padding-left: 15px;
+        }
     }
 }
 

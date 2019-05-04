@@ -16,11 +16,11 @@ header.site-header{
 .top-bar{
     background: #fafafa;
     color: var(--mr-light-color);
-    font-size: 12px;
-    padding: 10px;
+    font-size: 13px;
     border-bottom: 1px solid var(--mr-border-color);
     p{
         margin: 0px;
+        padding: 10px 0;
     }
 }
 
@@ -32,15 +32,25 @@ header.site-header{
     display: inline-block;
 }
 
-.site-branding a{
-    font-size: 25px;
-    font-weight: 700;
-    vertical-align: top;
+.site-branding{
+    a{
+        font-size: 25px;
+        font-weight: 700;
+        vertical-align: top;
+        img{
+            max-width: none;
+        }
+    }
+    p{
+        font-size: 12px;
+        margin: 5px 0 0;
+        line-height: 16px;
+    }
 }
-.site-branding p{
-    font-size: 12px;
-    margin: 5px 0 0;
-    line-height: 16px;
+.custom-search-form,
+.site-branding,
+.secondary-menu-container > ul{
+    margin-top: 15px;
 }
 
 
@@ -50,6 +60,12 @@ header.site-header{
 
 .custom-search-form{
     position: relative;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    @media (max-width: 767px) {
+        width: 100%;
+    }
     .nice-select{
         border-radius: 3px 0 0 3px;
         border-right: none;
@@ -64,7 +80,7 @@ header.site-header{
     }
     input[type="search"]{
         border-radius: 0 3px 3px 0;
-        width: 250px;
+        flex-grow: 1;
     }
     button{
         position: absolute;
@@ -89,8 +105,8 @@ header.site-header{
 #maester-popup-search-form {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100%;
+    right: 5%;
+    width: 90%;
     height: 100%;
     z-index: 999;
     display: flex;
@@ -107,10 +123,15 @@ header.site-header{
         background: #fff;
         padding: 15px;
         border-radius: 4px;
+        display: flex;
+        align-items: center;
+        width: 425px;
+        max-width: 100%;
+        
     }
     input[type="search"]{
-        width: 280px;
         margin-right: 6px;
+        flex-grow: 1;
     }
 }
 
@@ -120,7 +141,7 @@ header.site-header{
  */
 
 .header-main{
-    padding-top: 30px;
+    padding-top: 15px;
     padding-bottom: 5px;
 }
 
@@ -252,4 +273,10 @@ header.site-header{
             }
         }
     }
+}
+
+
+button.menu-toggle{
+    line-height: 1;
+    padding: 10px 12px;
 }

@@ -18,7 +18,7 @@
 
 <div class="top-bar">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col">
                 <p class='top-bar-description'>
                 <?php
@@ -30,11 +30,16 @@
                 </p>
             </div>
             <div class="col-auto">
+                <button style="display:none;" class="menu-toggle" aria-controls="top-bar-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
                 <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'topbar',
-                        'menu_id'        => 'top-bar-menu'
-                    ));
+                    if(has_nav_menu('topbar')){
+                        wp_nav_menu( array(
+                            'theme_location' => 'topbar',
+                            'menu_id'        => 'top-bar-menu',
+                            'container'      => 'nav',
+                            'container_class'=> 'responsive-menu top-bar-menu-container'
+                        ));
+                    }
                 ?>
             </div>
         </div>
@@ -64,18 +69,23 @@
 
             </div>
             <div class="col-auto">
+                <button style="display:none;" class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
                 <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'menu-2',
-                        'menu_id'        => 'secondary-menu',
-                    ));
+                    if(has_nav_menu('menu-2')){
+                        wp_nav_menu( array(
+                            'theme_location' => 'menu-2',
+                            'menu_id'        => 'secondary-menu',
+                            'container'      => 'nav',
+                            'container_class'=> 'responsive-menu secondary-menu-container'
+                        ));
+                    }
                 ?>
             </div>
             <?php
                 $enable_header_search = get_theme_mod('enable_header_search', true);
                 if($enable_header_search){
             ?>
-                <div class="col-auto">
+                <div class="col-12 col-md-auto text-right">
                     <?php do_shortcode('[maester_search]'); ?>
                 </div>
             <?php } ?>
@@ -87,12 +97,16 @@
         <div class="row align-items-center">
             <div class="col">
                 <nav id="site-navigation" class="main-navigation">
-                    <button style="display:none;" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'maester' ); ?></button>
+                    <button style="display:none;" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
                     <?php
-                        wp_nav_menu( array(
-                            'theme_location' => 'menu-1',
-                            'menu_id'        => 'primary-menu',
-                        ));
+                        if(has_nav_menu('menu-1')){
+                            wp_nav_menu( array(
+                                'theme_location' => 'menu-1',
+                                'menu_id'        => 'primary-menu',
+                                'container'      => 'nav',
+                                'container_class'=> 'responsive-menu primary-menu-container'
+                            ));
+                        }
                     ?>
                 </nav><!-- #site-navigation -->
             </div>
