@@ -1,24 +1,13 @@
 /* Color Theme Swatches in Hex */
-/*
-$major-color: #F23847;
-$major-color-hover: #BF3945;
-$major-color-dark: #400711;
-$major-color-light: #F28888;
-$major-color-lighter: #F2BBBF;
-*/
 :root {
   --mr-font: "Source Sans Pro", HelveticaNeue-Light, Helvetica,Arial, "Lucida Grande", sans-serif;
   --mr-body-bg: #ffffff;
   --mr-text-color: #666666;
   --mr-heading-color: #252525;
-  --mr-dark-bg-color: #252525;
   --mr-light-color: #999999;
   --mr-border-color: #ececec;
   --mr-major-color: #F23847;
   --mr-major-color-hover: #BF3945;
-  --mr-major-color-dark: #400711;
-  --mr-major-color-light: #F28888;
-  --mr-major-color-lighter: #F2BBBF;
 }
 
 body {
@@ -28,7 +17,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 1.857em;
+}
+
+p {
+  line-height: 1.857em;
 }
 
 .site-content {
@@ -428,7 +421,6 @@ article.post-listing .post-image a {
 .post-content-body {
   padding: 15px 15px 10px;
   border: 1px solid var(--mr-border-color);
-  border-top-width: 0px;
 }
 .post-content-body .entry-title {
   overflow: hidden;
@@ -856,7 +848,10 @@ button.menu-toggle {
 #top-bar-menu li a:hover {
   color: var(--mr-major-color);
 }
-#top-bar-menu li:last-child {
+#top-bar-menu li.top-bar-custom-links a {
+  padding-left: 10px;
+}
+#top-bar-menu li:last-child a {
   padding-right: 0;
 }
 
@@ -927,6 +922,11 @@ button.menu-toggle {
 }
 .header-right-menu > li.header-cart-menu .woocommerce-Price-currencySymbol {
   margin-right: 0;
+}
+@media (max-width: 767px) {
+  .header-right-menu > li.header-cart-menu {
+    float: right;
+  }
 }
 .header-right-menu > li:last-child > a, .header-right-menu > li:last-child > .cart-menu-parent {
   padding-right: 0;
@@ -1173,10 +1173,11 @@ button.menu-toggle {
 #open-user-modal .user-modal-inner {
   width: 470px;
   background: #fff;
-  max-height: 100%;
+  max-height: 90%;
   overflow-y: auto;
   position: relative;
   z-index: 1;
+  max-width: 90%;
 }
 #open-user-modal .user-modal-tabs ul {
   margin: 0;
@@ -1194,6 +1195,11 @@ button.menu-toggle {
   color: #fff;
   cursor: pointer;
 }
+@media screen and (max-width: 767px) {
+  #open-user-modal .user-modal-tabs ul li {
+    padding: 10px;
+  }
+}
 #open-user-modal .user-modal-tabs ul li.active {
   background: #fff;
   color: var(--mr-major-color);
@@ -1201,6 +1207,11 @@ button.menu-toggle {
 #open-user-modal .user-modal-tabs .tab-content {
   display: none;
   padding: 30px 45px;
+}
+@media screen and (max-width: 767px) {
+  #open-user-modal .user-modal-tabs .tab-content {
+    padding: 20px 30px;
+  }
 }
 #open-user-modal .user-modal-tabs .tab-content.active {
   display: block;

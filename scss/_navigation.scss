@@ -13,7 +13,10 @@
                 color: var(--mr-major-color);
             }
         }
-        &:last-child{
+        &.top-bar-custom-links a{
+            padding-left: 10px;
+        }
+        &:last-child a{
             padding-right: 0;
         }
     }
@@ -84,6 +87,9 @@
             }
             .woocommerce-Price-currencySymbol{
                 margin-right: 0;
+            }
+            @media (max-width: 767px) {
+                float: right;
             }
         }
         &:last-child > a,

@@ -1,12 +1,13 @@
 <?php
 
 
-require_once( MAESTER_DIR. '/inc/maester-helper.php');
-require_once( MAESTER_DIR. '/inc/login-forms.php');
-require_once( MAESTER_DIR. '/inc/breadcrumbs.php');
-require_once( MAESTER_DIR. '/inc/ajax-login.php');
-require_once( MAESTER_DIR. '/inc/shortcodes.php');
-require_once( MAESTER_DIR . '/inc/theme-options.php');
+get_template_part('inc/maester', 'helper');
+get_template_part('inc/maester', 'login-forms');
+get_template_part('inc/maester', 'breadcrumbs');
+get_template_part('inc/maester', 'login');
+get_template_part('inc/maester', 'shortcodes');
+get_template_part('inc/maester', 'options');
+
 
 
 /**
@@ -122,8 +123,8 @@ if(!function_exists('maester_plugins_include')){
         $config = array(
             'domain'            => 'maester',
             'default_path'      => '',
-            'parent_menu_slug'  => 'themes.php',
-            'parent_url_slug'   => 'themes.php',
+            'parent_slug'  => 'themes.php',
+            'capability'  => 'manage_options',
             'menu'              => 'install-required-plugins',
             'has_notices'       => true,
             'is_automatic'      => false,

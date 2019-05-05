@@ -1,27 +1,15 @@
 
 /* Color Theme Swatches in Hex */
-/*
-$major-color: #F23847;
-$major-color-hover: #BF3945;
-$major-color-dark: #400711;
-$major-color-light: #F28888;
-$major-color-lighter: #F2BBBF;
-*/
-
 
 :root{
     --mr-font: "Source Sans Pro", HelveticaNeue-Light, Helvetica,Arial, "Lucida Grande", sans-serif;
     --mr-body-bg: #ffffff;
     --mr-text-color: #666666;
     --mr-heading-color: #252525;
-    --mr-dark-bg-color: #252525;
     --mr-light-color: #999999;
     --mr-border-color: #ececec;
     --mr-major-color: #F23847;
     --mr-major-color-hover: #BF3945;
-    --mr-major-color-dark: #400711;
-    --mr-major-color-light: #F28888;
-    --mr-major-color-lighter: #F2BBBF;
 }
 
 body{
@@ -31,7 +19,11 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
-    line-height: 26px;
+    line-height: 1.857em;
+}
+
+p{
+    line-height: 1.857em;
 }
 
 .site-content{

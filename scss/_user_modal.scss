@@ -21,10 +21,11 @@
     .user-modal-inner{
         width: 470px;
         background: #fff;
-        max-height: 100%;
+        max-height: 90%;
         overflow-y: auto;
         position: relative;
         z-index: 1;
+        max-width: 90%;
     }
     .user-modal-tabs{
         ul{
@@ -41,6 +42,9 @@
                 background-color: var(--mr-major-color);
                 color: #fff;
                 cursor: pointer;
+                @media screen and (max-width: 767px) {
+                    padding: 10px;
+                }
                 &.active{
                     background: #fff;
                     color: var(--mr-major-color);
@@ -50,6 +54,9 @@
         .tab-content{
             display: none;
             padding: 30px 45px;
+            @media screen and (max-width: 767px) {
+                padding: 20px 30px;
+            }
             &.active{
                 display: block;
             }

@@ -59,12 +59,12 @@ function maester_header_links ($items, $args) {
     $topbar_social = get_theme_mod('topbar_social', array());
     $current_page = home_url($wp->request);
 
-    if($args->theme_location == 'topbar'){
+    if('topbar' == $args->theme_location){
 
         foreach ($topbar_social as $social){
-            $social_icon = $social['topbar_social_icon'];
-            $social_link = $social['topbar_social_link'];
-            $topbar_social_link_target = $social['topbar_social_link_target'];
+            $social_icon = esc_attr($social['topbar_social_icon']);
+            $social_link = esc_url($social['topbar_social_link']);
+            $topbar_social_link_target = esc_attr($social['topbar_social_link_target']);
             $items .= "<li class='top-bar-custom-links top-bar-social'><a target='$topbar_social_link_target' href='$social_link'><i class='$social_icon'></i></a></li>";
         }
 
@@ -90,7 +90,71 @@ function maester_header_links ($items, $args) {
 
 add_filter('wp_nav_menu_items', 'maester_header_links', 10, 2);
 
+/**
+ * Menubar Right Icons
+ */
 
+function menubar_right_icons(){
+    global $wp;
+    $enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
+    $enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);
+    $enable_menubar_search_icon = get_theme_mod('enable_menubar_search_icon', true);
+    $menubar_social = get_theme_mod('menubar_social', array());
+    $menubar_social_markup = '';
+    foreach ($menubar_social as $social){
+        $social_icon = esc_attr($social['menubar_social_icon']);
+        $social_link = esc_url($social['menubar_social_link']);
+        $link_target = esc_attr($social['menubar_social_link_target']);
+        $menubar_social_markup .= "<li><a href='$social_link' target='$link_target'><i class='$social_icon'></i></a></li>";
+    }
+
+    ?>
+        <div class="col-auto">
+            <ul class="header-right-menu clearfix">
+                <?php if($enable_header_cart) {?>
+                    <li class="header-cart-menu">
+                        <div class="cart-menu-parent">
+                            <?php echo maester_header_cart(); ?><i class="fas fa-shopping-basket"></i>
+                        </div>
+                    </li>
+                <?php } ?>
+                <?php echo wp_kses_post($menubar_social_markup); ?>
+
+                <?php if($enable_menubar_search_icon) {?>
+                    <li class='menubar-search-icon'>
+                        <a href='#open_search_popup'>
+                            <i class='fas fa-search'></i>
+                        </a>
+                    </li>
+                <?php } ?>
+
+                <?php if($enable_header_login_icon) {
+                    if(is_user_logged_in()){ ?>
+                        <li class='menubar-login-icon'>
+                            <a href='<?php echo esc_url(wp_logout_url(home_url($wp->request))); ?>'>
+                                <i class='fas fa-sign-out-alt'></i>
+                            </a>
+                        </li>
+                        <?php
+
+                    }else{ ?>
+                        <li><a href='#open_user_modal'><i class='fas fa-lock'></i></a></li>
+                        <?php
+                    }
+                }
+                ?>
+
+            </ul>
+        </div>
+    <?php
+}
+
+add_action('menubar_item_hook', 'menubar_right_icons');
+
+
+/**
+ * Search Popup
+ */
 add_filter('maester_after_footer_hook', 'maester_search_pupup', 10, 2);
 
 function maester_search_pupup(){
