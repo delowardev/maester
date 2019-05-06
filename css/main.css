@@ -555,6 +555,11 @@ article.post-listing .post-image a {
   text-align: right;
 }
 
+article.article-search h2.entry-title a {
+  color: var(--mr-heading-color);
+  font-weight: 500;
+}
+
 /**
  *  Post Pagination
  */
