@@ -15,7 +15,7 @@ function get_maester_breadcrumb() {
     $text['cpage']    = 'Comment Page %s'; // text 'Comment Page N'
     $wrap_before    = '<div class="maester-breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; // the opening wrapper tag
     $wrap_after     = '</div><!-- .breadcrumbs -->'; // the closing wrapper tag
-    $sep            = '<span class="breadcrumbs__separator"> › </span>'; // separator between crumbs
+    $sep            = '<span class="breadcrumbs__separator"> &#8250; </span>'; // separator between crumbs
     $before         = '<span class="breadcrumbs__current">'; // tag before the current crumb
     $after          = '</span>'; // tag after the current crumb
     $show_on_home   = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show

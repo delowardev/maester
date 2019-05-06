@@ -79,6 +79,19 @@
             }
         }
         
+        @media (max-width: 767px){
+            .comment-meta,
+            .comment-content{
+                width: 100%;
+                text-align: left;
+                margin-bottom: 15px;
+            }
+            .comment-meta .avatar{
+                float: none;
+            }
+            
+        }
+        
     }
 }
 

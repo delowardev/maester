@@ -41,6 +41,7 @@ img{
     display: block;
 }
 a{
+    display: inline-block;
     color: var(--mr-major-color);
     text-decoration: none;
     &:visited{

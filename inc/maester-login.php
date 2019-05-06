@@ -37,25 +37,25 @@ function ajax_lostpass(){
 
     global $wpdb;
 
-    $account = $_POST['email'];
+    $account = isset($_POST['email']) ? $_POST['email'] : '';
 
     if( empty( $account ) ) {
-        $error = 'Enter an username or e-mail address.';
+        $error = __('Enter an username or e-mail address.', 'maester');
     } else {
         if(is_email( $account )) {
             if( email_exists($account) )
                 $get_by = 'email';
             else
-                $error = 'There is no user registered with that email address.';
+                $error = __('There is no user registered with that email address.', 'maester');
         }
         else if (validate_username( $account )) {
             if( username_exists($account) )
                 $get_by = 'login';
             else
-                $error = 'There is no user registered with that username.';
+                $error = __('There is no user registered with that username.', 'maester');
         }
         else
-            $error = 'Invalid username or e-mail address.';
+            $error = __('Invalid username or e-mail address.', 'maester');
     }
 
     if(empty ($error)) {
@@ -95,19 +95,19 @@ function ajax_lostpass(){
 
             $mail = wp_mail( $to, $subject, $message, $headers );
             if( $mail )
-                $success = 'Check your email address for you new password.';
+                $success = __('Check your email address for you new password.', 'maester');
             else
-                $error = 'System is unable to send you mail containg your new password.';
+                $error = __('System is unable to send you mail containg your new password.', 'maester');
         } else {
-            $error = 'Oops! Something went wrong while updaing your account.';
+            $error = __('Oops! Something went wrong while updaing your account.', 'maester');
         }
     }
 
     if( ! empty( $error ) )
-        echo json_encode(array('loggedin'=>false, 'message'=>__($error)));
+        echo json_encode(array('loggedin'=>false, 'message'=>$error));
 
     if( ! empty( $success ) )
-        echo json_encode(array('loggedin'=>false, 'message'=>__($success)));
+        echo json_encode(array('loggedin'=>false, 'message'=> $success));
 
     die();
 }
@@ -122,9 +122,9 @@ function ajax_login(){
 
     // Nonce is checked, get the POST data and sign user on
     $info = array();
-    $info['user_login'] = $_POST['username'];
-    $info['user_password'] = $_POST['password'];
-    $info['remember'] = $_POST['rememberme'];
+    $info['user_login'] = isset($_POST['username']) ? $_POST['username'] : '';
+    $info['user_password'] = isset($_POST['password']) ? $_POST['password'] : '';
+    $info['remember'] = isset($_POST['rememberme']) ? $_POST['rememberme'] : false;
 
     auth_user_login($info['user_login'], $info['user_password'], 'Login');
 }
@@ -143,11 +143,11 @@ function ajax_register(){
     if (is_wp_error($user_register)){
         $error = $user_register->get_error_codes();
         if(in_array('empty_user_login', $error))
-            echo json_encode(array('loggedin'=>false, 'message'=>__($user_register->get_error_message('empty_user_login'))));
+            echo json_encode(array('loggedin'=>false, 'message'=>$user_register->get_error_message('empty_user_login')));
         elseif(in_array('existing_user_login',$error))
-            echo json_encode(array('loggedin'=>false, 'message'=>__('This username is already registered.')));
+            echo json_encode(array('loggedin'=>false, 'message'=>__('This username is already registered.', 'maester')));
         elseif(in_array('existing_user_email',$error))
-            echo json_encode(array('loggedin'=>false, 'message'=>__('This email address is already registered.')));
+            echo json_encode(array('loggedin'=>false, 'message'=>__('This email address is already registered.', 'maester')));
     } else {
         auth_user_login($info['nickname'], $info['user_pass'], 'Registration');
     }
@@ -170,10 +170,10 @@ function auth_user_login($user_login, $password, $login){
 
     $user_signon = wp_signon( $info, '' ); // From false to '' since v4.9
     if ( is_wp_error($user_signon) ){
-        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.', 'maester')));
     } else {
         wp_set_current_user($user_signon->ID);
-        echo json_encode(array('loggedin'=>true, 'message'=>__($login.' successful, redirecting...')));
+        echo json_encode(array('loggedin'=>true, 'message'=> $login.__(' successful, redirecting...', 'maester')));
     }
     die();
 }

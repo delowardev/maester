@@ -30,7 +30,6 @@ article.post-listing{
 .post-content-body{
   padding: 15px 15px 10px;
   border: 1px solid var(--mr-border-color);
-  border-top-width: 0px;
   .entry-title {
     overflow: hidden;
     height: 2.5em;
@@ -168,4 +167,19 @@ article.post-listing{
       
     }
   }
+}
+
+/**
+ *  Post Pagination
+ */
+
+nav.navigation.pagination{
+    .nav-links{
+        text-align: center;
+        font-size: 16px;
+        a,
+        span{
+            padding: 5px;
+        }
+    }
 }

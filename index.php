@@ -16,7 +16,7 @@ get_header();
 ?>
     <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-12 col-lg-8">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
 
@@ -48,7 +48,7 @@ get_header();
 
                         echo "</div>"; // .row
 
-                        the_posts_navigation();
+                        the_posts_pagination();
 
                     else :
 
@@ -60,7 +60,7 @@ get_header();
                 </main><!-- #main -->
             </div><!-- #primary -->
         </div><!-- .col-md-* -->
-        <div class="col-md-4">
+        <div class="col-lg-4">
             <?php get_sidebar(); ?>
         </div><!-- .col-md-* -->
     </div><!-- .row -->

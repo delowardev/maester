@@ -7,44 +7,55 @@
  * @package Maester
  */
 
+    $maester_footerWidgets = array('footer-1', 'footer-2', 'footer-3', 'footer-4');
+    $maester_isFooter1 = is_active_sidebar('footer-1');
+    $maester_isFooter2 = is_active_sidebar('footer-2');
+    $maester_isFooter3 = is_active_sidebar('footer-3');
+    $maester_isFooter4 = is_active_sidebar('footer-4');
+    $maester_hasFooterWidget = $maester_isFooter1 || $maester_isFooter2 || $maester_isFooter3 || $maester_isFooter4;
+
 ?>
+
+<?php if($maester_hasFooterWidget) : ?>
+
 <div class="footer-widget-area">
     <div class="container">
-        <?php
-            $footerWidgets = array('footer-1', 'footer-2', 'footer-3', 'footer-4');
-            $isFooter1 = is_active_sidebar('footer-1');
-            $isFooter2 = is_active_sidebar('footer-2');
-            $isFooter3 = is_active_sidebar('footer-3');
-            $isFooter4 = is_active_sidebar('footer-4');
-            $hasFooterWidget = $isFooter1 || $isFooter2 || $isFooter3 || $isFooter4;
-
-            if($hasFooterWidget) echo "<div class='row'>";
-            foreach ($footerWidgets as $widget){
-                if(!is_active_sidebar($widget)) continue;
-                echo "<div class='col-12 col-sm-6 col-md'>";
-                dynamic_sidebar($widget);
-                echo "</div>";
-            }
-            if($hasFooterWidget) echo "</div>";
-        ?>
+        <div class='row'>
+            <?php
+                foreach ($maester_footerWidgets as $maester_widget){
+                    if(!is_active_sidebar($maester_widget)) continue;
+                    echo "<div class='col-12 col-sm-6 col-md'>";
+                        dynamic_sidebar($maester_widget);
+                    echo "</div>";
+                }
+            ?>
+        </div>
     </div>
 </div>
+
+<?php endif; ?>
+
+<?php
+    $maester_footer_text = get_theme_mod('footer_text', __("&copy; Maester, Developed by idea420", 'maester'));
+    if(!empty($maester_footer_text) || has_nav_menu('menu-3')) :
+?>
+
 <div class="footer-main">
     <div class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row align-items-center">
+            <div class="col-12 col-md">
                 <div class="site-info">
                     <p>
                         <?php
-                            $footer_text = get_theme_mod('footer_text', __("&copy; Maester, Developed by idea420", 'maester'));
-                            if($footer_text){
-                                echo esc_html($footer_text);
+
+                            if($maester_footer_text){
+                                echo esc_html($maester_footer_text);
                             }
                         ?>
                     </p>
                 </div><!-- .site-info -->
             </div>
-            <div class="col-auto footer-menu-column">
+            <div class="col-12 col-md-auto footer-menu-column">
                 <?php
                     if(has_nav_menu('menu-3')){
                         wp_nav_menu(array(
@@ -57,3 +68,5 @@
         </div>
     </div>
 </div>
+
+<?php endif; ?>

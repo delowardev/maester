@@ -1,4 +1,5 @@
 /* Color Theme Swatches in Hex */
+<<<<<<< HEAD
 /*
 $major-color: #F23847;
 $major-color-hover: #BF3945;
@@ -6,19 +7,27 @@ $major-color-dark: #400711;
 $major-color-light: #F28888;
 $major-color-lighter: #F2BBBF;
 */
+=======
+>>>>>>> develop
 :root {
   --mr-font: "Source Sans Pro", HelveticaNeue-Light, Helvetica,Arial, "Lucida Grande", sans-serif;
   --mr-body-bg: #ffffff;
   --mr-text-color: #666666;
   --mr-heading-color: #252525;
+<<<<<<< HEAD
   --mr-dark-bg-color: #252525;
+=======
+>>>>>>> develop
   --mr-light-color: #999999;
   --mr-border-color: #ececec;
   --mr-major-color: #F23847;
   --mr-major-color-hover: #BF3945;
+<<<<<<< HEAD
   --mr-major-color-dark: #400711;
   --mr-major-color-light: #F28888;
   --mr-major-color-lighter: #F2BBBF;
+=======
+>>>>>>> develop
 }
 
 body {
@@ -28,7 +37,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
+<<<<<<< HEAD
   line-height: 26px;
+=======
+  line-height: 1.857em;
+}
+
+p {
+  line-height: 1.857em;
+>>>>>>> develop
 }
 
 .site-content {
@@ -85,11 +102,16 @@ blockquote cite {
 }
 
 .fa-before, #secondary-menu li.menu-item-has-children > a::after,
+<<<<<<< HEAD
 #secondary-menu > ul li.menu-item-has-children > a::after,
 #primary-menu > ul li.menu-item-has-children > a::after,
 #primary-menu li.menu-item-has-children > a::after,
 #top-bar-menu li.menu-item-has-children > a::after,
 #top-bar-menu > ul li.menu-item-has-children > a::after {
+=======
+#primary-menu li.menu-item-has-children > a::after,
+#top-bar-menu li.menu-item-has-children > a::after {
+>>>>>>> develop
   content: '\f107';
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -147,6 +169,10 @@ img {
 }
 
 a {
+<<<<<<< HEAD
+=======
+  display: inline-block;
+>>>>>>> develop
   color: var(--mr-major-color);
   text-decoration: none;
 }
@@ -430,7 +456,10 @@ article.post-listing .post-image a {
 .post-content-body {
   padding: 15px 15px 10px;
   border: 1px solid var(--mr-border-color);
+<<<<<<< HEAD
   border-top-width: 0px;
+=======
+>>>>>>> develop
 }
 .post-content-body .entry-title {
   overflow: hidden;
@@ -565,6 +594,21 @@ article.post-listing .post-image a {
   text-align: right;
 }
 
+<<<<<<< HEAD
+=======
+/**
+ *  Post Pagination
+ */
+nav.navigation.pagination .nav-links {
+  text-align: center;
+  font-size: 16px;
+}
+nav.navigation.pagination .nav-links a,
+nav.navigation.pagination .nav-links span {
+  padding: 5px;
+}
+
+>>>>>>> develop
 header.site-header a:visited,
 header.site-header a:active,
 header.site-header a {
@@ -584,12 +628,20 @@ header.site-header {
 .top-bar {
   background: #fafafa;
   color: var(--mr-light-color);
+<<<<<<< HEAD
   font-size: 12px;
   padding: 10px;
+=======
+  font-size: 13px;
+>>>>>>> develop
   border-bottom: 1px solid var(--mr-border-color);
 }
 .top-bar p {
   margin: 0px;
+<<<<<<< HEAD
+=======
+  padding: 10px 0;
+>>>>>>> develop
 }
 
 /**
@@ -604,18 +656,44 @@ header.site-header {
   font-weight: 700;
   vertical-align: top;
 }
+<<<<<<< HEAD
 
+=======
+.site-branding a img {
+  max-width: none;
+}
+>>>>>>> develop
 .site-branding p {
   font-size: 12px;
   margin: 5px 0 0;
   line-height: 16px;
 }
 
+<<<<<<< HEAD
+=======
+.custom-search-form,
+.site-branding,
+.secondary-menu-container > ul {
+  margin-top: 15px !important;
+}
+
+>>>>>>> develop
 /**
  * custom-search-form
  */
 .custom-search-form {
   position: relative;
+<<<<<<< HEAD
+=======
+  display: flex;
+  align-items: center;
+  width: 350px;
+}
+@media (max-width: 767px) {
+  .custom-search-form {
+    width: 100%;
+  }
+>>>>>>> develop
 }
 .custom-search-form .nice-select {
   border-radius: 3px 0 0 3px;
@@ -629,7 +707,11 @@ header.site-header {
 }
 .custom-search-form input[type="search"] {
   border-radius: 0 3px 3px 0;
+<<<<<<< HEAD
   width: 250px;
+=======
+  flex-grow: 1;
+>>>>>>> develop
 }
 .custom-search-form button {
   position: absolute;
@@ -651,8 +733,13 @@ header.site-header {
 #maester-popup-search-form {
   position: fixed;
   top: 0;
+<<<<<<< HEAD
   right: 0;
   width: 100%;
+=======
+  right: 5%;
+  width: 90%;
+>>>>>>> develop
   height: 100%;
   z-index: 999;
   display: flex;
@@ -670,17 +757,32 @@ header.site-header {
   background: #fff;
   padding: 15px;
   border-radius: 4px;
+<<<<<<< HEAD
 }
 #maester-popup-search-form input[type="search"] {
   width: 280px;
   margin-right: 6px;
+=======
+  display: flex;
+  align-items: center;
+  width: 425px;
+  max-width: 100%;
+}
+#maester-popup-search-form input[type="search"] {
+  margin-right: 6px;
+  flex-grow: 1;
+>>>>>>> develop
 }
 
 /**
  * Header Main
  */
 .header-main {
+<<<<<<< HEAD
   padding-top: 30px;
+=======
+  padding-top: 15px;
+>>>>>>> develop
   padding-bottom: 5px;
 }
 
@@ -802,6 +904,14 @@ header.site-header {
   text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+button.menu-toggle {
+  line-height: 1;
+  padding: 10px 12px;
+}
+
+>>>>>>> develop
 .maester-breadcrumb-area {
   padding: 25px;
   margin-bottom: 55px;
@@ -816,6 +926,7 @@ header.site-header {
   color: var(--mr-text-color);
 }
 
+<<<<<<< HEAD
 #top-bar-menu,
 #top-bar-menu > ul {
   margin: 0;
@@ -842,51 +953,94 @@ header.site-header {
 #top-bar-menu li:not(:last-child).top-bar-custom-links,
 #top-bar-menu > ul li:not(:last-child).top-bar-custom-links {
   margin-right: 14px;
+=======
+#top-bar-menu {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+#top-bar-menu li {
+  display: inline-block;
+}
+#top-bar-menu li a {
+  color: var(--mr-light-color);
+  font-weight: 400;
+  padding: 10px 5px;
+  display: block;
+}
+#top-bar-menu li a:hover {
+  color: var(--mr-major-color);
+}
+#top-bar-menu li.top-bar-custom-links a {
+  padding-left: 10px;
+}
+#top-bar-menu li:last-child a {
+  padding-right: 0;
+>>>>>>> develop
 }
 
 /**
  * Main Navigation Menu
  */
 #secondary-menu,
+<<<<<<< HEAD
 #secondary-menu > ul,
 #primary-menu > ul,
+=======
+>>>>>>> develop
 #primary-menu {
   font-size: 16px;
   margin: 0;
   padding: 0;
 }
 #secondary-menu > li,
+<<<<<<< HEAD
 #secondary-menu > ul > li,
 #primary-menu > ul > li,
+=======
+>>>>>>> develop
 #primary-menu > li {
   display: inline-block;
 }
 #secondary-menu > li > a,
+<<<<<<< HEAD
 #secondary-menu > ul > li > a,
 #primary-menu > ul > li > a,
+=======
+>>>>>>> develop
 #primary-menu > li > a {
   padding: 28px 10px;
   display: inline-block;
 }
 #secondary-menu > li > a:hover,
+<<<<<<< HEAD
 #secondary-menu > ul > li > a:hover,
 #primary-menu > ul > li > a:hover,
+=======
+>>>>>>> develop
 #primary-menu > li > a:hover {
   text-decoration: underline;
 }
 #secondary-menu > li:first-child > a,
+<<<<<<< HEAD
 #secondary-menu > ul > li:first-child > a,
 #primary-menu > ul > li:first-child > a,
+=======
+>>>>>>> develop
 #primary-menu > li:first-child > a {
   padding-left: 0;
 }
 #secondary-menu > li:last-child > a,
+<<<<<<< HEAD
 #secondary-menu > ul > li:last-child > a,
 #primary-menu > ul > li:last-child > a,
+=======
+>>>>>>> develop
 #primary-menu > li:last-child > a {
   padding-right: 0;
 }
 
+<<<<<<< HEAD
 #secondary-menu,
 #secondary-menu > ul {
   font-size: 14px;
@@ -901,6 +1055,18 @@ header.site-header {
 }
 #secondary-menu > li:last-child > a,
 #secondary-menu > ul > li:last-child > a {
+=======
+#secondary-menu {
+  font-size: 14px;
+}
+#secondary-menu > li > a {
+  padding: 8px;
+}
+#secondary-menu > li:first-child > a {
+  padding-left: 0;
+}
+#secondary-menu > li:last-child > a {
+>>>>>>> develop
   padding-right: 0;
 }
 
@@ -928,6 +1094,14 @@ header.site-header {
 .header-right-menu > li.header-cart-menu .woocommerce-Price-currencySymbol {
   margin-right: 0;
 }
+<<<<<<< HEAD
+=======
+@media (max-width: 767px) {
+  .header-right-menu > li.header-cart-menu {
+    float: right;
+  }
+}
+>>>>>>> develop
 .header-right-menu > li:last-child > a, .header-right-menu > li:last-child > .cart-menu-parent {
   padding-right: 0;
 }
@@ -935,13 +1109,17 @@ header.site-header {
 /**
  * Footer Menu
  */
+<<<<<<< HEAD
 #footer-menu ul,
+=======
+>>>>>>> develop
 #footer-menu {
   margin: 0;
   padding: 0;
   display: block;
   text-align: right;
 }
+<<<<<<< HEAD
 #footer-menu ul li,
 #footer-menu li {
   display: inline-block;
@@ -954,6 +1132,23 @@ header.site-header {
   text-decoration: underline;
 }
 #footer-menu ul li a:hover,
+=======
+@media (max-width: 767px) {
+  #footer-menu {
+    text-align: left;
+  }
+}
+#footer-menu li {
+  display: inline-block;
+}
+#footer-menu li a {
+  padding: 0 8px;
+  color: var(--mr-text-color);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+>>>>>>> develop
 #footer-menu li a:hover {
   color: var(--mr-major-color);
 }
@@ -962,6 +1157,7 @@ header.site-header {
  * Dropdown Menu
  */
 #secondary-menu li,
+<<<<<<< HEAD
 #secondary-menu > ul li,
 #primary-menu > ul li,
 #primary-menu li,
@@ -984,6 +1180,27 @@ header.site-header {
 #primary-menu li ul,
 #top-bar-menu li ul,
 #top-bar-menu > ul li ul {
+=======
+#primary-menu li,
+#top-bar-menu li {
+  position: relative;
+}
+#secondary-menu li.menu-item-has-children > a::after,
+#primary-menu li.menu-item-has-children > a::after,
+#top-bar-menu li.menu-item-has-children > a::after {
+  margin-left: 10px;
+  content: '\f107';
+}
+#secondary-menu li:hover > ul,
+#primary-menu li:hover > ul,
+#top-bar-menu li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}
+#secondary-menu li ul,
+#primary-menu li ul,
+#top-bar-menu li ul {
+>>>>>>> develop
   position: absolute;
   z-index: 9;
   padding: 0;
@@ -992,6 +1209,7 @@ header.site-header {
   background: #f0f0f0;
   top: 100%;
   width: 200px;
+<<<<<<< HEAD
 }
 #secondary-menu li ul li,
 #secondary-menu > ul li ul li,
@@ -1024,15 +1242,81 @@ header.site-header {
 #primary-menu li ul li.menu-item-has-children > a,
 #top-bar-menu li ul li.menu-item-has-children > a,
 #top-bar-menu > ul li ul li.menu-item-has-children > a {
+=======
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+#secondary-menu li ul li,
+#primary-menu li ul li,
+#top-bar-menu li ul li {
+  display: block;
+}
+#secondary-menu li ul li a,
+#primary-menu li ul li a,
+#top-bar-menu li ul li a {
+  padding: 10px 20px;
+  display: block;
+}
+#secondary-menu li ul li a:hover,
+#primary-menu li ul li a:hover,
+#top-bar-menu li ul li a:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
+#secondary-menu li ul li ul,
+#primary-menu li ul li ul,
+#top-bar-menu li ul li ul {
+  top: 0;
+  left: 100%;
+}
+#secondary-menu li ul li ul ul,
+#primary-menu li ul li ul ul,
+#top-bar-menu li ul li ul ul {
+  left: auto;
+  right: 100%;
+}
+#secondary-menu li ul li ul ul ul,
+#primary-menu li ul li ul ul ul,
+#top-bar-menu li ul li ul ul ul {
+  right: auto;
+  left: 100%;
+}
+#secondary-menu li ul li ul ul ul ul,
+#primary-menu li ul li ul ul ul ul,
+#top-bar-menu li ul li ul ul ul ul {
+  left: auto;
+  right: 100%;
+}
+#secondary-menu li ul li ul ul ul ul ul,
+#primary-menu li ul li ul ul ul ul ul,
+#top-bar-menu li ul li ul ul ul ul ul {
+  right: auto;
+  left: 100%;
+}
+#secondary-menu li ul li ul ul ul ul ul ul,
+#primary-menu li ul li ul ul ul ul ul ul,
+#top-bar-menu li ul li ul ul ul ul ul ul {
+  left: auto;
+  right: 100%;
+}
+#secondary-menu li ul li.menu-item-has-children > a,
+#primary-menu li ul li.menu-item-has-children > a,
+#top-bar-menu li ul li.menu-item-has-children > a {
+>>>>>>> develop
   position: relative;
   padding-right: 25px;
 }
 #secondary-menu li ul li.menu-item-has-children > a::after,
+<<<<<<< HEAD
 #secondary-menu > ul li ul li.menu-item-has-children > a::after,
 #primary-menu > ul li ul li.menu-item-has-children > a::after,
 #primary-menu li ul li.menu-item-has-children > a::after,
 #top-bar-menu li ul li.menu-item-has-children > a::after,
 #top-bar-menu > ul li ul li.menu-item-has-children > a::after {
+=======
+#primary-menu li ul li.menu-item-has-children > a::after,
+#top-bar-menu li ul li.menu-item-has-children > a::after {
+>>>>>>> develop
   content: '\f105';
   position: absolute;
   right: 15px;
@@ -1040,6 +1324,95 @@ header.site-header {
   transform: translateY(-50%);
 }
 
+<<<<<<< HEAD
+=======
+#secondary-menu li ul,
+#top-bar-menu li ul {
+  left: auto;
+  right: 0;
+}
+#secondary-menu li ul li a,
+#top-bar-menu li ul li a {
+  padding: 5px 20px;
+}
+#secondary-menu li ul li ul,
+#top-bar-menu li ul li ul {
+  top: 0;
+  left: auto;
+  right: 100%;
+}
+#secondary-menu li ul li ul ul,
+#top-bar-menu li ul li ul ul {
+  right: auto;
+  left: 100%;
+}
+#secondary-menu li ul li ul ul ul,
+#top-bar-menu li ul li ul ul ul {
+  left: auto;
+  right: 100%;
+}
+
+#secondary-menu li ul li a {
+  padding: 7px 20px;
+}
+
+/**
+ * Responsive Menu
+ */
+@media screen and (max-width: 767px) {
+  button.menu-toggle {
+    display: block !important;
+  }
+}
+#masthead nav.responsive-menu {
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  #masthead nav.responsive-menu ul {
+    display: none;
+    position: absolute;
+    width: 280px;
+    z-index: 9;
+    top: calc(100% + 20px);
+    background: #f0f0f0;
+    left: 0;
+    border: 1px solid var(--mr-border-color);
+    box-shadow: none;
+  }
+  #masthead nav.responsive-menu ul li {
+    display: block;
+    width: 100%;
+  }
+  #masthead nav.responsive-menu ul li.top-bar-custom-links {
+    width: auto;
+    display: inline-block;
+  }
+  #masthead nav.responsive-menu ul li.top-bar-custom-links a {
+    padding: 7px;
+  }
+  #masthead nav.responsive-menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+  }
+  #masthead nav.responsive-menu ul li ul {
+    visibility: visible;
+    opacity: 1;
+    background: #fff;
+    position: static;
+    box-shadow: none;
+    border: 1px solid var(--mr-border-color);
+    width: 95%;
+    margin: 2.5%;
+  }
+}
+#masthead nav.responsive-menu #top-bar-menu,
+#masthead nav.responsive-menu #secondary-menu {
+  left: auto;
+  right: 0;
+}
+
+>>>>>>> develop
 #open-user-modal {
   position: fixed;
   height: 100%;
@@ -1064,10 +1437,18 @@ header.site-header {
 #open-user-modal .user-modal-inner {
   width: 470px;
   background: #fff;
+<<<<<<< HEAD
   max-height: 100%;
   overflow-y: auto;
   position: relative;
   z-index: 1;
+=======
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+>>>>>>> develop
 }
 #open-user-modal .user-modal-tabs ul {
   margin: 0;
@@ -1085,6 +1466,14 @@ header.site-header {
   color: #fff;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+@media screen and (max-width: 767px) {
+  #open-user-modal .user-modal-tabs ul li {
+    padding: 10px;
+  }
+}
+>>>>>>> develop
 #open-user-modal .user-modal-tabs ul li.active {
   background: #fff;
   color: var(--mr-major-color);
@@ -1093,6 +1482,14 @@ header.site-header {
   display: none;
   padding: 30px 45px;
 }
+<<<<<<< HEAD
+=======
+@media screen and (max-width: 767px) {
+  #open-user-modal .user-modal-tabs .tab-content {
+    padding: 20px 30px;
+  }
+}
+>>>>>>> develop
 #open-user-modal .user-modal-tabs .tab-content.active {
   display: block;
 }
@@ -1154,16 +1551,30 @@ form#registration p.info {
   font-weight: 600;
   margin: 0 0 13px;
 }
+<<<<<<< HEAD
 .footer-widget-area ul {
   padding-left: 0;
 }
 .footer-widget-area ul ul {
   padding-left: 10px;
 }
+=======
+>>>>>>> develop
 .footer-widget-area .widget.footer-widget {
   margin-bottom: 50px;
 }
 
+<<<<<<< HEAD
+=======
+.widget ul {
+  padding-left: 0;
+  margin: 0;
+}
+.widget ul ul {
+  padding-left: 15px;
+}
+
+>>>>>>> develop
 .widget .nice-select span.current {
   max-width: 205px;
   overflow: hidden;
@@ -1323,6 +1734,20 @@ table#wp-calendar caption {
   padding: 20px;
   border-radius: 4px;
 }
+<<<<<<< HEAD
+=======
+@media (max-width: 767px) {
+  .comments-area .comment-body .comment-meta,
+  .comments-area .comment-body .comment-content {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  .comments-area .comment-body .comment-meta .avatar {
+    float: none;
+  }
+}
+>>>>>>> develop
 
 #comments .comment-list .reply {
   padding-top: .6180469716em;

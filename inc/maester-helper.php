@@ -17,7 +17,7 @@ function maester_var_dump($val){
  */
 function maester_category_list($taxonomy = 'category'){
     $terms = get_terms($taxonomy);
-    $term_array = [];
+    $term_array = array();
     foreach ($terms as $term){
         $term_array[$term->slug] = $term->name;
     }
@@ -31,7 +31,7 @@ function maester_category_list($taxonomy = 'category'){
 
 function search_post_types (){
     $get_post_types = get_post_types(array('public'=>true));
-    $value = [];
+    $value = array();
     foreach ($get_post_types as $post){
         if('course' == $post) $value[$post] = 'Course';
         if('product' == $post) $value[$post] = 'Product';
