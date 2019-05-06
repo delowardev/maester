@@ -28,8 +28,8 @@ if ( post_password_required() ) {
             printf( // WPCS: XSS OK.
             /* translators: 1: number of comments, 2: post title */
                 esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'maester' ) ),
-                number_format_i18n( get_comments_number() ),
-                '<span>' . get_the_title() . '</span>'
+                esc_html(number_format_i18n( get_comments_number() )),
+                '<span>' . esc_html(get_the_title()) . '</span>'
             );
             ?>
         </h2>
@@ -71,14 +71,14 @@ if ( post_password_required() ) {
     <?php
     endif;
 
-    $args = apply_filters(
+    $maester_args = apply_filters(
         'maester_comment_form_args', array(
             'title_reply_before' => '<span id="reply-title" class="h3 comment-reply-title">',
             'title_reply_after'  => '</span>',
         )
     );
 
-    comment_form( $args );
+    comment_form( $maester_args );
     ?>
 
 </section><!-- #comments -->

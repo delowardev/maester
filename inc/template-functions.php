@@ -149,7 +149,7 @@ function menubar_right_icons(){
     <?php
 }
 
-add_action('menubar_item_hook', 'menubar_right_icons');
+add_action('maester_menubar_item_hook', 'menubar_right_icons');
 
 
 /**
@@ -173,7 +173,8 @@ function maester_search_pupup(){
 
 add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
 function maester_breadcrumbs(){
-    if(!empty(get_maester_breadcrumb())){ ?>
+    $maester_get_breadcrumbs = get_maester_breadcrumb();
+    if(!empty($maester_get_breadcrumbs)){ ?>
         <div class="maester-breadcrumb-area">
             <div class="container">
                 <div class="row">
@@ -423,3 +424,40 @@ function header_right_menu(){
         </div>
     <?php  }
 }
+
+
+
+function maester_search_shortcode(){
+    $post_type = get_theme_mod('header_search_post_types', 'post');
+    $en_search = get_theme_mod('enable_header_search', true);
+    $values = array(
+        'class' => '',
+        'all_category'  => 'All Category',
+        'placeholder'   => __('Search anything...', 'maester'),
+        'post_type'     => $post_type,
+        'taxonomy'     => get_search_category_slug_by_post_type($post_type)
+    );
+    $cat_list = maester_category_list($values['taxonomy']);
+    if($en_search) {
+        ?>
+        <div class="col-12 col-md-auto text-right custom-search-form-column">
+            <form action="<?php echo esc_url(home_url()); ?>" class="custom-search-form">
+                <input type="hidden" name="post_type" value="<?php echo $values['post_type']; ?>">
+                <select name="category">
+                    <option value=""><?php echo $values['all_category']; ?></option>
+                    <?php
+                    foreach ($cat_list as $key => $value){
+                        echo "<option value='$key'>$value</option>";
+                    }
+                    ?>
+
+                </select>
+                <input type="search" placeholder="<?php echo esc_html($values['placeholder']); ?>" name="s" value="<?php echo get_search_query(); ?>">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <?php
+    }
+}
+
+add_action('maester_header_item_hook', 'maester_search_shortcode');

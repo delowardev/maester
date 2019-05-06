@@ -12,14 +12,14 @@
 ?>
 
 <?php
-    $enable_topbar = get_theme_mod('enable_topbar', true);
-    $topbar_text = get_theme_mod('topbar_text');
+    $maester_enable_topbar = get_theme_mod('enable_topbar', true);
+    $maester_topbar_text = get_theme_mod('topbar_text');
 
-    if(empty($topbar_text) && !has_nav_menu('topbar')){
-        $enable_topbar = false;
+    if(empty($maester_topbar_text) && !has_nav_menu('topbar')){
+        $maester_enable_topbar = false;
     }
 
-    if($enable_topbar) {
+    if($maester_enable_topbar) {
 ?>
 
 <div class="top-bar">
@@ -28,8 +28,8 @@
             <div class="col">
                 <p class='top-bar-description'>
                 <?php
-                    if($topbar_text){
-                        echo esc_html($topbar_text);
+                    if($maester_topbar_text){
+                        echo esc_html($maester_topbar_text);
                     }
                 ?>
                 </p>
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<?php } //$enable_topbar ?>
+<?php } //$maester_enable_topbar ?>
 
 <div class="header-main">
     <div class="container">
@@ -59,19 +59,19 @@
             <div class="col">
                 <div class="site-branding">
                     <?php
-                        if(!empty(get_theme_mod( 'custom_logo' ))){
+                        $maester_custom_logo = get_theme_mod( 'custom_logo' );
+                        if(!empty($maester_custom_logo)){
                             the_custom_logo();
                         }else{
-                            $site_url = esc_url(home_url('/'));
-                            $site_title = esc_html(get_bloginfo('name'));
-                            echo "<a href='$site_url'>$site_title</a>";
+                            $maester_site_url = esc_url(home_url('/'));
+                            $maester_site_title = esc_html(get_bloginfo('name'));
+                            echo "<a href='$maester_site_url'>".esc_html($maester_site_title)."</a>";
                         }
                     ?>
                     <p class="site-description">
                         <?php bloginfo('description'); ?>
                     </p>
                 </div><!-- .site-branding -->
-
             </div>
             <div class="col-auto">
                 <button style="display:none;" class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
@@ -86,14 +86,7 @@
                     }
                 ?>
             </div>
-            <?php
-                $enable_header_search = get_theme_mod('enable_header_search', true);
-                if($enable_header_search){
-            ?>
-                <div class="col-12 col-md-auto text-right">
-                    <?php do_shortcode('[maester_search]'); ?>
-                </div>
-            <?php } ?>
+            <?php do_action('maester_header_item_hook'); ?>
         </div>
     </div>
 </div>
@@ -119,7 +112,7 @@
                 </div><!-- #site-navigation -->
             </div>
 
-            <?php do_action('menubar_item_hook'); ?>
+            <?php do_action('maester_menubar_item_hook'); ?>
 
         </div>
     </div>

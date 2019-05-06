@@ -18,10 +18,10 @@
             <?php
 
             /* translators: used between list items, there is a space after the comma */
-            $categories_list = get_the_category_list( esc_html__( ', ', 'maester' ) );
-            if ( $categories_list ) {
+            $maester_categories_list = get_the_category_list( esc_html__( ', ', 'maester' ) );
+            if ( $maester_categories_list ) {
                 /* translators: 1: list of categories. */
-                printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'maester' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+                printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'maester' ) . '</span>', $maester_categories_list ); // WPCS: XSS OK.
             }
 
             the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
@@ -30,7 +30,6 @@
 
         <div class="entry-summary">
             <?php the_excerpt();
-
 
             wp_link_pages( array(
                 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'maester' ),

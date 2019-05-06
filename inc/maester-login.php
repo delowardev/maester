@@ -37,7 +37,7 @@ function ajax_lostpass(){
 
     global $wpdb;
 
-    $account = $_POST['email'];
+    $account = isset($_POST['email']) ? $_POST['email'] : '';
 
     if( empty( $account ) ) {
         $error = __('Enter an username or e-mail address.', 'maester');
@@ -122,9 +122,9 @@ function ajax_login(){
 
     // Nonce is checked, get the POST data and sign user on
     $info = array();
-    $info['user_login'] = $_POST['username'];
-    $info['user_password'] = $_POST['password'];
-    $info['remember'] = $_POST['rememberme'];
+    $info['user_login'] = isset($_POST['username']) ? $_POST['username'] : '';
+    $info['user_password'] = isset($_POST['password']) ? $_POST['password'] : '';
+    $info['remember'] = isset($_POST['rememberme']) ? $_POST['rememberme'] : false;
 
     auth_user_login($info['user_login'], $info['user_password'], 'Login');
 }

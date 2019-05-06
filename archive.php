@@ -42,7 +42,7 @@ get_header();
                         endwhile;
                         echo "</div>"; // .row
 
-                        the_posts_navigation();
+                        the_posts_pagination();
 
                     else :
 

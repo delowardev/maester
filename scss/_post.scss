@@ -168,3 +168,18 @@ article.post-listing{
     }
   }
 }
+
+/**
+ *  Post Pagination
+ */
+
+nav.navigation.pagination{
+    .nav-links{
+        text-align: center;
+        font-size: 16px;
+        a,
+        span{
+            padding: 5px;
+        }
+    }
+}

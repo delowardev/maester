@@ -555,6 +555,18 @@ article.post-listing .post-image a {
   text-align: right;
 }
 
+/**
+ *  Post Pagination
+ */
+nav.navigation.pagination .nav-links {
+  text-align: center;
+  font-size: 16px;
+}
+nav.navigation.pagination .nav-links a,
+nav.navigation.pagination .nav-links span {
+  padding: 5px;
+}
+
 header.site-header a:visited,
 header.site-header a:active,
 header.site-header a {
@@ -606,7 +618,7 @@ header.site-header {
 .custom-search-form,
 .site-branding,
 .secondary-menu-container > ul {
-  margin-top: 15px;
+  margin-top: 15px !important;
 }
 
 /**
