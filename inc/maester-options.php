@@ -255,16 +255,26 @@ if(!function_exists('maester_theme_options')){
                 'label'       => esc_html__( 'Post Column', 'maester' ),
                 'tooltip'       => esc_html__( 'Choose how many post want to show in one row', 'maester' ),
                 'section'     => 'maester_blog_options',
-                'default'     => '2',
+                'default'     => '6',
                 'priority'    => 10,
                 'multiple'    => 0,
                 'choices'     => array(
-                    '1' => esc_html__( 'One Column', 'maester' ),
-                    '2' => esc_html__( 'Two Column', 'maester' ),
-                    '3' => esc_html__( 'Three Column', 'maester' ),
-                    '4' => esc_html__( 'Four Column', 'maester' ),
+                    '12' => esc_html__( 'One Column', 'maester' ),
+                    '6' => esc_html__( 'Two Column', 'maester' ),
+                    '4' => esc_html__( 'Three Column', 'maester' ),
+                    '3' => esc_html__( 'Four Column', 'maester' ),
                 ),
             ));
+            //maester_excerpt_length
+
+
+            Kirki::add_field( $config_id, [
+                'type'        => 'number',
+                'settings'    => 'maester_excerpt_length',
+                'label'       => esc_html__( 'Blog content/excerpt length', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => 150
+            ] );
 
 
             Kirki::add_field( $config_id, array(
@@ -294,19 +304,19 @@ if(!function_exists('maester_theme_options')){
                 'priority'    => 10,
             ) );
 
-            Kirki::add_field( $config_id, array(
+            /*Kirki::add_field( $config_id, array(
                 'type'        => 'toggle',
                 'settings'    => 'enable_blog_readmore',
                 'label'       => esc_html__( 'Enable Blog Readmore', 'maester' ),
                 'section'     => 'maester_blog_options',
                 'default'     => '0',
                 'priority'    => 10,
-            ) );
+            ) );*/
 
             Kirki::add_field( $config_id, array(
                 'type'        => 'toggle',
                 'settings'    => 'enable_blog_author',
-                'label'       => esc_html__( 'Enable Blog Readmore', 'maester' ),
+                'label'       => esc_html__( 'Enable Blog author', 'maester' ),
                 'section'     => 'maester_blog_options',
                 'default'     => '1',
                 'priority'    => 10,
@@ -327,7 +337,7 @@ if(!function_exists('maester_theme_options')){
              */
 
             Kirki::add_section( 'maester_single_blog_options', array(
-                'title'          => esc_html__( 'Blog Settings', 'maester' ),
+                'title'          => esc_html__( 'Single Blog Settings', 'maester' ),
                 'panel'          => 'maester_options_panel',
                 'priority'       => 160,
             ) );

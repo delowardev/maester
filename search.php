@@ -13,10 +13,11 @@
  */
 
 get_header();
+$enable_search_sidebar = get_theme_mod('enable_search_sidebar', true);
 ?>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-<?php echo esc_attr($enable_search_sidebar ? 8 : 12); ?>">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main">
 
@@ -61,7 +62,7 @@ get_header();
                 </div><!-- #primary -->
             </div><!-- .col-md-* -->
             <div class="col-lg-4">
-                <?php get_sidebar(); ?>
+                <?php if($enable_search_sidebar) get_sidebar(); ?>
             </div><!-- .col-md-* -->
         </div><!-- .row -->
     </div><!-- .container -->
