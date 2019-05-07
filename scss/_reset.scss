@@ -219,3 +219,14 @@ aside.widget-area .widget::after{
 .site-header::after {
     clear: both
 }
+
+.error-404 .page-content{
+    margin-bottom: 60px;
+    .search-form{
+        padding: 25px;
+        background: rgba(0,0,0,.025);
+        border: 1px solid var(--mr-border-color);
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+}

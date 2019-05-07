@@ -116,6 +116,7 @@ function maester_content_width() {
 }
 add_action( 'after_setup_theme', 'maester_content_width', 0 );
 
+if ( ! isset( $content_width ) ) $content_width = 1170;
 
 /**
  * Helper Functions.

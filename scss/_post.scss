@@ -59,6 +59,7 @@ article.post-listing{
       justify-content: space-between;
       font-style: italic;
       color: var(--mr-light-color);
+      flex-wrap: wrap;
       a{
         font-style: normal;
         color: var(--mr-text-color);
@@ -167,6 +168,11 @@ article.post-listing{
       
     }
   }
+}
+
+article.article-search h2.entry-title a{
+  color: var(--mr-heading-color);
+  font-weight: 500;
 }
 
 /**

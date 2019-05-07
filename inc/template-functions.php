@@ -38,16 +38,20 @@ add_action( 'wp_head', 'maester_pingback_header' );
 
 
 /**
- * Post Excerpt Length
- * @param $length
- * @return int
+ * Post content length
+ * @param $content_str
+ * @param int $length
+ * @param boolean $echo
+ * @return bool|string
  */
 
-function maester_custom_excerpt_length( $length ) {
-    // TODO: Excerpth length must be dynamic
-    return 23;
+function maester_custom_excerpt( $content_str, $length = 150, $echo = true ) {
+    if($echo) {
+        echo substr(strip_tags($content_str), 0, $length).'...';
+        return;
+    }
+    return substr(strip_tags($content_str), 0, $length).'...';
 }
-add_filter( 'excerpt_length', 'maester_custom_excerpt_length', 999 );
 
 /**
  * Top Bar Menu Customize
@@ -263,6 +267,9 @@ if ( ! function_exists( 'maester_single_post_meta' ) ) {
         if ( 'post' !== get_post_type() ) {
             return;
         }
+        $enable_single_blog_date = get_theme_mod('enable_single_blog_date', true);
+        $enable_single_blog_author = get_theme_mod('enable_single_blog_author', true);
+        $enable_single_blog_comment_number = get_theme_mod('enable_single_blog_comment_number', true);
 
         // Posted on.
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -281,11 +288,11 @@ if ( ! function_exists( 'maester_single_post_meta' ) ) {
 
         $output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
 
-        $posted_on = '
-			<span class="posted-on">' .
+        $posted_on = '<span class="posted-on">' .
             /* translators: %s: post date */
             sprintf( __( 'Posted on %s', 'maester' ), $output_time_string ) .
             '</span>';
+        if(!$enable_single_blog_date) $posted_on = '';
 
         // Author.
         $author = sprintf(
@@ -294,6 +301,8 @@ if ( ! function_exists( 'maester_single_post_meta' ) ) {
             esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
             esc_html( get_the_author() )
         );
+        if(!$enable_single_blog_author) $author = '';
+
 
         // Comments.
         $comments = '';
@@ -307,6 +316,7 @@ if ( ! function_exists( 'maester_single_post_meta' ) ) {
                 $comments_number
             );
         }
+        if(!$enable_single_blog_comment_number) $comments = '';
 
         echo wp_kses(
             sprintf( '%1$s %2$s %3$s', $posted_on, $author, $comments ), array(

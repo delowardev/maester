@@ -239,19 +239,246 @@ if(!function_exists('maester_theme_options')){
                 )
             ) );
 
+            /**
+             * Blog Options
+             */
 
+            Kirki::add_section( 'maester_blog_options', array(
+                'title'          => esc_html__( 'Blog Settings', 'maester' ),
+                'panel'          => 'maester_options_panel',
+                'priority'       => 160,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'select',
+                'settings'    => 'post_column_count',
+                'label'       => esc_html__( 'Post Column', 'maester' ),
+                'tooltip'       => esc_html__( 'Choose how many post want to show in one row', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '6',
+                'priority'    => 10,
+                'multiple'    => 0,
+                'choices'     => array(
+                    '12' => esc_html__( 'One Column', 'maester' ),
+                    '6' => esc_html__( 'Two Column', 'maester' ),
+                    '4' => esc_html__( 'Three Column', 'maester' ),
+                    '3' => esc_html__( 'Four Column', 'maester' ),
+                ),
+            ));
+            //maester_excerpt_length
+
+
+            Kirki::add_field( $config_id, [
+                'type'        => 'number',
+                'settings'    => 'maester_excerpt_length',
+                'label'       => esc_html__( 'Blog content/excerpt length', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => 150
+            ] );
+
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_thumbnail',
+                'label'       => esc_html__( 'Enable Blog Thumbnail', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_category',
+                'label'       => esc_html__( 'Enable Blog Category', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_content',
+                'label'       => esc_html__( 'Enable Blog Content', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            /*Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_readmore',
+                'label'       => esc_html__( 'Enable Blog Readmore', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '0',
+                'priority'    => 10,
+            ) );*/
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_author',
+                'label'       => esc_html__( 'Enable Blog author', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_date',
+                'label'       => esc_html__( 'Enable Blog Date', 'maester' ),
+                'section'     => 'maester_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+
+            /**
+             * Single Blog Options
+             */
+
+            Kirki::add_section( 'maester_single_blog_options', array(
+                'title'          => esc_html__( 'Single Blog Settings', 'maester' ),
+                'panel'          => 'maester_options_panel',
+                'priority'       => 160,
+            ) );
+
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_date',
+                'label'       => esc_html__( 'Enable Single Blog Date', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_author',
+                'label'       => esc_html__( 'Enable Single Blog Author', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_comment_number',
+                'label'       => esc_html__( 'Enable Single Blog Comment Number', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_category',
+                'label'       => esc_html__( 'Enable Single Blog Category', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_tag',
+                'label'       => esc_html__( 'Enable Single Blog Tag', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_navigation',
+                'label'       => esc_html__( 'Enable Single Blog Navigation', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_comments',
+                'label'       => esc_html__( 'Enable Single Blog Comments', 'maester' ),
+                'section'     => 'maester_single_blog_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            /**
+             * Sidebar Options
+             */
+
+            Kirki::add_section( 'maester_sidebar_options', array(
+                'title'          => esc_html__( 'Sidebar Settings', 'maester' ),
+                'panel'          => 'maester_options_panel',
+                'priority'       => 160,
+            ));
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_blog_sidebar',
+                'label'       => esc_html__( 'Enable Blog Sidebar', 'maester' ),
+                'section'     => 'maester_sidebar_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ) );
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_single_blog_sidebar',
+                'label'       => esc_html__( 'Enable Single Blog Sidebar', 'maester' ),
+                'section'     => 'maester_sidebar_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ));
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_archive_sidebar',
+                'label'       => esc_html__( 'Enable Archive Sidebar', 'maester' ),
+                'section'     => 'maester_sidebar_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ));
+
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_search_sidebar',
+                'label'       => esc_html__( 'Enable Search Sidebar', 'maester' ),
+                'section'     => 'maester_sidebar_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ));
 
             /**
              * Footer Options
              */
 
             Kirki::add_section( 'maester_footer_options', array(
-                'title'          => esc_html__( 'Footer', 'maester' ),
-                'description'    => esc_html__( 'Footer Settings.', 'maester' ),
+                'title'          => esc_html__( 'Footer Settings', 'maester' ),
                 'panel'          => 'maester_options_panel',
                 'priority'       => 160,
-            ) );
-
+            ));
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_footer',
+                'label'       => esc_html__( 'Enable Footer (Widget Area)', 'maester' ),
+                'section'     => 'maester_footer_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ));
+            Kirki::add_field( $config_id, array(
+                'type'        => 'toggle',
+                'settings'    => 'enable_footer_bottom',
+                'label'       => esc_html__( 'Enable Footer Bottom (Copyright Area)', 'maester' ),
+                'section'     => 'maester_footer_options',
+                'default'     => '1',
+                'priority'    => 10,
+            ));
             Kirki::add_field( $config_id, array(
                 'type'     => 'text',
                 'settings' => 'footer_text',

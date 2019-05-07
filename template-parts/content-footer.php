@@ -14,9 +14,12 @@
     $maester_isFooter4 = is_active_sidebar('footer-4');
     $maester_hasFooterWidget = $maester_isFooter1 || $maester_isFooter2 || $maester_isFooter3 || $maester_isFooter4;
 
+    $maester_enable_footer = get_theme_mod('enable_footer', true);
+    $maester_enable_footer_bottom = get_theme_mod('enable_footer_bottom', true);
+
 ?>
 
-<?php if($maester_hasFooterWidget) : ?>
+<?php if($maester_enable_footer && $maester_hasFooterWidget) : ?>
 
 <div class="footer-widget-area">
     <div class="container">
@@ -37,7 +40,7 @@
 
 <?php
     $maester_footer_text = get_theme_mod('footer_text', __("&copy; Maester, Developed by idea420", 'maester'));
-    if(!empty($maester_footer_text) || has_nav_menu('menu-3')) :
+    if((!empty($maester_footer_text) || has_nav_menu('menu-3')) && $maester_enable_footer_bottom) :
 ?>
 
 <div class="footer-main">

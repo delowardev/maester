@@ -273,6 +273,15 @@ aside.widget-area .widget::after {
 .site-header::after {
   clear: both; }
 
+.error-404 .page-content {
+  margin-bottom: 60px; }
+  .error-404 .page-content .search-form {
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.025);
+    border: 1px solid var(--mr-border-color);
+    border-radius: 4px;
+    margin-top: 20px; }
+
 /**
  * Button Styles
  */
@@ -385,7 +394,8 @@ article.post-listing {
       display: flex;
       justify-content: space-between;
       font-style: italic;
-      color: var(--mr-light-color); }
+      color: var(--mr-light-color);
+      flex-wrap: wrap; }
       .post-content-body .entry-footer .entry-meta a {
         font-style: normal;
         color: var(--mr-text-color); }
@@ -467,6 +477,10 @@ article.post-listing {
       right: auto; }
     .post-navigation .nav-links > div.nav-next {
       text-align: right; }
+
+article.article-search h2.entry-title a {
+  color: var(--mr-heading-color);
+  font-weight: 500; }
 
 /**
  *  Post Pagination
@@ -1144,6 +1158,10 @@ table#wp-calendar caption {
   .tagcloud a:not(:last-child)::after {
     content: ', ';
     margin-right: 3px; }
+
+.widget-area-404 {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 40px; }
 
 #commentform input,
 #commentform label {
