@@ -175,7 +175,7 @@ function maester_search_pupup(){
 }
 
 
-add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
+//add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
 function maester_breadcrumbs(){
     $maester_get_breadcrumbs = get_maester_breadcrumb();
     if(!empty($maester_get_breadcrumbs)){ ?>
