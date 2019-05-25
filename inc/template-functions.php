@@ -194,6 +194,29 @@ function maester_breadcrumbs(){
     }
 }
 
+if ( ! function_exists( 'maester_cart_link_fragment' ) ) {
+    /**
+     * Cart Fragments
+     * Ensure cart contents update when products are added to the cart via AJAX
+     *
+     * @param  array $fragments Fragments to refresh via AJAX.
+     * @return array            Fragments to refresh via AJAX
+     */
+    function maester_cart_link_fragment( $fragments ) {
+        global $woocommerce;
+
+        ob_start();
+        maester_cart_link();
+        $fragments['a.cart-contents'] = ob_get_clean();
+
+        ob_start();
+        maester_handheld_footer_bar_cart_link();
+        $fragments['a.footer-cart-contents'] = ob_get_clean();
+
+        return $fragments;
+    }
+}
+
 
 if ( ! function_exists( 'maester_cart_link' ) ) {
     /**
@@ -212,6 +235,35 @@ if ( ! function_exists( 'maester_cart_link' ) ) {
         <?php
     }
 }
+
+/**
+ * Cart fragment
+ *
+ * @see maester_cart_link_fragment()
+ */
+if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
+    add_filter( 'woocommerce_add_to_cart_fragments', 'maester_cart_link_fragment' );
+} else {
+    add_filter( 'add_to_cart_fragments', 'maester_cart_link_fragment' );
+}
+
+
+
+if ( ! function_exists( 'maester_handheld_footer_bar_cart_link' ) ) {
+    /**
+     * The cart callback function for the handheld footer bar
+     *
+     * @since 2.0.0
+     */
+    function maester_handheld_footer_bar_cart_link() {
+        ?>
+        <a class="footer-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'maester' ); ?>">
+            <span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ); ?></span>
+        </a>
+        <?php
+    }
+}
+
 
 if ( ! function_exists( 'maester_is_woocommerce_activated' ) ) {
     /**
@@ -439,6 +491,10 @@ function header_right_menu(){
 
 function maester_search_shortcode(){
     $post_type = get_theme_mod('header_search_post_types', 'post');
+    if(('product' == $post_type && !function_exists('WC')) || ('post' != $post_type && !function_exists('tutor'))){
+        $post_type = 'post';
+    }
+
     $en_search = get_theme_mod('enable_header_search', true);
     $values = array(
         'class' => '',
@@ -447,6 +503,7 @@ function maester_search_shortcode(){
         'post_type'     => $post_type,
         'taxonomy'     => get_search_category_slug_by_post_type($post_type)
     );
+
     $cat_list = maester_category_list($values['taxonomy']);
     if($en_search) {
         ?>

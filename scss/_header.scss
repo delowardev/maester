@@ -86,11 +86,12 @@ header.site-header{
         position: absolute;
         right: 0;
         top: 0;
-        border: none;
+        border: 1px solid transparent;
         padding-left: 15px;
         padding-right: 15px;
         font-size: 14px;
         color: var(--mr-light-color);
+        background: transparent;
         &:hover{
             color: var(--mr-major-color);
         }

@@ -8,8 +8,10 @@
     --mr-heading-color: #252525;
     --mr-light-color: #999999;
     --mr-border-color: #ececec;
+    --mr-border-color-hover: #d5d5d5;
     --mr-major-color: #F23847;
     --mr-major-color-hover: #BF3945;
+    --mr-success-color: #77a464;
 }
 
 body{
@@ -82,4 +84,15 @@ blockquote{
     font-variant: normal;
     text-rendering: auto;
     line-height: inherit;
+}
+.woocommerce .woocommerce-message{
+    position: relative;
+    a.button{
+        position: absolute;
+        right: 15px;
+        float: none;
+        padding: 6px 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }

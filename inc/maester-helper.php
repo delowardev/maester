@@ -19,6 +19,7 @@ function maester_category_list($taxonomy = 'category'){
     $terms = get_terms($taxonomy);
     $term_array = array();
     foreach ($terms as $term){
+        var_dump($term);
         $term_array[$term->slug] = $term->name;
     }
     return $term_array;
@@ -33,11 +34,10 @@ function search_post_types (){
     $get_post_types = get_post_types(array('public'=>true));
     $value = array();
     foreach ($get_post_types as $post){
-        if('course' == $post) $value[$post] = 'Course';
+        if(function_exists('tutor') && tutor()->course_post_type == $post) $value[$post] = 'Course';
         if('product' == $post) $value[$post] = 'Product';
         if('post' == $post) $value[$post] = 'Post';
     }
-
     return $value;
 }
 
@@ -47,9 +47,9 @@ function search_post_types (){
  * @return string
  */
 function get_search_category_slug_by_post_type($post_type = 'post'){
-    if('course' == $post_type){
+    if(function_exists('tutor') && tutor()->course_post_type == $post_type){
         return 'course-category';
-    }elseif('product' == $post_type){
+    }elseif(function_exists('WC') && 'product' == $post_type){
         return 'product_cat';
     }elseif('post' == $post_type){
         return 'category';
