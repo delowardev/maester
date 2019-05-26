@@ -19,7 +19,6 @@ function maester_category_list($taxonomy = 'category'){
     $terms = get_terms($taxonomy);
     $term_array = array();
     foreach ($terms as $term){
-        var_dump($term);
         $term_array[$term->slug] = $term->name;
     }
     return $term_array;
