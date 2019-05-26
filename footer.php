@@ -11,7 +11,6 @@
 
 ?>
 
-	</div><!-- #content -->
     <?php do_action('maester_before_footer_hook'); ?>
 	<footer id="colophon" class="site-footer">
         <?php get_template_part( 'template-parts/content', 'footer' ); ?>

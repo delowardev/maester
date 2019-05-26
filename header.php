@@ -37,5 +37,4 @@
         do_action('maester_after_header_hook');
     ?>
 
-	<div id="content" class="site-content">
 

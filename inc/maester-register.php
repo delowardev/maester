@@ -110,6 +110,14 @@ if(!function_exists('maester_plugins_include')){
                 'force_deactivation'    => false
             ),
             array(
+                'name'                  => esc_html__( 'Tutor LMS – eLearning and online course solution', 'maester' ),
+                'slug'                  => 'tutor',
+                'required'              => true,
+                'version'               => '',
+                'force_activation'      => false,
+                'force_deactivation'    => false
+            ),
+            array(
                 'name'                  => esc_html__( 'Kirki Toolkit', 'maester' ),
                 'slug'                  => 'kirki',
                 'required'              => true,
