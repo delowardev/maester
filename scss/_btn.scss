@@ -2,7 +2,6 @@
  * Button Styles
  */
 .woocommerce #respond input#submit,
-.woocommerce a.button,
 .woocommerce button.button,
 .woocommerce input.button,
 .woocommerce a.added_to_cart,
@@ -90,7 +89,9 @@ button {
             margin-top: -10px;
         }
     }
-
+    &.alt,
+    &[name='update_cart']:not(:disabled),
+    &[name='apply_coupon'],
     &.single_add_to_cart_button,
     &.added_to_cart,
     &.btn-primary,

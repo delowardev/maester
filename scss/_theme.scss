@@ -12,6 +12,8 @@
     --mr-major-color: #F23847;
     --mr-major-color-hover: #BF3945;
     --mr-success-color: #77a464;
+    --mr-info-color: #3c9acf;
+    --mr-error-color: #e2401c;
 }
 
 body{
@@ -94,5 +96,96 @@ blockquote{
         padding: 6px 20px;
         top: 50%;
         transform: translateY(-50%);
+    }
+}
+
+/**
+ * Info box
+ */
+
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message,
+.woocommerce-noreviews,
+p.no-comments {
+    font-size: 16px;
+    border-top: none;
+    padding: 1em 1.618em;
+    margin-bottom: 2.617924em;
+    margin-left: 0;
+    border-radius: 2px;
+    color: #fff;
+    clear: both;
+    border-left: .6180469716em solid rgba(0,0,0,.15);
+    a:not(.button){
+        color: #fff;
+        opacity: .9;
+        text-decoration: underline;
+        &:hover{
+            opacity: 1;
+            text-decoration: none;
+        }
+    }
+}
+
+.woocommerce-message{
+    background-color: var(--mr-success-color);
+}
+
+.woocommerce-info,
+.woocommerce-noreviews,
+p.no-comments{
+    background-color: var(--mr-info-color);
+}
+
+.woocommerce-error{
+    background-color: var(--mr-error-color);
+}
+
+
+.woocommerce-error::after,
+.woocommerce-error::before,
+.woocommerce-info::after,
+.woocommerce-info::before,
+.woocommerce-message::after,
+.woocommerce-message::before,
+.woocommerce-noreviews::after,
+.woocommerce-noreviews::before,
+p.no-comments::after,
+p.no-comments::before {
+    content: '';
+    display: table;
+}
+
+.woocommerce-error::after,
+.woocommerce-info::after,
+.woocommerce-message::after,
+.woocommerce-noreviews::after,
+p.no-comments::after {
+    clear: both;
+}
+.woocommerce{
+    .woocommerce-error .button,
+    .woocommerce-info .button,
+    .woocommerce-message .button,
+    .woocommerce-noreviews .button,
+    p.no-comments .button {
+        float: right;
+        padding: 0;
+        background: 0 0;
+        color: #fff;
+        box-shadow: none;
+        line-height: 1.618;
+        padding-left: 1em;
+        border-width: 0;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: rgba(255,255,255,.25)!important;
+        border-radius: 0;
+        font-style: 14px;
+        &:hover{
+            background: transparent;
+            color: #fff;
+        }
     }
 }

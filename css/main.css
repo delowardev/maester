@@ -9,7 +9,9 @@
   --mr-border-color-hover: #d5d5d5;
   --mr-major-color: #F23847;
   --mr-major-color-hover: #BF3945;
-  --mr-success-color: #77a464; }
+  --mr-success-color: #77a464;
+  --mr-info-color: #3c9acf;
+  --mr-error-color: #e2401c; }
 
 body {
   font-family: var(--mr-font);
@@ -86,6 +88,96 @@ blockquote {
     top: 50%;
     transform: translateY(-50%); }
 
+/**
+ * Info box
+ */
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message,
+.woocommerce-noreviews,
+p.no-comments {
+  font-size: 16px;
+  border-top: none;
+  padding: 1em 1.618em;
+  margin-bottom: 2.617924em;
+  margin-left: 0;
+  border-radius: 2px;
+  color: #fff;
+  clear: both;
+  border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15); }
+  .woocommerce-error a:not(.button),
+  .woocommerce-info a:not(.button),
+  .woocommerce-message a:not(.button),
+  .woocommerce-noreviews a:not(.button),
+  p.no-comments a:not(.button) {
+    color: #fff;
+    opacity: .9;
+    text-decoration: underline; }
+    .woocommerce-error a:not(.button):hover,
+    .woocommerce-info a:not(.button):hover,
+    .woocommerce-message a:not(.button):hover,
+    .woocommerce-noreviews a:not(.button):hover,
+    p.no-comments a:not(.button):hover {
+      opacity: 1;
+      text-decoration: none; }
+
+.woocommerce-message {
+  background-color: var(--mr-success-color); }
+
+.woocommerce-info,
+.woocommerce-noreviews,
+p.no-comments {
+  background-color: var(--mr-info-color); }
+
+.woocommerce-error {
+  background-color: var(--mr-error-color); }
+
+.woocommerce-error::after,
+.woocommerce-error::before,
+.woocommerce-info::after,
+.woocommerce-info::before,
+.woocommerce-message::after,
+.woocommerce-message::before,
+.woocommerce-noreviews::after,
+.woocommerce-noreviews::before,
+p.no-comments::after,
+p.no-comments::before {
+  content: '';
+  display: table; }
+
+.woocommerce-error::after,
+.woocommerce-info::after,
+.woocommerce-message::after,
+.woocommerce-noreviews::after,
+p.no-comments::after {
+  clear: both; }
+
+.woocommerce .woocommerce-error .button,
+.woocommerce .woocommerce-info .button,
+.woocommerce .woocommerce-message .button,
+.woocommerce .woocommerce-noreviews .button,
+.woocommerce p.no-comments .button {
+  float: right;
+  padding: 0;
+  background: 0 0;
+  color: #fff;
+  box-shadow: none;
+  line-height: 1.618;
+  padding-left: 1em;
+  border-width: 0;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 0;
+  font-style: 14px; }
+  .woocommerce .woocommerce-error .button:hover,
+  .woocommerce .woocommerce-info .button:hover,
+  .woocommerce .woocommerce-message .button:hover,
+  .woocommerce .woocommerce-noreviews .button:hover,
+  .woocommerce p.no-comments .button:hover {
+    background: transparent;
+    color: #fff; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -122,6 +214,24 @@ input[type]:focus, textarea:focus, select:focus {
 
 input[type], select, textarea {
   padding-left: 13px; }
+
+.select2-container .select2-selection--single {
+  height: 38px; }
+
+.select2-container--default .select2-search--dropdown .select2-search__field,
+.select2-container .select2-selection--single,
+.select2-dropdown {
+  border-color: var(--mr-border-color); }
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+  border-color: var(--mr-major-color); }
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 36px;
+  padding-left: 13px; }
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 36px; }
 
 img {
   display: block; }
@@ -301,11 +411,23 @@ aside.widget-area .widget::after {
 .woocommerce ul.products li.product .added_to_cart {
   margin-left: 4px; }
 
+table {
+  background: #fff;
+  border: none;
+  border-collapse: collapse; }
+  table tr th {
+    background: #f8f8f8;
+    border: none; }
+  table tr td {
+    background: #fdfdfd;
+    border: none; }
+  table tr:nth-child(even) td {
+    background: #fff; }
+
 /**
  * Button Styles
  */
 .woocommerce #respond input#submit,
-.woocommerce a.button,
 .woocommerce button.button,
 .woocommerce input.button,
 .woocommerce a.added_to_cart,
@@ -333,7 +455,6 @@ button {
   vertical-align: top;
   position: relative; }
   .woocommerce #respond input#submit:hover,
-  .woocommerce a.button:hover,
   .woocommerce button.button:hover,
   .woocommerce input.button:hover,
   .woocommerce a.added_to_cart:hover,
@@ -348,10 +469,6 @@ button {
     border-color: var(--mr-border-color-hover);
     color: var(--mr-heading-color); }
   .woocommerce #respond input#submit + .btn, .woocommerce #respond input#submit + input[type="submit"], .woocommerce #respond .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons input#submit + a, .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce #respond input#submit + a,
-  .woocommerce a.button + .btn,
-  .woocommerce a.button + input[type="submit"],
-  .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button + a,
-  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button + a,
   .woocommerce button.button + .btn,
   .woocommerce button.button + input[type="submit"],
   .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons button.button + a,
@@ -385,7 +502,6 @@ button {
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons button + a {
     margin-left: 7px; }
   .woocommerce #respond input#submit.btn-lg,
-  .woocommerce a.button.btn-lg,
   .woocommerce button.button.btn-lg,
   .woocommerce input.button.btn-lg,
   .woocommerce a.added_to_cart.btn-lg,
@@ -401,10 +517,6 @@ button {
     padding-left: 39px;
     font-size: 14px; }
     .woocommerce #respond input#submit.btn-lg + .btn, .woocommerce #respond input#submit.btn-lg + input[type="submit"], .woocommerce #respond .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons input#submit.btn-lg + a, .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce #respond input#submit.btn-lg + a,
-    .woocommerce a.button.btn-lg + .btn,
-    .woocommerce a.button.btn-lg + input[type="submit"],
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button.btn-lg + a,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button.btn-lg + a,
     .woocommerce button.button.btn-lg + .btn,
     .woocommerce button.button.btn-lg + input[type="submit"],
     .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons button.button.btn-lg + a,
@@ -438,10 +550,6 @@ button {
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons button.btn-lg + a {
       margin-left: 11px; }
   .woocommerce #respond input#submit.product_type_external, .woocommerce #respond input#submit.add_to_cart_button, .woocommerce #respond input#submit.added_to_cart, .woocommerce #respond input#submit.btn-sm,
-  .woocommerce a.button.product_type_external,
-  .woocommerce a.button.add_to_cart_button,
-  .woocommerce a.button.added_to_cart,
-  .woocommerce a.button.btn-sm,
   .woocommerce button.button.product_type_external,
   .woocommerce button.button.add_to_cart_button,
   .woocommerce button.button.added_to_cart,
@@ -481,7 +589,6 @@ button {
     letter-spacing: 0;
     padding: 9px 20px; }
   .woocommerce #respond input#submit.btn-uc,
-  .woocommerce a.button.btn-uc,
   .woocommerce button.button.btn-uc,
   .woocommerce input.button.btn-uc,
   .woocommerce a.added_to_cart.btn-uc,
@@ -493,7 +600,6 @@ button {
   button.btn-uc {
     text-transform: uppercase; }
   .woocommerce #respond input#submit.loading,
-  .woocommerce a.button.loading,
   .woocommerce button.button.loading,
   .woocommerce input.button.loading,
   .woocommerce a.added_to_cart.loading,
@@ -506,7 +612,6 @@ button {
     color: transparent;
     opacity: 1; }
     .woocommerce #respond input#submit.loading::after,
-    .woocommerce a.button.loading::after,
     .woocommerce button.button.loading::after,
     .woocommerce input.button.loading::after,
     .woocommerce a.added_to_cart.loading::after,
@@ -541,25 +646,26 @@ button {
       left: 50%;
       margin-left: -10px;
       margin-top: -10px; }
-  .woocommerce #respond input#submit.single_add_to_cart_button, .woocommerce #respond input#submit.added_to_cart, .woocommerce #respond input#submit.btn-primary, .woocommerce #respond input#submit[type="submit"], .woocommerce #respond input#submit.btn-primary:visited, .woocommerce #respond input#submit[type="submit"]:visited,
-  .woocommerce a.button.single_add_to_cart_button,
-  .woocommerce a.button.added_to_cart,
-  .woocommerce a.button.btn-primary,
-  .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:last-child,
-  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:last-child,
-  .woocommerce a.button.btn-primary:visited,
-  .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:last-child,
-  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:visited:last-child,
+  .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit[name='update_cart']:not(:disabled), .woocommerce #respond input#submit[name='apply_coupon'], .woocommerce #respond input#submit.single_add_to_cart_button, .woocommerce #respond input#submit.added_to_cart, .woocommerce #respond input#submit.btn-primary, .woocommerce #respond input#submit[type="submit"], .woocommerce #respond input#submit.btn-primary:visited, .woocommerce #respond input#submit[type="submit"]:visited,
+  .woocommerce button.button.alt,
+  .woocommerce button.button[name='update_cart']:not(:disabled),
+  .woocommerce button.button[name='apply_coupon'],
   .woocommerce button.button.single_add_to_cart_button,
   .woocommerce button.button.added_to_cart,
   .woocommerce button.button.btn-primary,
   .woocommerce button.button.btn-primary:visited,
+  .woocommerce input.button.alt,
+  .woocommerce input.button[name='update_cart']:not(:disabled),
+  .woocommerce input.button[name='apply_coupon'],
   .woocommerce input.button.single_add_to_cart_button,
   .woocommerce input.button.added_to_cart,
   .woocommerce input.button.btn-primary,
   .woocommerce input.button[type="submit"],
   .woocommerce input.button.btn-primary:visited,
   .woocommerce input.button[type="submit"]:visited,
+  .woocommerce a.added_to_cart.alt,
+  .woocommerce a.added_to_cart[name='update_cart']:not(:disabled),
+  .woocommerce a.added_to_cart[name='apply_coupon'],
   .woocommerce a.added_to_cart.single_add_to_cart_button,
   .woocommerce a.added_to_cart.added_to_cart,
   .woocommerce a.added_to_cart.btn-primary,
@@ -568,6 +674,9 @@ button {
   .woocommerce a.added_to_cart.btn-primary:visited,
   .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.added_to_cart:visited:last-child,
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.added_to_cart:visited:last-child,
+  .woocommerce div.product form.cart .button.alt,
+  .woocommerce div.product form.cart .button[name='update_cart']:not(:disabled),
+  .woocommerce div.product form.cart .button[name='apply_coupon'],
   .woocommerce div.product form.cart .button.single_add_to_cart_button,
   .woocommerce div.product form.cart .button.added_to_cart,
   .woocommerce div.product form.cart .button.btn-primary,
@@ -578,6 +687,9 @@ button {
   .woocommerce div.product form.cart input.button[type="submit"]:visited,
   .woocommerce div.product form.cart .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:last-child,
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce div.product form.cart a.button:visited:last-child,
+  .button.alt,
+  .button[name='update_cart']:not(:disabled),
+  .button[name='apply_coupon'],
   .button.single_add_to_cart_button,
   .button.added_to_cart,
   .button.btn-primary,
@@ -586,6 +698,15 @@ button {
   .button.btn-primary:visited,
   input.button[type="submit"]:visited,
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:last-child,
+  .btn.alt,
+  input.alt[type="submit"],
+  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.alt,
+  .btn[name='update_cart']:not(:disabled),
+  input[name='update_cart'][type="submit"]:not(:disabled),
+  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='update_cart']:not(:disabled),
+  .btn[name='apply_coupon'],
+  input[name='apply_coupon'][type="submit"],
+  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='apply_coupon'],
   .btn.single_add_to_cart_button,
   input.single_add_to_cart_button[type="submit"],
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.single_add_to_cart_button,
@@ -600,6 +721,9 @@ button {
   input[type="submit"]:visited,
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.btn-primary:visited,
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a:visited:last-child,
+  button.alt,
+  button[name='update_cart']:not(:disabled),
+  button[name='apply_coupon'],
   button.single_add_to_cart_button,
   button.added_to_cart,
   button.btn-primary,
@@ -607,25 +731,26 @@ button {
     background: var(--mr-major-color);
     border-color: var(--mr-major-color);
     color: #fff; }
-    .woocommerce #respond input#submit.single_add_to_cart_button::after, .woocommerce #respond input#submit.added_to_cart::after, .woocommerce #respond input#submit.btn-primary::after, .woocommerce #respond input#submit[type="submit"]::after, .woocommerce #respond input#submit.btn-primary:visited::after, .woocommerce #respond input#submit[type="submit"]:visited::after,
-    .woocommerce a.button.single_add_to_cart_button::after,
-    .woocommerce a.button.added_to_cart::after,
-    .woocommerce a.button.btn-primary::after,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:last-child::after,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:last-child::after,
-    .woocommerce a.button.btn-primary:visited::after,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:last-child:visited::after,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:last-child:visited::after,
+    .woocommerce #respond input#submit.alt::after, .woocommerce #respond input#submit[name='update_cart']:not(:disabled)::after, .woocommerce #respond input#submit[name='apply_coupon']::after, .woocommerce #respond input#submit.single_add_to_cart_button::after, .woocommerce #respond input#submit.added_to_cart::after, .woocommerce #respond input#submit.btn-primary::after, .woocommerce #respond input#submit[type="submit"]::after, .woocommerce #respond input#submit.btn-primary:visited::after, .woocommerce #respond input#submit[type="submit"]:visited::after,
+    .woocommerce button.button.alt::after,
+    .woocommerce button.button[name='update_cart']:not(:disabled)::after,
+    .woocommerce button.button[name='apply_coupon']::after,
     .woocommerce button.button.single_add_to_cart_button::after,
     .woocommerce button.button.added_to_cart::after,
     .woocommerce button.button.btn-primary::after,
     .woocommerce button.button.btn-primary:visited::after,
+    .woocommerce input.button.alt::after,
+    .woocommerce input.button[name='update_cart']:not(:disabled)::after,
+    .woocommerce input.button[name='apply_coupon']::after,
     .woocommerce input.button.single_add_to_cart_button::after,
     .woocommerce input.button.added_to_cart::after,
     .woocommerce input.button.btn-primary::after,
     .woocommerce input.button[type="submit"]::after,
     .woocommerce input.button.btn-primary:visited::after,
     .woocommerce input.button[type="submit"]:visited::after,
+    .woocommerce a.added_to_cart.alt::after,
+    .woocommerce a.added_to_cart[name='update_cart']:not(:disabled)::after,
+    .woocommerce a.added_to_cart[name='apply_coupon']::after,
     .woocommerce a.added_to_cart.single_add_to_cart_button::after,
     .woocommerce a.added_to_cart.added_to_cart::after,
     .woocommerce a.added_to_cart.btn-primary::after,
@@ -634,6 +759,9 @@ button {
     .woocommerce a.added_to_cart.btn-primary:visited::after,
     .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.added_to_cart:last-child:visited::after,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.added_to_cart:last-child:visited::after,
+    .woocommerce div.product form.cart .button.alt::after,
+    .woocommerce div.product form.cart .button[name='update_cart']:not(:disabled)::after,
+    .woocommerce div.product form.cart .button[name='apply_coupon']::after,
     .woocommerce div.product form.cart .button.single_add_to_cart_button::after,
     .woocommerce div.product form.cart .button.added_to_cart::after,
     .woocommerce div.product form.cart .button.btn-primary::after,
@@ -644,6 +772,9 @@ button {
     .woocommerce div.product form.cart input.button[type="submit"]:visited::after,
     .woocommerce div.product form.cart .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:last-child:visited::after,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce div.product form.cart a.button:last-child:visited::after,
+    .button.alt::after,
+    .button[name='update_cart']:not(:disabled)::after,
+    .button[name='apply_coupon']::after,
     .button.single_add_to_cart_button::after,
     .button.added_to_cart::after,
     .button.btn-primary::after,
@@ -652,6 +783,15 @@ button {
     .button.btn-primary:visited::after,
     input.button[type="submit"]:visited::after,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:last-child:visited::after,
+    .btn.alt::after,
+    input.alt[type="submit"]::after,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.alt::after,
+    .btn[name='update_cart']:not(:disabled)::after,
+    input[name='update_cart'][type="submit"]:not(:disabled)::after,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='update_cart']:not(:disabled)::after,
+    .btn[name='apply_coupon']::after,
+    input[name='apply_coupon'][type="submit"]::after,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='apply_coupon']::after,
     .btn.single_add_to_cart_button::after,
     input.single_add_to_cart_button[type="submit"]::after,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.single_add_to_cart_button::after,
@@ -666,30 +806,34 @@ button {
     input[type="submit"]:visited::after,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.btn-primary:visited::after,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a:last-child:visited::after,
+    button.alt::after,
+    button[name='update_cart']:not(:disabled)::after,
+    button[name='apply_coupon']::after,
     button.single_add_to_cart_button::after,
     button.added_to_cart::after,
     button.btn-primary::after,
     button.btn-primary:visited::after {
       color: #fff; }
-    .woocommerce #respond input#submit.single_add_to_cart_button.loading, .woocommerce #respond input#submit.added_to_cart.loading, .woocommerce #respond input#submit.btn-primary.loading, .woocommerce #respond input#submit.loading[type="submit"], .woocommerce #respond input#submit.btn-primary:visited.loading, .woocommerce #respond input#submit[type="submit"]:visited.loading,
-    .woocommerce a.button.single_add_to_cart_button.loading,
-    .woocommerce a.button.added_to_cart.loading,
-    .woocommerce a.button.btn-primary.loading,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button.loading:last-child,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button.loading:last-child,
-    .woocommerce a.button.btn-primary:visited.loading,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited.loading:last-child,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:visited.loading:last-child,
+    .woocommerce #respond input#submit.alt.loading, .woocommerce #respond input#submit[name='update_cart']:not(:disabled).loading, .woocommerce #respond input#submit[name='apply_coupon'].loading, .woocommerce #respond input#submit.single_add_to_cart_button.loading, .woocommerce #respond input#submit.added_to_cart.loading, .woocommerce #respond input#submit.btn-primary.loading, .woocommerce #respond input#submit.loading[type="submit"], .woocommerce #respond input#submit.btn-primary:visited.loading, .woocommerce #respond input#submit[type="submit"]:visited.loading,
+    .woocommerce button.button.alt.loading,
+    .woocommerce button.button[name='update_cart']:not(:disabled).loading,
+    .woocommerce button.button[name='apply_coupon'].loading,
     .woocommerce button.button.single_add_to_cart_button.loading,
     .woocommerce button.button.added_to_cart.loading,
     .woocommerce button.button.btn-primary.loading,
     .woocommerce button.button.btn-primary:visited.loading,
+    .woocommerce input.button.alt.loading,
+    .woocommerce input.button[name='update_cart']:not(:disabled).loading,
+    .woocommerce input.button[name='apply_coupon'].loading,
     .woocommerce input.button.single_add_to_cart_button.loading,
     .woocommerce input.button.added_to_cart.loading,
     .woocommerce input.button.btn-primary.loading,
     .woocommerce input.button.loading[type="submit"],
     .woocommerce input.button.btn-primary:visited.loading,
     .woocommerce input.button[type="submit"]:visited.loading,
+    .woocommerce a.added_to_cart.alt.loading,
+    .woocommerce a.added_to_cart[name='update_cart']:not(:disabled).loading,
+    .woocommerce a.added_to_cart[name='apply_coupon'].loading,
     .woocommerce a.added_to_cart.single_add_to_cart_button.loading,
     .woocommerce a.added_to_cart.added_to_cart.loading,
     .woocommerce a.added_to_cart.btn-primary.loading,
@@ -698,6 +842,9 @@ button {
     .woocommerce a.added_to_cart.btn-primary:visited.loading,
     .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.added_to_cart:visited.loading:last-child,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.added_to_cart:visited.loading:last-child,
+    .woocommerce div.product form.cart .button.alt.loading,
+    .woocommerce div.product form.cart .button[name='update_cart']:not(:disabled).loading,
+    .woocommerce div.product form.cart .button[name='apply_coupon'].loading,
     .woocommerce div.product form.cart .button.single_add_to_cart_button.loading,
     .woocommerce div.product form.cart .button.added_to_cart.loading,
     .woocommerce div.product form.cart .button.btn-primary.loading,
@@ -708,6 +855,9 @@ button {
     .woocommerce div.product form.cart input.button[type="submit"]:visited.loading,
     .woocommerce div.product form.cart .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited.loading:last-child,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce div.product form.cart a.button:visited.loading:last-child,
+    .button.alt.loading,
+    .button[name='update_cart']:not(:disabled).loading,
+    .button[name='apply_coupon'].loading,
     .button.single_add_to_cart_button.loading,
     .button.added_to_cart.loading,
     .button.btn-primary.loading,
@@ -716,6 +866,15 @@ button {
     .button.btn-primary:visited.loading,
     input.button[type="submit"]:visited.loading,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited.loading:last-child,
+    .btn.alt.loading,
+    input.alt.loading[type="submit"],
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.alt.loading,
+    .btn[name='update_cart']:not(:disabled).loading,
+    input[name='update_cart'][type="submit"]:not(:disabled).loading,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='update_cart']:not(:disabled).loading,
+    .btn[name='apply_coupon'].loading,
+    input[name='apply_coupon'].loading[type="submit"],
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='apply_coupon'].loading,
     .btn.single_add_to_cart_button.loading,
     input.single_add_to_cart_button.loading[type="submit"],
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.single_add_to_cart_button.loading,
@@ -730,28 +889,21 @@ button {
     input[type="submit"]:visited.loading,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.btn-primary:visited.loading,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a:visited.loading:last-child,
+    button.alt.loading,
+    button[name='update_cart']:not(:disabled).loading,
+    button[name='apply_coupon'].loading,
     button.single_add_to_cart_button.loading,
     button.added_to_cart.loading,
     button.btn-primary.loading,
     button.btn-primary:visited.loading {
       color: transparent; }
-    .woocommerce #respond input#submit.single_add_to_cart_button:hover, .woocommerce #respond input#submit.single_add_to_cart_button:active, .woocommerce #respond input#submit.added_to_cart:hover, .woocommerce #respond input#submit.added_to_cart:active, .woocommerce #respond input#submit.btn-primary:hover, .woocommerce #respond input#submit[type="submit"]:hover, .woocommerce #respond input#submit.btn-primary:active, .woocommerce #respond input#submit[type="submit"]:active, .woocommerce #respond input#submit.btn-primary:visited:hover, .woocommerce #respond input#submit[type="submit"]:visited:hover, .woocommerce #respond input#submit.btn-primary:visited:active, .woocommerce #respond input#submit[type="submit"]:visited:active,
-    .woocommerce a.button.single_add_to_cart_button:hover,
-    .woocommerce a.button.single_add_to_cart_button:active,
-    .woocommerce a.button.added_to_cart:hover,
-    .woocommerce a.button.added_to_cart:active,
-    .woocommerce a.button.btn-primary:hover,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:hover:last-child,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:hover:last-child,
-    .woocommerce a.button.btn-primary:active,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:active:last-child,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:active:last-child,
-    .woocommerce a.button.btn-primary:visited:hover,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:hover:last-child,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:visited:hover:last-child,
-    .woocommerce a.button.btn-primary:visited:active,
-    .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:active:last-child,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.button:visited:active:last-child,
+    .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.alt:active, .woocommerce #respond input#submit[name='update_cart']:not(:disabled):hover, .woocommerce #respond input#submit[name='update_cart']:not(:disabled):active, .woocommerce #respond input#submit[name='apply_coupon']:hover, .woocommerce #respond input#submit[name='apply_coupon']:active, .woocommerce #respond input#submit.single_add_to_cart_button:hover, .woocommerce #respond input#submit.single_add_to_cart_button:active, .woocommerce #respond input#submit.added_to_cart:hover, .woocommerce #respond input#submit.added_to_cart:active, .woocommerce #respond input#submit.btn-primary:hover, .woocommerce #respond input#submit[type="submit"]:hover, .woocommerce #respond input#submit.btn-primary:active, .woocommerce #respond input#submit[type="submit"]:active, .woocommerce #respond input#submit.btn-primary:visited:hover, .woocommerce #respond input#submit[type="submit"]:visited:hover, .woocommerce #respond input#submit.btn-primary:visited:active, .woocommerce #respond input#submit[type="submit"]:visited:active,
+    .woocommerce button.button.alt:hover,
+    .woocommerce button.button.alt:active,
+    .woocommerce button.button[name='update_cart']:not(:disabled):hover,
+    .woocommerce button.button[name='update_cart']:not(:disabled):active,
+    .woocommerce button.button[name='apply_coupon']:hover,
+    .woocommerce button.button[name='apply_coupon']:active,
     .woocommerce button.button.single_add_to_cart_button:hover,
     .woocommerce button.button.single_add_to_cart_button:active,
     .woocommerce button.button.added_to_cart:hover,
@@ -760,6 +912,12 @@ button {
     .woocommerce button.button.btn-primary:active,
     .woocommerce button.button.btn-primary:visited:hover,
     .woocommerce button.button.btn-primary:visited:active,
+    .woocommerce input.button.alt:hover,
+    .woocommerce input.button.alt:active,
+    .woocommerce input.button[name='update_cart']:not(:disabled):hover,
+    .woocommerce input.button[name='update_cart']:not(:disabled):active,
+    .woocommerce input.button[name='apply_coupon']:hover,
+    .woocommerce input.button[name='apply_coupon']:active,
     .woocommerce input.button.single_add_to_cart_button:hover,
     .woocommerce input.button.single_add_to_cart_button:active,
     .woocommerce input.button.added_to_cart:hover,
@@ -772,6 +930,12 @@ button {
     .woocommerce input.button[type="submit"]:visited:hover,
     .woocommerce input.button.btn-primary:visited:active,
     .woocommerce input.button[type="submit"]:visited:active,
+    .woocommerce a.added_to_cart.alt:hover,
+    .woocommerce a.added_to_cart.alt:active,
+    .woocommerce a.added_to_cart[name='update_cart']:not(:disabled):hover,
+    .woocommerce a.added_to_cart[name='update_cart']:not(:disabled):active,
+    .woocommerce a.added_to_cart[name='apply_coupon']:hover,
+    .woocommerce a.added_to_cart[name='apply_coupon']:active,
     .woocommerce a.added_to_cart.single_add_to_cart_button:hover,
     .woocommerce a.added_to_cart.single_add_to_cart_button:active,
     .woocommerce a.added_to_cart.added_to_cart:hover,
@@ -788,6 +952,12 @@ button {
     .woocommerce a.added_to_cart.btn-primary:visited:active,
     .woocommerce .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.added_to_cart:visited:active:last-child,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce a.added_to_cart:visited:active:last-child,
+    .woocommerce div.product form.cart .button.alt:hover,
+    .woocommerce div.product form.cart .button.alt:active,
+    .woocommerce div.product form.cart .button[name='update_cart']:not(:disabled):hover,
+    .woocommerce div.product form.cart .button[name='update_cart']:not(:disabled):active,
+    .woocommerce div.product form.cart .button[name='apply_coupon']:hover,
+    .woocommerce div.product form.cart .button[name='apply_coupon']:active,
     .woocommerce div.product form.cart .button.single_add_to_cart_button:hover,
     .woocommerce div.product form.cart .button.single_add_to_cart_button:active,
     .woocommerce div.product form.cart .button.added_to_cart:hover,
@@ -808,6 +978,12 @@ button {
     .woocommerce div.product form.cart input.button[type="submit"]:visited:active,
     .woocommerce div.product form.cart .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:active:last-child,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons .woocommerce div.product form.cart a.button:visited:active:last-child,
+    .button.alt:hover,
+    .button.alt:active,
+    .button[name='update_cart']:not(:disabled):hover,
+    .button[name='update_cart']:not(:disabled):active,
+    .button[name='apply_coupon']:hover,
+    .button[name='apply_coupon']:active,
     .button.single_add_to_cart_button:hover,
     .button.single_add_to_cart_button:active,
     .button.added_to_cart:hover,
@@ -824,6 +1000,24 @@ button {
     .button.btn-primary:visited:active,
     input.button[type="submit"]:visited:active,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.button:visited:active:last-child,
+    .btn.alt:hover,
+    input.alt[type="submit"]:hover,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.alt:hover,
+    .btn.alt:active,
+    input.alt[type="submit"]:active,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.alt:active,
+    .btn[name='update_cart']:not(:disabled):hover,
+    input[name='update_cart'][type="submit"]:not(:disabled):hover,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='update_cart']:not(:disabled):hover,
+    .btn[name='update_cart']:not(:disabled):active,
+    input[name='update_cart'][type="submit"]:not(:disabled):active,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='update_cart']:not(:disabled):active,
+    .btn[name='apply_coupon']:hover,
+    input[name='apply_coupon'][type="submit"]:hover,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='apply_coupon']:hover,
+    .btn[name='apply_coupon']:active,
+    input[name='apply_coupon'][type="submit"]:active,
+    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a[name='apply_coupon']:active,
     .btn.single_add_to_cart_button:hover,
     input.single_add_to_cart_button[type="submit"]:hover,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.single_add_to_cart_button:hover,
@@ -852,6 +1046,12 @@ button {
     input[type="submit"]:visited:active,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.btn-primary:visited:active,
     .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a:visited:active:last-child,
+    button.alt:hover,
+    button.alt:active,
+    button[name='update_cart']:not(:disabled):hover,
+    button[name='update_cart']:not(:disabled):active,
+    button[name='apply_coupon']:hover,
+    button[name='apply_coupon']:active,
     button.single_add_to_cart_button:hover,
     button.single_add_to_cart_button:active,
     button.added_to_cart:hover,
@@ -1898,5 +2098,283 @@ ul.products li.product {
   .woocommerce div.product p.price ins,
   .woocommerce div.product span.price ins {
     font-weight: 400; }
+
+/**
+ * Cart Page
+ */
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-page table.cart td.actions .input-text {
+  width: auto;
+  padding: 9px 9px 9px 13px;
+  border-color: var(--mr-border-color);
+  margin-right: 10px; }
+  .woocommerce #content table.cart td.actions .input-text:focus,
+  .woocommerce table.cart td.actions .input-text:focus,
+  .woocommerce-page #content table.cart td.actions .input-text:focus,
+  .woocommerce-page table.cart td.actions .input-text:focus {
+    border-color: var(--mr-major-color); }
+
+.woocommerce #respond input#submit.disabled,
+.woocommerce #respond input#submit:disabled,
+.woocommerce #respond input#submit:disabled[disabled],
+.woocommerce a.button.disabled,
+.woocommerce a.button:disabled,
+.woocommerce a.button:disabled[disabled],
+.woocommerce button.button.disabled,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled],
+.woocommerce input.button.disabled,
+.woocommerce input.button:disabled,
+.woocommerce input.button:disabled[disabled] {
+  padding: 10px 26px; }
+
+.woocommerce-page .col2-set,
+.woocommerce .col2-set {
+  width: 100%;
+  float: left; }
+  .woocommerce-page .col2-set .col-3,
+  .woocommerce-page .col2-set .col-2,
+  .woocommerce-page .col2-set .col-1,
+  .woocommerce .col2-set .col-3,
+  .woocommerce .col2-set .col-2,
+  .woocommerce .col2-set .col-1 {
+    flex: none;
+    max-width: none;
+    width: 100%;
+    float: none;
+    display: block;
+    padding: 0;
+    margin-bottom: 25px; }
+.woocommerce-page #order_review, .woocommerce-page #order_review_heading,
+.woocommerce #order_review,
+.woocommerce #order_review_heading {
+  width: 100%;
+  float: right;
+  margin-right: 0;
+  clear: right; }
+
+@media (min-width: 768px) {
+  .woocommerce-page .col2-set,
+  .woocommerce .col2-set {
+    width: 52.9411764706% !important;
+    margin-right: 5.8823529412%; }
+  .woocommerce-page #order_review, .woocommerce-page #order_review_heading,
+  .woocommerce #order_review,
+  .woocommerce #order_review_heading {
+    width: 41.1764705882%; } }
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first,
+.woocommerce-page form .form-row-last {
+  width: 100%;
+  display: block; }
+
+.woocommerce table.shop_table td {
+  border: none; }
+
+.woocommerce table.shop_table {
+  border-radius: 0;
+  border: none; }
+
+#add_payment_method table.cart img,
+.woocommerce-cart table.cart img,
+.woocommerce-checkout table.cart img {
+  width: 64px; }
+
+.woocommerce table.shop_table th {
+  padding: 25px 15px; }
+
+.woocommerce table.shop_table tfoot {
+  border-top: 2px solid #fff; }
+  .woocommerce table.shop_table tfoot tr {
+    background: #fdfdfd; }
+    .woocommerce table.shop_table tfoot tr th {
+      padding: 9px 15px;
+      background: inherit; }
+    .woocommerce table.shop_table tfoot tr:nth-child(even) th {
+      background: #fff; }
+
+.woocommerce table.shop_table td.product-remove {
+  padding-left: 25px; }
+
+.woocommerce #content table.cart td.actions,
+.woocommerce table.cart td.actions,
+.woocommerce-page #content table.cart td.actions,
+.woocommerce-page table.cart td.actions {
+  padding: 15px 25px; }
+
+.woocommerce a.remove,
+a.remove {
+  display: block;
+  width: 1.618em;
+  height: 1.618em;
+  line-height: 1.618;
+  font-weight: 400;
+  text-indent: -9999px;
+  position: relative; }
+  .woocommerce a.remove::before,
+  a.remove::before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    vertical-align: -.125em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "\f057";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #e2401c;
+    line-height: 1.618;
+    text-indent: 0;
+    text-align: center; }
+  .woocommerce a.remove:hover::before,
+  a.remove:hover::before {
+    color: #ff4a1d; }
+
+.woocommerce a.remove:hover {
+  background: none;
+  color: inherit !important; }
+
+.woocommerce table.shop_table {
+  border-collapse: collapse; }
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+  background: #fff; }
+  #add_payment_method #payment ul.payment_methods,
+  .woocommerce-cart #payment ul.payment_methods,
+  .woocommerce-checkout #payment ul.payment_methods {
+    padding: 0;
+    border: none; }
+
+#payment .payment_methods > li .payment_box,
+#payment .place-order {
+  background-color: #fafafa; }
+
+#payment .place-order {
+  padding: 1.41575em;
+  margin-bottom: 0;
+  float: none;
+  width: 100%;
+  margin-top: 2.617924em; }
+
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-weight: 400;
+  font-size: 17px; }
+
+#payment .payment_methods li.wc_payment_method > input[type=radio]:first-child,
+#payment .payment_methods li.woocommerce-PaymentMethod > input[type=radio]:first-child {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important; }
+
+#payment .payment_methods > .wc_payment_method > label,
+#payment .payment_methods > .woocommerce-PaymentMethod > label {
+  display: block;
+  padding: 1.41575em;
+  cursor: pointer; }
+
+#payment .payment_methods li.wc_payment_method > input[type=radio]:first-child:checked + label::before,
+#payment .payment_methods li.woocommerce-PaymentMethod > input[type=radio]:first-child:checked + label::before {
+  content: "\f192"; }
+
+.star-rating span:before,
+.quantity .plus,
+.quantity .minus,
+p.stars a:hover:after,
+p.stars a:after,
+.star-rating span:before,
+#payment .payment_methods li input[type=radio]:first-child:checked + label:before {
+  color: var(--mr-major-color); }
+
+#payment::after,
+#payment::before {
+  content: '';
+  display: table; }
+
+#payment .payment_methods {
+  margin: 0 !important;
+  padding: 0 !important; }
+  #payment .payment_methods > .wc_payment_method > label::before,
+  #payment .payment_methods > .woocommerce-PaymentMethod > label::before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    vertical-align: -.125em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "\f111";
+    margin-right: .5407911001em;
+    -webkit-transition: color,ease,.2s;
+    transition: color,ease,.2s; }
+  #payment .payment_methods li {
+    list-style: none !important;
+    margin-left: 0;
+    position: relative; }
+    #payment .payment_methods li:not(.woocommerce-notice) {
+      background-color: #f5f5f5; }
+      #payment .payment_methods li:not(.woocommerce-notice):hover {
+        background: #f0f0f0; }
+    #payment .payment_methods li .payment_box {
+      padding: 1.41575em; }
+    #payment .payment_methods li p {
+      margin: 0; }
+    #payment .payment_methods li img {
+      float: right;
+      border: 0;
+      padding: 0;
+      max-height: 1.618em !important; }
+
+#add_payment_method #payment .payment_method_paypal .about_paypal,
+.woocommerce-cart #payment .payment_method_paypal .about_paypal,
+.woocommerce-checkout #payment .payment_method_paypal .about_paypal {
+  float: none;
+  line-height: inherit;
+  font-size: inherit; }
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  margin: 0;
+  font-size: inherit; }
+  #add_payment_method #payment div.payment_box::before,
+  .woocommerce-cart #payment div.payment_box::before,
+  .woocommerce-checkout #payment div.payment_box::before {
+    display: none; }
+
+.woocommerce table.shop_table tbody th,
+.woocommerce table.shop_table tfoot td,
+.woocommerce table.shop_table tfoot th {
+  border: none; }
 
 /*# sourceMappingURL=main.css.map */
