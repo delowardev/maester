@@ -33,9 +33,8 @@ p{
 .site-content{
     padding-bottom: 60px;
 }
-.home.blog .site-header,
-.home.page:not(.page-template-template-homepage) .site-header,
-.home.post-type-archive-product .site-header{
+
+body:not(.page-template-homepage) .site-header{
     margin-bottom: 60px;
 }
 

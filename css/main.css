@@ -28,9 +28,7 @@ p {
 .site-content {
   padding-bottom: 60px; }
 
-.home.blog .site-header,
-.home.page:not(.page-template-template-homepage) .site-header,
-.home.post-type-archive-product .site-header {
+body:not(.page-template-homepage) .site-header {
   margin-bottom: 60px; }
 
 .type-fade {
@@ -256,7 +254,6 @@ blockquote {
 
 ul,
 ol {
-  list-style: none;
   line-height: 26px; }
 
 ul.bullets {
@@ -1345,6 +1342,7 @@ header.site-header {
     opacity: 1;
     visibility: visible; }
   .cart-menu-parent .site-header-cart {
+    list-style: none;
     padding: 0;
     margin: 0;
     display: inline-block; }
@@ -1814,7 +1812,8 @@ form#registration p.info {
 
 .widget ul {
   padding-left: 0;
-  margin: 0; }
+  margin: 0;
+  list-style: none; }
   .widget ul ul {
     padding-left: 15px; }
 
