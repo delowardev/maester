@@ -5,10 +5,15 @@
 .woocommerce button.button,
 .woocommerce input.button,
 .woocommerce a.added_to_cart,
+.woocommerce a.add_to_cart_button,
+.woocommerce a.product_type_external,
+a.added_to_cart,
 .woocommerce div.product form.cart .button,
+.button:visited,
+.btn:visited,
 .button,
 .btn,
-button {
+button{
     font-family: Open Sans, 'Helvetica', 'Arial', sans-serif;
     transition: 0.1s linear;
     -webkit-transition: 0.1s linear;
