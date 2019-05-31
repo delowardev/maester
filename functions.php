@@ -167,5 +167,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Maester custom image size
  */
 
-add_image_size('post-thumbnail', 704, 264 );
+add_image_size('post-thumbnail', 700, 380 );
+add_image_size('post-vertical', 450, 550 );
 
