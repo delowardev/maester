@@ -63,37 +63,6 @@ button{
         text-transform: uppercase;
     }
 
-    &.loading{
-        color: transparent;
-        opacity: 1;
-        &::after{
-            color: var(--mr-heading-color);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            font-weight: 400;
-            line-height: 1;
-            vertical-align: -.125em;
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            line-height: inherit;
-            vertical-align: baseline;
-            content: "\f110";
-            -webkit-animation: fa-spin .5s linear infinite;
-            animation: fa-spin .5s linear infinite;
-            height: 20px;
-            width: 20px;
-            line-height: 20px;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-        }
-    }
     &.alt,
     &[name='update_cart']:not(:disabled),
     &[name='apply_coupon'],
@@ -131,3 +100,36 @@ input[type="submit"]{
 }
 
 // button healpers
+
+.loading{
+	color: transparent;
+	opacity: .5;
+	position: relative;
+	&::after{
+		color: var(--mr-heading-color);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 400;
+		line-height: 1;
+		vertical-align: -.125em;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		line-height: inherit;
+		vertical-align: baseline;
+		content: "\f110";
+		-webkit-animation: fa-spin .5s linear infinite;
+		animation: fa-spin .5s linear infinite;
+		height: 20px;
+		width: 20px;
+		line-height: 20px;
+		font-size: 20px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -10px;
+		margin-top: -10px;
+	}
+}

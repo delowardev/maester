@@ -56,3 +56,40 @@ function get_search_category_slug_by_post_type($post_type = 'post'){
         return false;
     }
 }
+
+
+function maester_pagination(){
+	?>
+		<div class="maester-pagination-wrap">
+			<?php
+				global $wp_query;
+				$big = 999999999; // need an unlikely integer
+
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('paged') ),
+					'total' => $wp_query->max_num_pages
+				) );
+			?>
+		</div>
+	<?php
+}
+
+function maester_get_post_lists($post_type = 'post'){
+	wp_reset_query();
+	query_posts(array(
+		'post_type' => $post_type,
+		'post_status' => 'publish'
+	));
+	$post_list = array();
+
+	if(have_posts()){
+		while(have_posts()){
+			the_post();
+			$post_list[get_the_ID()] = get_the_title();
+		}
+	}
+	wp_reset_query();
+	return $post_list;
+}

@@ -1,0 +1,72 @@
+
+.maester-tutor-courses{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -25px;
+}
+.maester-tutor-course{
+	width: 33.3333%;
+	padding: 0 25px;
+	margin-bottom: 50px;
+	text-align: center;
+	.price > span{
+		display: block;
+		margin-bottom: 8px;
+		font-size: 16px;
+		color: var(--mr-major-color)
+	}
+	.added_to_cart{
+		margin-left: 4px;
+	}
+	.maester-course-meta{
+		margin: 0 -2px 8px;
+		padding: 0;
+		list-style: none;
+		font-size: 13px;
+		li{
+			display: inline-block;
+			padding: 0 2px;
+			strong{
+				font-weight: 600;
+				color: var(--mr-heading-color)
+			}
+			a{
+				color: var(--mr-text-color);
+				text-decoration: underline;
+				&:hover{
+					color: var(--mr-major-color);
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	.maester-course-content {
+		padding: 25px 15px 0;
+		h3{
+			font-size: 18px;
+			line-height: 28px;
+			font-weight: 500;
+			position: relative;
+			i.course-bookmark-icon{
+				line-height: inherit;
+				margin-right: 5px;
+				cursor: pointer;
+				padding: 0 5px;
+				font-weight: 400;
+				&.wishlisted{
+					font-weight: 900;
+				}
+				&:hover{
+					color: var(--mr-major-color)
+				}
+			}
+			a{
+				display: inline;
+				color: var(--mr-heading-color);
+				&:hover{
+					color: var(--mr-major-color);
+				}
+			}
+		}
+	}
+}

@@ -689,67 +689,6 @@ button {
   .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.btn-uc,
   button.btn-uc {
     text-transform: uppercase; }
-  .woocommerce #respond input#submit.loading,
-  .woocommerce button.button.loading,
-  .woocommerce input.button.loading,
-  .woocommerce a.added_to_cart.loading,
-  .woocommerce a.add_to_cart_button.loading,
-  .woocommerce a.product_type_external.loading,
-  a.added_to_cart.loading,
-  .woocommerce div.product form.cart .button.loading,
-  .button:visited.loading,
-  .btn:visited.loading,
-  input[type="submit"]:visited.loading,
-  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a:visited.loading,
-  .button.loading,
-  .btn.loading,
-  input.loading[type="submit"],
-  .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.loading,
-  button.loading {
-    color: transparent;
-    opacity: 1; }
-    .woocommerce #respond input#submit.loading::after,
-    .woocommerce button.button.loading::after,
-    .woocommerce input.button.loading::after,
-    .woocommerce a.added_to_cart.loading::after,
-    .woocommerce a.add_to_cart_button.loading::after,
-    .woocommerce a.product_type_external.loading::after,
-    a.added_to_cart.loading::after,
-    .woocommerce div.product form.cart .button.loading::after,
-    .button:visited.loading::after,
-    .btn:visited.loading::after,
-    input[type="submit"]:visited.loading::after,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a:visited.loading::after,
-    .button.loading::after,
-    .btn.loading::after,
-    input.loading[type="submit"]::after,
-    .cart-menu-parent .site-header-cart > li:last-child .widget_shopping_cart_content .buttons a.loading::after,
-    button.loading::after {
-      color: var(--mr-heading-color);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display: inline-block;
-      font-style: normal;
-      font-variant: normal;
-      font-weight: 400;
-      line-height: 1;
-      vertical-align: -.125em;
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      line-height: inherit;
-      vertical-align: baseline;
-      content: "\f110";
-      -webkit-animation: fa-spin .5s linear infinite;
-      animation: fa-spin .5s linear infinite;
-      height: 20px;
-      width: 20px;
-      line-height: 20px;
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -10px;
-      margin-top: -10px; }
   .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit[name='update_cart']:not(:disabled), .woocommerce #respond input#submit[name='apply_coupon'], .woocommerce #respond input#submit.single_add_to_cart_button, .woocommerce #respond input#submit.added_to_cart, .woocommerce #respond input#submit.btn-primary, .woocommerce #respond input#submit[type="submit"], .woocommerce #respond input#submit.btn-primary:visited, .woocommerce #respond input#submit[type="submit"]:visited,
   .woocommerce button.button.alt,
   .woocommerce button.button[name='update_cart']:not(:disabled),
@@ -1496,6 +1435,37 @@ input[type="submit"]:active, input[type="submit"]:hover {
   background: var(--mr-major-color-hover);
   border-color: var(--mr-major-color-hover);
   color: #fff; }
+
+.loading {
+  color: transparent;
+  opacity: .5;
+  position: relative; }
+  .loading::after {
+    color: var(--mr-heading-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    vertical-align: -.125em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "\f110";
+    -webkit-animation: fa-spin .5s linear infinite;
+    animation: fa-spin .5s linear infinite;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px; }
 
 article.post-listing {
   background: #fff;
@@ -2807,5 +2777,62 @@ p.stars a:after,
 .woocommerce table.shop_table tfoot td,
 .woocommerce table.shop_table tfoot th {
   border: none; }
+
+.maester-tutor-courses {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -25px; }
+
+.maester-tutor-course {
+  width: 33.3333%;
+  padding: 0 25px;
+  margin-bottom: 50px;
+  text-align: center; }
+  .maester-tutor-course .price > span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: var(--mr-major-color); }
+  .maester-tutor-course .added_to_cart {
+    margin-left: 4px; }
+  .maester-tutor-course .maester-course-meta {
+    margin: 0 -2px 8px;
+    padding: 0;
+    list-style: none;
+    font-size: 13px; }
+    .maester-tutor-course .maester-course-meta li {
+      display: inline-block;
+      padding: 0 2px; }
+      .maester-tutor-course .maester-course-meta li strong {
+        font-weight: 600;
+        color: var(--mr-heading-color); }
+      .maester-tutor-course .maester-course-meta li a {
+        color: var(--mr-text-color);
+        text-decoration: underline; }
+        .maester-tutor-course .maester-course-meta li a:hover {
+          color: var(--mr-major-color);
+          text-decoration: none; }
+  .maester-tutor-course .maester-course-content {
+    padding: 25px 15px 0; }
+    .maester-tutor-course .maester-course-content h3 {
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 500;
+      position: relative; }
+      .maester-tutor-course .maester-course-content h3 i.course-bookmark-icon {
+        line-height: inherit;
+        margin-right: 5px;
+        cursor: pointer;
+        padding: 0 5px;
+        font-weight: 400; }
+        .maester-tutor-course .maester-course-content h3 i.course-bookmark-icon.wishlisted {
+          font-weight: 900; }
+        .maester-tutor-course .maester-course-content h3 i.course-bookmark-icon:hover {
+          color: var(--mr-major-color); }
+      .maester-tutor-course .maester-course-content h3 a {
+        display: inline;
+        color: var(--mr-heading-color); }
+        .maester-tutor-course .maester-course-content h3 a:hover {
+          color: var(--mr-major-color); }
 
 /*# sourceMappingURL=main.css.map */
