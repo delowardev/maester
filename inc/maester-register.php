@@ -133,7 +133,16 @@
 	                'version'               => '',
 	                'force_activation'      => false,
 	                'force_deactivation'    => false
-	            )
+	            ),
+		        array(
+			        'name'                  => esc_html__( 'Maester Toolkit', 'maester' ),
+			        'slug'                  => 'maester-toolkit',
+			        'source'                  => 'https://feeha.net/plugins/packages/maester-toolkit.zip',
+			        'required'              => true,
+			        'version'               => '',
+			        'force_activation'      => false,
+			        'force_deactivation'    => false
+		        )
 	        );
 	        $config = array(
 	            'domain'            => 'maester',
