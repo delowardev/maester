@@ -537,7 +537,7 @@
 	 * @param bool $price
 	 */
 	if(!function_exists('maester_course_loop')){
-		function maester_course_loop($rating = true, $meta = true, $wishlist = true, $price = true, $column = 'column-3'){
+		function maester_course_loop($rating = true, $meta = true, $wishlist = true, $price = true, $column = 'column-4'){
 			ob_start();
 			if( function_exists('tutor') && have_posts()){
 				?>

@@ -1,3 +1,10 @@
+/*$breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);*/
 /* Color Theme Swatches in Hex */
 /*
 --mr-major-color: #F23847;
@@ -2781,12 +2788,45 @@ p.stars a:after,
 .maester-tutor-courses {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -25px; }
+  margin: 0 -15px; }
+  .maester-tutor-courses .maester-tutor-course {
+    padding: 0 15px;
+    margin-bottom: 50px;
+    width: 100%; }
+    @media (max-width: 1199.98px) {
+      .maester-tutor-courses .maester-tutor-course {
+        margin-bottom: 30px; } }
+  .maester-tutor-courses.column-2 .maester-tutor-course {
+    width: 50%; }
+    @media (max-width: 575.98px) {
+      .maester-tutor-courses.column-2 .maester-tutor-course {
+        width: 100%; } }
+  .maester-tutor-courses.column-3 .maester-tutor-course {
+    width: 33.3333%; }
+    @media (max-width: 991.98px) {
+      .maester-tutor-courses.column-3 .maester-tutor-course {
+        width: 50%; } }
+    @media (max-width: 575.98px) {
+      .maester-tutor-courses.column-3 .maester-tutor-course {
+        width: 100%; } }
+  .maester-tutor-courses.column-4 .maester-tutor-course {
+    width: 25%; }
+    @media (max-width: 991.98px) {
+      .maester-tutor-courses.column-4 .maester-tutor-course {
+        width: 50%; } }
+    @media (max-width: 575.98px) {
+      .maester-tutor-courses.column-4 .maester-tutor-course {
+        width: 100%; } }
+  .maester-tutor-courses.column-5 .maester-tutor-course {
+    width: 20%; }
+    @media (max-width: 991.98px) {
+      .maester-tutor-courses.column-5 .maester-tutor-course {
+        width: 50%; } }
+    @media (max-width: 575.98px) {
+      .maester-tutor-courses.column-5 .maester-tutor-course {
+        width: 100%; } }
 
 .maester-tutor-course {
-  width: 33.3333%;
-  padding: 0 25px;
-  margin-bottom: 50px;
   text-align: center; }
   .maester-tutor-course .price > span {
     display: block;

@@ -3,6 +3,7 @@
 	/**
 	 * Tutor Course Shortcode
 	 */
+
 	if(function_exists('tutor') && !function_exists('maester_course_shortcode')){
 		function maester_course_shortcode($atts){
 			$args = shortcode_atts(array(
@@ -13,7 +14,7 @@
 				'category'      => '',
 				'orderby'       => 'ID',
 				'order'         => 'DESC',
-				'column'        => 'column-3',
+				'column'        => 'column-4',
 				'rating'        => true,
 				'meta'          => true,
 				'wishlist'      => true,
