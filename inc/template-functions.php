@@ -177,8 +177,7 @@
 
 //add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
 	function maester_breadcrumbs(){
-		$maester_get_breadcrumbs = get_maester_breadcrumb();
-		if(!empty($maester_get_breadcrumbs)){ ?>
+		if(function_exists('get_maester_breadcrumb') && !empty(get_maester_breadcrumb())){ ?>
 			<div class="maester-breadcrumb-area">
 				<div class="container">
 					<div class="row">

@@ -15,7 +15,9 @@
 get_header();
 $enable_blog_sidebar = get_theme_mod('enable_blog_sidebar', true);
 $post_column_count = get_theme_mod('post_column_count', '6');
+
 maester_breadcrumbs();
+
 ?>
     <div id="content" class="site-content">
         <div class="container">
