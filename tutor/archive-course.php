@@ -10,6 +10,7 @@
  */
 
 get_header();
+maester_breadcrumbs();
 
 ?>
 	<div id="content" class="site-content">
