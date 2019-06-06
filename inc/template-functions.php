@@ -556,7 +556,7 @@
 							?>
 							<div class="maester-tutor-course">
 								<a class="maester-course-image-wrap" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
-									<?php printf($image) ?>
+									<?php echo $image; ?>
 								</a>
 								<div class="maester-course-content">
 									<?php
