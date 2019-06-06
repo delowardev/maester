@@ -17,9 +17,7 @@ get_header();
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
 					<?php tutor_course_archive_filter_bar(); ?>
-					<div class="maester-tutor-courses">
-						<?php maester_course_loop(); ?>
-					</div>
+					<?php maester_course_loop(); ?>
 					<?php the_posts_pagination(); ?>
 				</main>
 			</div> <!--#primary-->

@@ -413,3 +413,18 @@ p.stars a:after,
 #payment .payment_methods li:not(.woocommerce-notice){
   background: transparent;
 }
+
+/**
+ * Addon override
+ */
+
+#feature-comparison{
+
+  .eael-data-table thead tr th:first-child,
+  .eael-data-table tbody tr td:first-child {
+    text-align: left !important;
+  }
+  .eael-data-table tbody tr .fa-check {
+    color: var(--mr-success-color);
+  }
+}

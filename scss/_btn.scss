@@ -88,6 +88,23 @@ button{
         }
     }
 
+	&.btn-success,
+	&.btn-success:visited {
+		background: var(--mr-success-color);
+		border-color: var(--mr-success-color);
+		color: #fff;
+		&::after{
+			color: #fff;
+		}
+		&.loading{
+			color: transparent;
+		}
+		&:hover,
+		&:active {
+			filter: brightness(.9);
+		}
+	}
+
 }
 
 input[type="submit"]{
