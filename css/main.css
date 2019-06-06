@@ -542,10 +542,6 @@ ul.products li.product { text-align: center; }
 
 #payment .payment_methods li:not(.woocommerce-notice):hover, #payment .payment_methods li:not(.woocommerce-notice) { background: transparent; }
 
-/** Addon override */
-#feature-comparison .eael-data-table thead tr th:first-child, #feature-comparison .eael-data-table tbody tr td:first-child { text-align: left !important; }
-#feature-comparison .eael-data-table tbody tr .fa-check { color: var(--mr-success-color); }
-
 .maester-tutor-courses { display: flex; flex-wrap: wrap; margin: 0 -15px; }
 .maester-tutor-courses .maester-tutor-course { padding: 0 15px; margin-bottom: 50px; width: 100%; }
 @media (max-width: 1199.98px) { .maester-tutor-courses .maester-tutor-course { margin-bottom: 30px; } }
@@ -576,6 +572,11 @@ ul.products li.product { text-align: center; }
 .maester-tutor-course .maester-course-content h3 i.course-bookmark-icon:hover { color: var(--mr-major-color); }
 .maester-tutor-course .maester-course-content h3 a { display: inline; color: var(--mr-heading-color); }
 .maester-tutor-course .maester-course-content h3 a:hover { color: var(--mr-major-color); }
+
+/** Addon override */
+#feature-comparison .eael-data-table thead tr th:first-child, #feature-comparison .eael-data-table tbody tr td:first-child { text-align: left !important; }
+#feature-comparison .eael-data-table tbody tr .fa-check { color: var(--mr-success-color); }
+#feature-comparison .eael-data-table tbody tr .fa-times { color: var(--mr-error-color); }
 
 
 
