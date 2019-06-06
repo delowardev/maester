@@ -1,6 +1,12 @@
 
 /* Color Theme Swatches in Hex */
 
+/*
+--mr-major-color: #F23847;
+--mr-major-color-hover: #BF3945;
+*/
+
+
 :root{
     --mr-font: "Source Sans Pro", HelveticaNeue-Light, Helvetica,Arial, "Lucida Grande", sans-serif;
     --mr-body-bg: #ffffff;
@@ -9,8 +15,8 @@
     --mr-light-color: #999999;
     --mr-border-color: #ececec;
     --mr-border-color-hover: #d5d5d5;
-    --mr-major-color: #F23847;
-    --mr-major-color-hover: #BF3945;
+    --mr-major-color: #AF3C5E;
+    --mr-major-color-hover: #64284A;
     --mr-success-color: #77a464;
     --mr-info-color: #3c9acf;
     --mr-error-color: #e2401c;
@@ -24,6 +30,11 @@ body{
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
     line-height: 1.857em;
+    --tutor-primary-color: var(--mr-major-color);
+    --tutor-primary-hover-color: var(--mr-major-color-hover);
+    --tutor-text-color: var(--mr-text-color);
+    --tutor-light-color: var(--mr-light-color);
+    --tutor-success-button-color: var(--mr-success-color);
 }
 
 p{
@@ -32,11 +43,6 @@ p{
 
 .site-content{
     padding-bottom: 60px;
-}
-.home.blog .site-header,
-.home.page:not(.page-template-template-homepage) .site-header,
-.home.post-type-archive-product .site-header{
-    margin-bottom: 60px;
 }
 
 .type-fade {

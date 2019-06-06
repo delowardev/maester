@@ -4,6 +4,7 @@
  */
 
 function get_maester_breadcrumb() {
+
     /* === OPTIONS === */
     $text['home']     = '<i class="fas fa-home"></i> '. __(' Home', 'maester'); // text for the 'Home' link
     $text['category'] =  __('Archive by Category "%s"', 'maester') ; // text for a category page
@@ -18,7 +19,7 @@ function get_maester_breadcrumb() {
     $sep            = '<span class="breadcrumbs__separator"> &#8250; </span>'; // separator between crumbs
     $before         = '<span class="breadcrumbs__current">'; // tag before the current crumb
     $after          = '</span>'; // tag after the current crumb
-    $show_on_home   = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
+    $show_on_home   = 1; // 1 - show breadcrumbs on the homepage, 0 - don't show
     $show_home_link = 1; // 1 - show the 'Home' link, 0 - don't show
     $show_current   = 1; // 1 - show current page title, 0 - don't show
     $show_last_sep  = 1; // 1 - show last separator, when current page title is not displayed, 0 - don't show
@@ -33,7 +34,13 @@ function get_maester_breadcrumb() {
     $home_link      = sprintf( $link, $home_url, $text['home'], 1 );
     $output = '';
     if ( is_home() || is_front_page() ) {
-        if ( $show_on_home ) $output .= $wrap_before . $home_link . $wrap_after;
+        if ( $show_on_home ) {
+        	if(!is_front_page()){
+		        $output .= $wrap_before . $home_link.$sep. __('Blog', 'maester') . $wrap_after;
+	        }else{
+		        $output .= $wrap_before . $home_link . $wrap_after;
+	        }
+        }
     } else {
         $position = 0;
         $output .= $wrap_before;

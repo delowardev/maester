@@ -47,7 +47,7 @@ if(!function_exists('maester_theme_options')){
                     'topbar_text' => array(
                         'selector'        => '.top-bar-description',
                         'render_callback' => function() {
-                            return ;
+                            return get_theme_mod('topbar_text');
                         },
                     )
                 ),
@@ -484,7 +484,7 @@ if(!function_exists('maester_theme_options')){
                 'settings' => 'footer_text',
                 'label'    => esc_html__( 'Footer Text', 'maester' ),
                 'section'  => 'maester_footer_options',
-                'default'  => esc_html__( '&copy; Maester, Developed by idea420', 'maester' ),
+                'default'  => sprintf("&copy; %s %s. ", date('Y') , get_bloginfo('name')),
                 'priority' => 10,
                 'partial_refresh'    => array(
                     'footer_text' => array(
@@ -495,6 +495,23 @@ if(!function_exists('maester_theme_options')){
                     )
                 ),
             ));
+            // @TODO: Must be add a remove copyright credit option in the next version.
+	        $copyright_credit = array(
+		        "credit_1" => "Built with Maester Lite WordPress Theme",
+		        "credit_2" => "Powered by Maester Lite by Feeha Themes",
+		        "credit_3" => "Proudly powered by WordPress | Theme: Maester Lite by Feeha Themes",
+		        "credit_4" => "A WordPress Website | Theme: Maester Lite by Feeha Themes",
+		        "credit_5" => "Theme: Maester Lite by Feeha Themes"
+	        );
+	        Kirki::add_field( $config_id, array(
+		        'type'        => 'select',
+		        'settings'    => 'footer_credit',
+		        'label'       => esc_html__( 'Copyright Credit', 'maester' ),
+		        'section'     => 'maester_footer_options',
+		        'default'     => 'credit_1',
+		        'priority'    => 10,
+		        'choices'     => $copyright_credit,
+	        ));
 
         }
     }

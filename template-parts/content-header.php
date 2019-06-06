@@ -44,6 +44,8 @@
                             'container'      => 'nav',
                             'container_class'=> 'responsive-menu top-bar-menu-container'
                         ));
+                    }else if(is_customize_preview()){
+	                    printf("%s Topbar menu is empty, Set topbar menu first %s", "<i>", "</i>");
                     }
                 ?>
             </div>

@@ -1,14 +1,21 @@
 /**
  * Button Styles
  */
+.woocommerce a.button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
 .woocommerce #respond input#submit,
 .woocommerce button.button,
 .woocommerce input.button,
 .woocommerce a.added_to_cart,
+.woocommerce a.add_to_cart_button,
+.woocommerce a.product_type_external,
+a.added_to_cart,
 .woocommerce div.product form.cart .button,
+.button:visited,
+.btn:visited,
 .button,
 .btn,
-button {
+button{
     font-family: Open Sans, 'Helvetica', 'Arial', sans-serif;
     transition: 0.1s linear;
     -webkit-transition: 0.1s linear;
@@ -58,37 +65,6 @@ button {
         text-transform: uppercase;
     }
 
-    &.loading{
-        color: transparent;
-        opacity: 1;
-        &::after{
-            color: var(--mr-heading-color);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            font-weight: 400;
-            line-height: 1;
-            vertical-align: -.125em;
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            line-height: inherit;
-            vertical-align: baseline;
-            content: "\f110";
-            -webkit-animation: fa-spin .5s linear infinite;
-            animation: fa-spin .5s linear infinite;
-            height: 20px;
-            width: 20px;
-            line-height: 20px;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-        }
-    }
     &.alt,
     &[name='update_cart']:not(:disabled),
     &[name='apply_coupon'],
@@ -112,6 +88,23 @@ button {
         }
     }
 
+	&.btn-success,
+	&.btn-success:visited {
+		background: var(--mr-success-color);
+		border-color: var(--mr-success-color);
+		color: #fff;
+		&::after{
+			color: #fff;
+		}
+		&.loading{
+			color: transparent;
+		}
+		&:hover,
+		&:active {
+			filter: brightness(.9);
+		}
+	}
+
 }
 
 input[type="submit"]{
@@ -126,3 +119,36 @@ input[type="submit"]{
 }
 
 // button healpers
+
+.loading{
+	color: transparent;
+	opacity: .5;
+	position: relative;
+	&::after{
+		color: var(--mr-heading-color);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 400;
+		line-height: 1;
+		vertical-align: -.125em;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		line-height: inherit;
+		vertical-align: baseline;
+		content: "\f110";
+		-webkit-animation: fa-spin .5s linear infinite;
+		animation: fa-spin .5s linear infinite;
+		height: 20px;
+		width: 20px;
+		line-height: 20px;
+		font-size: 20px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -10px;
+		margin-top: -10px;
+	}
+}

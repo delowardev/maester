@@ -289,6 +289,8 @@ a.remove {
   margin-top: 2.617924em;
 }
 
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order{
   display: block;
@@ -406,4 +408,8 @@ p.stars a:after,
 .woocommerce table.shop_table tfoot td,
 .woocommerce table.shop_table tfoot th{
   border: none;
+}
+#payment .payment_methods li:not(.woocommerce-notice):hover,
+#payment .payment_methods li:not(.woocommerce-notice){
+  background: transparent;
 }

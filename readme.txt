@@ -1,11 +1,11 @@
 === Maester ===
 
 Contributors: feehatheme
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: footer-widgets, blog, theme-options, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 5.1.1
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -13,7 +13,7 @@ A starter theme called Maester.
 
 == Description ==
 
-Description
+Maester Lite LMS theme is beautifully and logically designed for all kind of educational platforms. You can build any kind of eLearning platform using Maester Lite theme, it's an all-in-one WordPress LMS theme based on Tutor LMS Plugin to create & sell online courses. Maester Lite LMS theme is perfectly built for individual educators, schools, training institutes, coachinc centers and any other type of academises
 
 == Installation ==
 
