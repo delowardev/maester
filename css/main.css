@@ -578,6 +578,10 @@ ul.products li.product { text-align: center; }
 #feature-comparison .eael-data-table tbody tr .fa-check { color: var(--mr-success-color); }
 #feature-comparison .eael-data-table tbody tr .fa-times { color: var(--mr-error-color); }
 
+.tutor-container { width: 1140px; }
+
+.tutor-wrap.tutor-dashboard { padding: 60px 0; }
+
 
 
 /*# sourceMappingURL=main.css.map */

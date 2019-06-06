@@ -617,3 +617,14 @@
 			echo $output;
 		}
 	}
+
+	/**
+	 * Tutor Template Hooks
+	 */
+
+	function maester_tutor_breadcrumb(){
+		echo get_maester_breadcrumb();
+	}
+
+	add_action('tutor_course/single/before/wrap', 'maester_breadcrumbs', 10, 2);
+	add_action('tutor_course/single/enrolled/before/wrap', 'maester_breadcrumbs', 10, 2);
