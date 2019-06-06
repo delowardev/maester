@@ -1,7 +1,7 @@
 === Maester ===
 
 Contributors: feehatheme
-Tags: lms, tutor-lms, wordpress-lms, lms-theme, tutor, learnpress, learning-management-system, elearning, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: footer-widgets, blog, theme-options, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 5.1.1

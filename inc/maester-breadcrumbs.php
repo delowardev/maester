@@ -36,7 +36,7 @@ function get_maester_breadcrumb() {
     if ( is_home() || is_front_page() ) {
         if ( $show_on_home ) {
         	if(!is_front_page()){
-		        $output .= $wrap_before . $home_link.$sep. esc_html_x('Blog', 'maester') . $wrap_after;
+		        $output .= $wrap_before . $home_link.$sep. __('Blog', 'maester') . $wrap_after;
 	        }else{
 		        $output .= $wrap_before . $home_link . $wrap_after;
 	        }

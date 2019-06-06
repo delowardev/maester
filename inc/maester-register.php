@@ -4,7 +4,6 @@
 	get_template_part('inc/maester', 'login-forms');
 	get_template_part('inc/maester', 'breadcrumbs');
 	get_template_part('inc/maester', 'login');
-	get_template_part('inc/maester', 'shortcodes');
 	get_template_part('inc/maester', 'taxonomy');
 
 
@@ -119,7 +118,7 @@
 	                'force_deactivation'    => false
 	            ),
 	            array(
-	                'name'                  => esc_html__( 'Tutor LMS – eLearning and online course solution', 'maester' ),
+	                'name'                  => esc_html__( 'Tutor LMS', 'maester' ),
 	                'slug'                  => 'tutor',
 	                'required'              => true,
 	                'version'               => '',

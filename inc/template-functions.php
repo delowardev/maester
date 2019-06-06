@@ -177,7 +177,8 @@
 
 //add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
 	function maester_breadcrumbs(){
-		if(function_exists('get_maester_breadcrumb') && !empty(get_maester_breadcrumb())){ ?>
+		$get_breadcrumb = get_maester_breadcrumb();
+		if(function_exists('get_maester_breadcrumb') && !empty($get_breadcrumb)){ ?>
 			<div class="maester-breadcrumb-area">
 				<div class="container">
 					<div class="row">
@@ -550,7 +551,7 @@
 							if($post_thumbnail_id){
 								$image = wp_get_attachment_image($post_thumbnail_id, 'post-thumbnail');
 							}else{
-								$image = sprintf('<img alt="%s" src="' . get_template_directory_uri().'/img/course.jpg' . '" />', __('Placeholder', 'maester-toolkit'));
+								$image = sprintf('<img alt="%s" src="' . get_template_directory_uri().'/img/course.jpg' . '" />', __('Placeholder', 'maester'));
 							}
 
 							?>
@@ -567,7 +568,7 @@
 									<?php if($meta) { ?>
 										<ul class="maester-course-meta">
 											<li>
-												<strong><?php esc_html_e('By', 'maester-toolkit') ?> </strong>
+												<strong><?php esc_html_e('By', 'maester') ?> </strong>
 												<a href="<?php esc_url($profile_url); ?>"><?php the_author(); ?></a>
 											</li>
 											<li>
@@ -575,7 +576,7 @@
 													$category = get_tutor_course_categories();
 													if(!empty($category) && is_array($category ) && count($category)){
 														?>
-														<strong><?php esc_html_e('In', 'maester-toolkit') ?> </strong>
+														<strong><?php esc_html_e('In', 'maester') ?> </strong>
 														<?php
 														foreach ($category as $course_category){
 															$category_name = $course_category->name;
@@ -592,7 +593,7 @@
 											if($wishlist) {
 												$is_wishlisted = tutor_utils()->is_wishlisted(get_the_ID());
 												$wishlist_class = $is_wishlisted ? 'wishlisted' : '';
-												$bookmark_msg = $is_wishlisted ? __('Remove from bookmark', 'maester-toolkit') : __('Add to bookmark', 'maester-toolkit');
+												$bookmark_msg = $is_wishlisted ? __('Remove from bookmark', 'maester') : __('Add to bookmark', 'maester');
 												?>
 												<i data-course-id="<?php echo get_the_ID(); ?>" title="<?php echo esc_attr($bookmark_msg); ?>" class="<?php echo esc_attr($wishlist_class); ?> far fa-bookmark course-bookmark-icon"></i>
 												<?php
