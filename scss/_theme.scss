@@ -30,6 +30,11 @@ body{
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
     line-height: 1.857em;
+    --tutor-primary-color: var(--mr-major-color);
+    --tutor-primary-hover-color: var(--mr-major-color-hover);
+    --tutor-text-color: var(--mr-text-color);
+    --tutor-light-color: var(--mr-light-color);
+    --tutor-success-button-color: var(--mr-success-color);
 }
 
 p{
