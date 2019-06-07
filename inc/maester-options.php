@@ -47,7 +47,7 @@ if(!function_exists('maester_theme_options')){
                     'topbar_text' => array(
                         'selector'        => '.top-bar-description',
                         'render_callback' => function() {
-                            return ;
+                            return get_theme_mod('topbar_text');
                         },
                     )
                 ),

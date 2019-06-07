@@ -1,6 +1,6 @@
 {
   "name": "gulp-project",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0"

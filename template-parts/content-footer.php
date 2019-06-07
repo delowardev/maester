@@ -45,11 +45,11 @@
 	// @TODO: Must be add a remove copyright credit option in the next version.
 	$copyright_link_start = "<a href='https://wordpress.org/themes/maester-lite/' rel='author'>";
 	$copyright_credit = array(
-		"credit_1" => sprintf(__("Built with %s Maester Lite WordPress Theme %s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_2" => sprintf(__("Powered by %s Maester Lite by FeehaThemes %s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %s Maester Lite by FeehaThemes %s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_4" => sprintf(__("A WordPress Website | Theme: %s Maester Lite by FeehaThemes %s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_5" => sprintf(__("Theme: %s Maester Lite by FeehaThemes %s", 'maester'), $copyright_link_start, "</a>"),
+		"credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester'), $copyright_link_start, "</a>"),
+		"credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
+		"credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
+		"credit_4" => sprintf(__("A WordPress Website | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
+		"credit_5" => sprintf(__("Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
 	);
 
     if((!empty($maester_footer_text) || !empty($footer_credit) || has_nav_menu('menu-3')) && $maester_enable_footer_bottom) :

@@ -77,7 +77,7 @@
 
 	function jt_edit_term_columns( $columns ) {
 
-		$columns['color'] = __( 'Color', 'jt' );
+		$columns['color'] = __( 'Color', 'maester' );
 
 		return $columns;
 	}
