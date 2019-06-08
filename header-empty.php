@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * The header for our theme
+	 * The Empty header for our theme
 	 *
 	 * This is the template that displays all of the <head> section and everything up until <div id="content">
 	 *
@@ -23,18 +23,4 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'maester' ); ?></a>
-
-
-	<?php
-		do_action('maester_before_header_hook');
-	?>
-
-	<header id="masthead" class="site-header">
-		<?php get_template_part( 'template-parts/content', 'header' ); ?>
-	</header><!-- #masthead -->
-
-	<?php
-		do_action('maester_after_header_hook');
-	?>
-
 
