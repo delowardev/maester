@@ -8,6 +8,7 @@
         openSearchPopup();
         mobileMenu();
         mobileMenuToggle();
+        generalScripts();
     });
 
     jQuery(window).on('resize', mobileMenu);
@@ -107,6 +108,16 @@
         if($.fn.niceSelect()){
             $('select').niceSelect();
         }
+    }
+
+    /**
+     * General Scripts - Since 1.0.4
+     */
+    function  generalScripts() {
+        $(document).on('click', 'a.maester-notice-dismiss', function (e) {
+            e.preventDefault();
+            $(this).closest('.maester-site-notice').fadeOut(100);
+        });
     }
 
 

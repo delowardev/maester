@@ -629,3 +629,20 @@
 
 	add_action('tutor_course/single/before/wrap', 'maester_breadcrumbs', 10, 2);
 	add_action('tutor_course/single/enrolled/before/wrap', 'maester_breadcrumbs', 10, 2);
+
+
+	/**
+	 * Showing Notice
+	 */
+
+
+	function maester_site_notice(){
+		$maester_enable_notice = get_theme_mod('maester_enable_notice', false);
+		$maester_notice_text = get_theme_mod('maester_notice_text', 'Notice text here');
+		if($maester_enable_notice){
+			?>
+				<p class="maester-site-notice"><i class="fas fa-exclamation-circle"></i> <?php echo esc_html($maester_notice_text) ?> <a href="#" class="maester-notice-dismiss"><i class="fas fa-times-circle"></i> <?php _e('Dissmis', 'maester') ?></a></p>
+			<?php
+		}
+	}
+	add_action('maester_after_footer_hook', 'maester_site_notice');

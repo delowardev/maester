@@ -513,6 +513,36 @@ if(!function_exists('maester_theme_options')){
 		        'choices'     => $copyright_credit,
 	        ));
 
+
+	        /**
+	         * Notice Panel
+	         */
+
+	        Kirki::add_section( 'maester_notice_options', array(
+		        'title'          => esc_html__( 'Notice', 'maester' ),
+		        'panel'          => 'maester_options_panel',
+		        'priority'       => 160,
+	        ) );
+
+
+	        Kirki::add_field( $config_id, array(
+		        'type'        => 'toggle',
+		        'settings'    => 'maester_enable_notice',
+		        'label'       => esc_html__( 'Enable Single Blog Date', 'maester' ),
+		        'section'     => 'maester_notice_options',
+		        'default'     => '0',
+		        'priority'    => 10,
+	        ) );
+
+	        Kirki::add_field( $config_id, [
+		        'type'     => 'text',
+		        'settings' => 'maester_notice_text',
+		        'label'    => esc_html__( 'Notice text', 'maester' ),
+		        'section'  => 'maester_notice_options',
+		        'default'  => esc_html__( 'Notice text here', 'maester' ),
+		        'priority' => 10,
+	        ] );
+
         }
     }
 }
