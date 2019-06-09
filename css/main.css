@@ -584,6 +584,8 @@ ul.products li.product { text-align: center; }
 
 .tutor-wrap.tutor-full-width-course-top { padding-bottom: 60px; }
 
+.single-courses .tutor-wrap .maester-breadcrumb-area { display: none; }
+
 .maester-site-notice { position: fixed; left: 0; bottom: 0px; right: 0; margin: 0; padding: 15px 20px; background-color: var(--mr-info-color); color: #fff; z-index: 9999; font-size: 16px; }
 .maester-site-notice a.maester-notice-dismiss { float: right; padding: 15px 20px; margin: -15px -20px; background: rgba(0, 0, 0, 0.1); color: #fff; }
 .maester-site-notice i { font-size: 14px; margin-right: 4px; }

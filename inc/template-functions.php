@@ -603,7 +603,7 @@
 									</h3>
 									<?php
 										if($price){
-											maester_toolkit_course_loop_price();
+											maester_course_loop_price();
 										}
 									?>
 								</div>
@@ -646,3 +646,28 @@
 		}
 	}
 	add_action('maester_after_footer_hook', 'maester_site_notice');
+
+
+	/**
+	 * Get Copyright Credits
+	 * @param bool $strip_tags
+	 * @return array|mixed|void
+	 * @Since 1.0.4
+	 */
+
+	function maester_get_copyright_credits($strip_tags = false){
+		$copyright_link = apply_filters('maester_copyright_link', "https://wordpress.org/themes/maester-lite/");
+		$credits = apply_filters('maester_copyright_credits', array(
+			"credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
+			"credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
+			"credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
+			"credit_4" => sprintf(__("A WordPress Website | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
+			"credit_5" => sprintf(__("Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
+		));
+		if($strip_tags == true){
+			$credits = array_map( function($item){
+				return strip_tags($item);
+			}, $credits);
+		}
+		return $credits;
+	}

@@ -41,17 +41,7 @@
 <?php
     $maester_footer_text = get_theme_mod('footer_text', sprintf("&copy; %s %s. ", date('Y') , get_bloginfo('name')) );
 	$footer_credit = get_theme_mod('footer_credit', "credit_1");
-
-	// @TODO: Must be add a remove copyright credit option in the next version.
-	$copyright_link_start = "<a href='https://wordpress.org/themes/maester-lite/' rel='author'>";
-	$copyright_credit = array(
-		"credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_4" => sprintf(__("A WordPress Website | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
-		"credit_5" => sprintf(__("Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), $copyright_link_start, "</a>"),
-	);
-
+	$copyright_credit = maester_get_copyright_credits();
     if((!empty($maester_footer_text) || !empty($footer_credit) || has_nav_menu('menu-3')) && $maester_enable_footer_bottom) :
 ?>
 
@@ -67,7 +57,7 @@
                                 echo esc_html($maester_footer_text). " ";
                             }
 
-                            echo $copyright_credit[$footer_credit];
+                            echo "none" != $footer_credit ? $copyright_credit[$footer_credit] : '';
 
                         ?>
                     </p>

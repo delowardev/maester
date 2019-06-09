@@ -6,6 +6,7 @@ if(!function_exists('maester_theme_options')){
     function maester_theme_options () {
         $config_id = 'maester_options';
         if(class_exists('Kirki')){
+
             Kirki::add_config( $config_id, array(
                 'capability'    => 'edit_theme_options',
                 'option_type'   => 'theme_mod'
@@ -106,6 +107,8 @@ if(!function_exists('maester_theme_options')){
                     )
                 )
             ) );
+
+	        do_action('optons/maester_topbar_options', $config_id);
 
 
             /**
@@ -239,6 +242,8 @@ if(!function_exists('maester_theme_options')){
                 )
             ) );
 
+	        do_action('optons/maester_header_options', $config_id);
+
             /**
              * Blog Options
              */
@@ -331,6 +336,8 @@ if(!function_exists('maester_theme_options')){
                 'priority'    => 10,
             ) );
 
+	        do_action('optons/maester_blog_options', $config_id);
+
 
             /**
              * Single Blog Options
@@ -408,6 +415,8 @@ if(!function_exists('maester_theme_options')){
                 'priority'    => 10,
             ) );
 
+	        do_action('optons/maester_single_blog_options', $config_id);
+
             /**
              * Sidebar Options
              */
@@ -454,6 +463,8 @@ if(!function_exists('maester_theme_options')){
                 'priority'    => 10,
             ));
 
+	        do_action('optons/maester_sidebar_options', $config_id);
+
             /**
              * Footer Options
              */
@@ -495,14 +506,7 @@ if(!function_exists('maester_theme_options')){
                     )
                 ),
             ));
-            // @TODO: Must be add a remove copyright credit option in the next version.
-	        $copyright_credit = array(
-		        "credit_1" => "Built with Maester Lite WordPress Theme",
-		        "credit_2" => "Powered by Maester Lite by Feeha Themes",
-		        "credit_3" => "Proudly powered by WordPress | Theme: Maester Lite by Feeha Themes",
-		        "credit_4" => "A WordPress Website | Theme: Maester Lite by Feeha Themes",
-		        "credit_5" => "Theme: Maester Lite by Feeha Themes"
-	        );
+
 	        Kirki::add_field( $config_id, array(
 		        'type'        => 'select',
 		        'settings'    => 'footer_credit',
@@ -510,8 +514,10 @@ if(!function_exists('maester_theme_options')){
 		        'section'     => 'maester_footer_options',
 		        'default'     => 'credit_1',
 		        'priority'    => 10,
-		        'choices'     => $copyright_credit,
+		        'choices'     => maester_get_copyright_credits(true),
 	        ));
+
+	        do_action('optons/maester_footer_options', $config_id);
 
 
 	        /**
@@ -542,6 +548,8 @@ if(!function_exists('maester_theme_options')){
 		        'default'  => esc_html__( 'Notice text here', 'maester' ),
 		        'priority' => 10,
 	        ] );
+
+	        do_action('optons/maester_notice_options', $config_id);
 
         }
     }

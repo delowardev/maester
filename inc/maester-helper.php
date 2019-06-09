@@ -93,3 +93,36 @@ function maester_get_post_lists($post_type = 'post'){
 	wp_reset_query();
 	return $post_list;
 }
+
+
+
+	/**
+	 * Get formatted price with cart form
+	 */
+
+	if ( ! function_exists('maester_course_loop_price')) {
+		function maester_course_loop_price() {
+			ob_start();
+
+			$course_id = get_the_ID();
+			$enroll_btn = '<a class="button" href="'. get_the_permalink(). '">'.__('Get Enrolled', 'maester-toolkit'). '</a>';
+			$price_html = '<div class="price"><span>'.__('Free', 'maester-toolkit').'</span>'.$enroll_btn. '</div>';
+			$tutor_course_sell_by = apply_filters('tutor_course_sell_by', null);
+			if(tutor_utils()->is_course_purchasable()){
+				$enroll_btn = tutor_course_loop_add_to_cart(false);
+				if('woocommerce' == $tutor_course_sell_by){
+					$product_id = tutor_utils()->get_course_product_id($course_id);
+					$product    = wc_get_product( $product_id );
+					if($product){
+						$price_html = '<div class="price"> '.$product->get_price_html().$enroll_btn.' </div>';
+					}
+				}else{
+					$price_html = '<div class="price"> '.$enroll_btn.' </div>';
+				}
+			}
+
+			echo $price_html;
+			$output = ob_get_clean();
+			echo $output;
+		}
+	}

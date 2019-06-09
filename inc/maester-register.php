@@ -108,31 +108,31 @@
 
 	if(!function_exists('maester_plugins_include')){
 	    function maester_plugins_include() {
-	        $plugins = array(
-	            array(
-	                'name'                  => esc_html__( 'Elementor', 'maester' ),
-	                'slug'                  => 'elementor',
-	                'required'              => true,
-	                'version'               => '',
-	                'force_activation'      => false,
-	                'force_deactivation'    => false
-	            ),
-	            array(
-	                'name'                  => esc_html__( 'Tutor LMS', 'maester' ),
-	                'slug'                  => 'tutor',
-	                'required'              => true,
-	                'version'               => '',
-	                'force_activation'      => false,
-	                'force_deactivation'    => false
-	            ),
-	            array(
-	                'name'                  => esc_html__( 'Kirki Toolkit', 'maester' ),
-	                'slug'                  => 'kirki',
-	                'required'              => true,
-	                'version'               => '',
-	                'force_activation'      => false,
-	                'force_deactivation'    => false
-	            ),
+	        $plugins = apply_filters('maester_plugin_include', array(
+		        array(
+			        'name'                  => esc_html__( 'Elementor', 'maester' ),
+			        'slug'                  => 'elementor',
+			        'required'              => true,
+			        'version'               => '',
+			        'force_activation'      => false,
+			        'force_deactivation'    => false
+		        ),
+		        array(
+			        'name'                  => esc_html__( 'Tutor LMS', 'maester' ),
+			        'slug'                  => 'tutor',
+			        'required'              => true,
+			        'version'               => '',
+			        'force_activation'      => false,
+			        'force_deactivation'    => false
+		        ),
+		        array(
+			        'name'                  => esc_html__( 'Kirki Toolkit', 'maester' ),
+			        'slug'                  => 'kirki',
+			        'required'              => true,
+			        'version'               => '',
+			        'force_activation'      => false,
+			        'force_deactivation'    => false
+		        ),
 		        array(
 			        'name'                  => esc_html__( 'Maester Toolkit', 'maester' ),
 			        'slug'                  => 'maester-toolkit',
@@ -142,7 +142,7 @@
 			        'force_activation'      => false,
 			        'force_deactivation'    => false
 		        )
-	        );
+	        ));
 	        $config = array(
 	            'domain'            => 'maester',
 	            'default_path'      => '',
