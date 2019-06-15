@@ -105,8 +105,8 @@ function maester_get_post_lists($post_type = 'post'){
 			ob_start();
 
 			$course_id = get_the_ID();
-			$enroll_btn = '<a class="button" href="'. get_the_permalink(). '">'.__('Get Enrolled', 'maester-toolkit'). '</a>';
-			$price_html = '<div class="price"><span>'.__('Free', 'maester-toolkit').'</span>'.$enroll_btn. '</div>';
+			$enroll_btn = '<a class="button" href="'. get_the_permalink(). '">'.__('Get Enrolled', 'maester'). '</a>';
+			$price_html = '<div class="price"><span>'.__('Free', 'maester').'</span>'.$enroll_btn. '</div>';
 			$tutor_course_sell_by = apply_filters('tutor_course_sell_by', null);
 			if(tutor_utils()->is_course_purchasable()){
 				$enroll_btn = tutor_course_loop_add_to_cart(false);

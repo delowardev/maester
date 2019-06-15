@@ -5,7 +5,7 @@ Tags: footer-widgets, blog, theme-options, custom-background, custom-logo, custo
 
 Requires at least: 4.5
 Tested up to: 5.1.1
-Stable tag: 1.0.2
+Stable tag: 1.0.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -29,8 +29,18 @@ Maester includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - 07 March 2019 =
+= 1.0.0 - 07 March 2019 =
 * Initial release
+
+= 1.0.4 - 07 March 2019 =
+* Minor Bug Fixed
+* New empty/blank page template added
+* Notice option added
+
+
+== Development ==
+
+We've used node js (check package.json) to compile SCSS to CSS, you can use this for development purpose.
 
 == Credits ==
 
