@@ -28,7 +28,7 @@
 	function maester_new_term_color_field() {
 		wp_nonce_field( basename( __FILE__ ), 'maester_term_color_nonce' ); ?>
 		<div class="form-field maester-term-color-wrap">
-			<label for="maester-term-color"><?php _e( 'Color', 'maester' ); ?></label>
+			<label for="maester-term-color"><?php esc_html_e( 'Color', 'maester' ); ?></label>
 			<input type="text" name="maester_term_color" id="maester-term-color" class="maester_colorpicker" value="<?php printf('#%06X', mt_rand(0, 0xFFFFFF)) ?>" data-default-color="" />
 		</div>
 	<?php }
@@ -45,7 +45,7 @@
 		?>
 
 		<tr class="form-field maester-term-color-wrap">
-			<th scope="row"><label for="maester-term-color"><?php _e( 'Color', 'maester' ); ?></label></th>
+			<th scope="row"><label for="maester-term-color"><?php esc_html_e( 'Color', 'maester' ); ?></label></th>
 			<td>
 				<?php wp_nonce_field( basename( __FILE__ ), 'maester_term_color_nonce' ); ?>
 				<input type="text" name="maester_term_color" id="maester-term-color"  class="maester_colorpicker" value="<?php echo esc_attr( $color ); ?>" data-default-color="<?php echo esc_attr( $default ); ?>" />

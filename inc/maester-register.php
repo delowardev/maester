@@ -23,15 +23,15 @@
 	        }
 
 	        // Maester Styles
-	        wp_enqueue_style('maester-nice-select', MAESTER_CSS. '/nice-select.css', array(), '1.0.0');
-	        wp_enqueue_style('maester-bootstrap', MAESTER_CSS. '/bootstrap-grid.min.css', array(), '4.3.1');
+	        wp_enqueue_style('maester-nice-select', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css', array(), '1.0.0');
+	        wp_enqueue_style('maester-bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array(), '4.3.1');
 	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700,700i', array());
 	        wp_enqueue_style('maester-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '5.8.1');
 
 	        //Maester JS
 	        wp_enqueue_script( 'maester-main-js', MAESTER_JS . '/main.js', array('jquery'), '1.0.0', true );
-	        wp_enqueue_script( 'maester-nice-select-js', MAESTER_JS . '/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
+	        wp_enqueue_script( 'maester-nice-select-js', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
 
 	    }
 	    add_action( 'wp_enqueue_scripts', 'maester_scripts' );
@@ -136,7 +136,6 @@
 		        array(
 			        'name'                  => esc_html__( 'Maester Toolkit', 'maester' ),
 			        'slug'                  => 'maester-toolkit',
-			        'source'                  => 'https://feeha.net/plugins/packages/maester-toolkit.zip',
 			        'required'              => true,
 			        'version'               => '',
 			        'force_activation'      => false,

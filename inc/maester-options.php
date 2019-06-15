@@ -510,7 +510,7 @@ if(!function_exists('maester_theme_options')){
 	        Kirki::add_field( $config_id, array(
 		        'type'        => 'select',
 		        'settings'    => 'footer_credit',
-		        'label'       => esc_html__( 'Copyright Credit', 'maester' ),
+		        'label'       => esc_html__( 'Developer Credit', 'maester' ),
 		        'section'     => 'maester_footer_options',
 		        'default'     => 'credit_1',
 		        'priority'    => 10,

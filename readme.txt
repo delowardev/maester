@@ -35,5 +35,8 @@ Maester includes support for Infinite Scroll in Jetpack.
 == Credits ==
 
 * Based on feehatheme https://feeha.net/, (C) 2012-2017 FeehaTheme, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* Based on feehatheme https://feeha.net/, (C) 2012-2017 FeehaTheme, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+* normalize.css: https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+* Photos: All images are from unsplash.com, [Unsplash License](https://unsplash.com/license)
+* Twitter Bootstrap: (https://getbootstrap.com/) [MIT License](https://opensource.org/licenses/MIT)
+* FontAwesome Free: All code under MIT License, Fonts under SIL OFL 1.1 License & Icon under CC BY 4.0 License [Read more](https://fontawesome.com/license/free)
+* jQuery Nice Select: https://github.com/hernansartorio/jquery-nice-select , [MIT](https://opensource.org/licenses/MIT)

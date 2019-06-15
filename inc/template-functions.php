@@ -166,8 +166,8 @@
 		<form action='<?php esc_url(home_url()); ?>' id='maester-popup-search-form' style='display: none;'>
 			<div class='maester-popup-search-overlay'></div>
 			<div class='maester-pupup-search-inner'>
-				<input type='search' name='s' placeholder='<?php _e('Search anything...', 'maester'); ?>'>
-				<input type='submit' value='<?php _e('Search', 'maester'); ?>'>
+				<input type='search' name='s' placeholder='<?php esc_html_e('Search anything...', 'maester'); ?>'>
+				<input type='submit' value='<?php esc_html_e('Search', 'maester'); ?>'>
 			</div>
 		</form>
 		<?php
