@@ -106,7 +106,7 @@
                                 'container'      => 'nav',
                                 'container_class'=> 'responsive-menu primary-menu-container'
                             ));
-                        }else{
+                        }else if(is_user_logged_in()){
                             printf("%s Primary menu is empty, Click here to assign %s", "<a href='".admin_url('nav-menus.php')."'><i>", "</i></a>");
                         }
 

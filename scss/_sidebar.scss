@@ -33,11 +33,15 @@ aside.widget-area{
     width: 100%;
     display: block;
   }
-  ul{
+  ul {
     padding-left: 0;
-    ul{
+
+    ul {
       padding-left: 10px;
     }
+  }
+  a{
+    overflow-wrap: break-word;
   }
 }
 

@@ -134,8 +134,8 @@ aside.widget-area .widget::after { content: ''; display: block; clear: both; }
 .woocommerce ul.products li.product .added_to_cart { margin-left: 4px; }
 
 table { background: #fff; border: none; border-collapse: collapse; }
-table tr th { background: #f8f8f8; border: none; }
-table tr td { background: #fdfdfd; border: none; }
+table tr th { background: #f8f8f8; border: none; padding: 10px; }
+table tr td { background: #fdfdfd; border: none; padding: 10px; }
 table tr:nth-child(even) td { background: #fff; }
 
 /** Button Styles */
@@ -161,7 +161,7 @@ input[type="submit"]:active, input[type="submit"]:hover { background: var(--mr-m
 .loading::after { color: var(--mr-heading-color); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: inline-block; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1; vertical-align: -.125em; font-family: 'Font Awesome 5 Free'; font-weight: 900; line-height: inherit; vertical-align: baseline; content: "\f110"; -webkit-animation: fa-spin .5s linear infinite; animation: fa-spin .5s linear infinite; height: 20px; width: 20px; line-height: 20px; font-size: 20px; position: absolute; top: 50%; left: 50%; margin-left: -10px; margin-top: -10px; }
 
 article.post-listing { background: #fff; border-radius: 4px; overflow: hidden; margin: 0; }
-article.post-listing .post-image { height: 192px; overflow: hidden; position: relative; text-indent: -99999px; }
+article.post-listing .post-image { height: 192px; overflow: hidden; position: relative; text-indent: -99999px; background-size: cover; background-position: center center; }
 article.post-listing .post-image a { width: 100%; height: 100%; top: 0; left: 0; position: absolute; }
 
 .article-search { border-bottom: 1px solid var(--mr-border-color); margin-bottom: 0; }
@@ -385,6 +385,7 @@ aside.widget-area .search-submit { margin-top: 15px; display: none; }
 aside.widget-area input[type="search"] { width: 100%; display: block; }
 aside.widget-area ul { padding-left: 0; }
 aside.widget-area ul ul { padding-left: 10px; }
+aside.widget-area a { overflow-wrap: break-word; }
 
 table#wp-calendar { border-collapse: collapse; text-align: center; }
 

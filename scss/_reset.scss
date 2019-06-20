@@ -251,10 +251,12 @@ table{
         th{
             background: #f8f8f8;
             border: none;
+            padding: 10px;
         }
         td{
             background: #fdfdfd;
             border: none;
+            padding: 10px;
         }
         &:nth-child(even) td{
             background: #fff;
