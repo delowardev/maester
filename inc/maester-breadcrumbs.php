@@ -3,7 +3,7 @@
  * Breadcrumbs Functions
  */
 
-function get_maester_breadcrumb() {
+function maester_get_breadcrumb() {
 
     /* === OPTIONS === */
     $text['home']     = '<i class="fas fa-home"></i> '. __(' Home', 'maester'); // text for the 'Home' link

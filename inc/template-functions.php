@@ -98,7 +98,7 @@
 	 * Menubar Right Icons
 	 */
 
-	function menubar_right_icons(){
+	function maester_menubar_right_icons(){
 		global $wp;
 		$enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
 		$enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);
@@ -153,7 +153,7 @@
 		<?php
 	}
 
-	add_action('maester_menubar_item_hook', 'menubar_right_icons');
+	add_action('maester_menubar_item_hook', 'maester_menubar_right_icons');
 
 
 	/**
@@ -177,14 +177,14 @@
 
 //add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
 	function maester_breadcrumbs(){
-		$get_breadcrumb = get_maester_breadcrumb();
-		if(function_exists('get_maester_breadcrumb') && !empty($get_breadcrumb)){ ?>
+		$get_breadcrumb = maester_get_breadcrumb();
+		if(function_exists('maester_get_breadcrumb') && !empty($get_breadcrumb)){ ?>
 			<div class="maester-breadcrumb-area">
 				<div class="container">
 					<div class="row">
 						<div class="col">
 							<?php
-								echo get_maester_breadcrumb();
+								echo maester_get_breadcrumb();
 							?>
 						</div>
 					</div>
@@ -624,7 +624,7 @@
 	 */
 
 	function maester_tutor_breadcrumb(){
-		echo get_maester_breadcrumb();
+		echo maester_get_breadcrumb();
 	}
 
 	add_action('tutor_course/single/before/wrap', 'maester_breadcrumbs', 10, 2);
