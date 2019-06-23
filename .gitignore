@@ -5,4 +5,4 @@
 package-lock.json
 node_modules
 slnx.sqlite
-.vs
+.vscode

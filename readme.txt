@@ -22,7 +22,6 @@ Maester LMS theme is beautifully and logically designed for all kind of educatio
 == Copyright  ==
 
 * This theme is licensed under the GPL. Use it to make something cool, have fun, and share what you've learned with others. Maester Lite is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-* Images License: All images are from unsplash, https://unsplash.com/license
 * Twitter Bootstrap: https://getbootstrap.com (C) 2019, MIT
 * FontAwesome Free: All code under MIT License, Fonts under SIL OFL 1.1 License & Icon under CC BY 4.0 License
 * jQuery Nice Select: https://github.com/hernansartorio/jquery-nice-select , MIT

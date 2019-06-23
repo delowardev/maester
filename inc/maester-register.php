@@ -25,7 +25,7 @@
 	        // Maester Styles
 	        wp_enqueue_style('maester-nice-select', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array(), '4.3.1');
-	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.css', array(), '1.0.0');
+	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.min.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700,700i', array());
 	        wp_enqueue_style('maester-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '5.8.1');
 

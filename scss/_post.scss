@@ -97,6 +97,9 @@ article.post-listing{
     color: var(--mr-text-color);
     font-weight: 600;
     text-decoration: underline;
+    &:hover{
+      color: var(--mr-major-color)
+    }
   }
 }
 

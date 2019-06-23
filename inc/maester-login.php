@@ -1,7 +1,6 @@
 <?php
 
 
-
 /**
  * Ajax Login
  */
