@@ -75,11 +75,11 @@ p {
 
 blockquote {
   border-left: 4px solid #000;
-  padding: 0 0 0 18px;
+  padding: 10px 0 0 18px;
   margin-bottom: 20px;
-}
-blockquote p {
-  font-style: italic;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: .9;
 }
 blockquote cite {
   font-weight: 600;
@@ -2099,7 +2099,6 @@ header.site-header {
 
 .top-bar {
   background: #fafafa;
-  color: var(--mr-light-color);
   font-size: 14px;
   border-bottom: 1px solid var(--mr-border-color);
 }
@@ -2368,7 +2367,6 @@ button.menu-toggle {
   display: inline-block;
 }
 #top-bar-menu li a {
-  color: var(--mr-light-color);
   font-weight: 400;
   padding: 10px 5px;
   display: block;

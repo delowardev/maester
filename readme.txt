@@ -28,6 +28,12 @@ Maester LMS theme is beautifully and logically designed for all kind of educatio
 
 == Changelog ==
 
+= 1.0.6 =
+* Minor Bug Fixed
+* Readme updated
+* wp_body_open function called
+* Typography updated
+
 = 1.0.5 =
 * Minor Bug Fixed
 * Readme updated

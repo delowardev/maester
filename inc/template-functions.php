@@ -53,6 +53,19 @@ function maester_custom_excerpt( $content_str, $length = 150, $echo = true ) {
     return substr(strip_tags($content_str), 0, $length).'...';
 }
 
+/**
+ * Filter the except length to 150 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function maester_custom_excerpt_length( $length ) {
+    $maester_excerpt_lenght = get_theme_mod('maester_excerpt_length', 25);
+    return $maester_excerpt_lenght;
+}
+
+add_filter( 'excerpt_length', 'maester_custom_excerpt_length', 999 );
+
 
 
 /**
