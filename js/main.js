@@ -2,7 +2,6 @@
     'use strict';
 
     jQuery(document).ready(function() {
-        openUserModal();
         jqueryPlugins();
         maesterTabs();
         openSearchPopup();
@@ -43,26 +42,6 @@
             $('#'+menuId).slideToggle();
         });
 
-    }
-
-
-
-    /**
-     * User Modal - Since: 1.0.0
-     */
-    function openUserModal() {
-        $('a[href="#open_user_modal"]').on('click', function(e) {
-            e.preventDefault();
-            $('#open-user-modal').fadeIn();
-        });
-        $('.user-modal-overlay').on('click', function () {
-            $('#open-user-modal').fadeOut();
-        });
-        $(document).keyup(function(e) {
-            if (e.key === "Escape") {
-                $('#open-user-modal').fadeOut();
-            }
-        });
     }
 
     function openSearchPopup(){

@@ -92,6 +92,10 @@
         </div>
     </div>
 </div>
+<?php
+    $maester_en_menubar = get_theme_mod('maester_en_menubar', true);
+    if($maester_en_menubar) {
+?>
 <div class="header-menu-bar">
     <div class="container">
         <div class="row align-items-center">
@@ -119,3 +123,4 @@
         </div>
     </div>
 </div>
+<?php } ?>

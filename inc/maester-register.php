@@ -1,10 +1,7 @@
 <?php
 
 
-	get_template_part('inc/maester', 'login-forms');
 	get_template_part('inc/maester', 'breadcrumbs');
-	get_template_part('inc/maester', 'login');
-	get_template_part('inc/maester', 'taxonomy');
 
 
 

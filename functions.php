@@ -124,12 +124,6 @@ if ( ! isset( $content_width ) ) $content_width = 1170;
 require get_template_directory() . '/inc/maester-helper.php';
 
 /**
- * Theme Options.
- */
-
-require get_template_directory() . '/inc/maester-options.php';
-
-/**
  * Enqueue scripts and styles.
  */
 require get_template_directory() . '/inc/maester-register.php';
