@@ -47,11 +47,11 @@ header.site-header{
         line-height: 16px;
     }
 }
-.custom-search-form,
-.site-branding,
-.secondary-menu-container > ul{
-    margin-top: 15px !important;
-}
+//.custom-search-form,
+//.site-branding,
+//.secondary-menu-container > ul{
+//    margin-top: 15px !important;
+//}
 
 
 /**
@@ -141,10 +141,15 @@ header.site-header{
  * Header Main
  */
 
+.header-menu-bar,
 .header-main{
-    padding-top: 15px;
-    padding-bottom: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    + .header-menu-bar{
+        padding-top: 0;
+    }
 }
+
 
 
 /**

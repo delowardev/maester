@@ -2128,12 +2128,6 @@ header.site-header {
   line-height: 16px;
 }
 
-.custom-search-form,
-.site-branding,
-.secondary-menu-container > ul {
-  margin-top: 15px !important;
-}
-
 /**
  * custom-search-form
  */
@@ -2215,9 +2209,14 @@ header.site-header {
 /**
  * Header Main
  */
+.header-menu-bar,
 .header-main {
-  padding-top: 15px;
-  padding-bottom: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.header-menu-bar + .header-menu-bar,
+.header-main + .header-menu-bar {
+  padding-top: 0;
 }
 
 /**
@@ -2396,7 +2395,7 @@ button.menu-toggle {
 }
 #secondary-menu > li > a,
 #primary-menu > li > a {
-  padding: 28px 10px;
+  padding: 8px 10px;
   display: inline-block;
 }
 #secondary-menu > li > a:hover,
@@ -2438,7 +2437,7 @@ button.menu-toggle {
 .header-right-menu > li > a,
 .header-right-menu > li > .cart-menu-parent {
   text-decoration: none;
-  padding: 28px 6px;
+  padding: 8px 6px;
 }
 .header-right-menu > li.header-cart-menu a span:last-child:not(:first-child) {
   font-size: 11px;
