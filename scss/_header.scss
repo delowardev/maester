@@ -47,11 +47,13 @@ header.site-header{
         line-height: 16px;
     }
 }
-//.custom-search-form,
-//.site-branding,
-//.secondary-menu-container > ul{
-//    margin-top: 15px !important;
-//}
+.custom-search-form,
+.site-branding,
+.secondary-menu-container > ul{
+    @media (max-width: 991px) {
+        margin-top: 15px !important;
+    }
+}
 
 
 /**
