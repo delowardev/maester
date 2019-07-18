@@ -8,6 +8,8 @@ article.post-listing{
     overflow: hidden;
     position: relative;
     text-indent: -99999px;
+    background-size: cover;
+    background-position: center center;
     a{
       width: 100%;
       height: 100%;
@@ -95,6 +97,9 @@ article.post-listing{
     color: var(--mr-text-color);
     font-weight: 600;
     text-decoration: underline;
+    &:hover{
+      color: var(--mr-major-color)
+    }
   }
 }
 

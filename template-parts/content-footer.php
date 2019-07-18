@@ -40,9 +40,9 @@
 
 <?php
     $maester_footer_text = get_theme_mod('footer_text', sprintf("&copy; %s %s. ", date('Y') , get_bloginfo('name')) );
-	$footer_credit = get_theme_mod('footer_credit', "credit_1");
-	$copyright_credit = maester_get_copyright_credits();
-    if((!empty($maester_footer_text) || !empty($footer_credit) || has_nav_menu('menu-3')) && $maester_enable_footer_bottom) :
+	$maester_footer_credit = get_theme_mod('footer_credit', "credit_1");
+	$maester_copyright_credit = maester_get_copyright_credits();
+    if((!empty($maester_footer_text) || !empty($maester_footer_credit) || has_nav_menu('menu-3')) && $maester_enable_footer_bottom) :
 ?>
 
 <div class="footer-main">
@@ -57,7 +57,7 @@
                                 echo esc_html($maester_footer_text). " ";
                             }
 
-                            echo "none" != $footer_credit ? $copyright_credit[$footer_credit] : '';
+                            echo "none" != $maester_footer_credit ? $maester_copyright_credit[$maester_footer_credit] : '';
 
                         ?>
                     </p>

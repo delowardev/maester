@@ -8,14 +8,14 @@
  */
 
 get_header();
-$enable_archive_sidebar = get_theme_mod('enable_archive_sidebar', true);
-$post_column_count = get_theme_mod('post_column_count', '6');
+$maester_enable_archive_sidebar = get_theme_mod('enable_archive_sidebar', true);
+$maester_post_column_count = get_theme_mod('post_column_count', '6');
 maester_breadcrumbs();
 ?>
     <div id="content" class="site-content">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-<?php echo esc_attr($enable_archive_sidebar ? 8 : 12); ?>">
+                <div class="col-12 col-lg-<?php echo esc_attr($maester_enable_archive_sidebar ? 8 : 12); ?>">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
 
@@ -39,7 +39,7 @@ maester_breadcrumbs();
                                      * If you want to override this in a child theme, then include a file
                                      * called content-___.php (where ___ is the Post Type name) and that will be used instead.
                                      */
-                                    printf("<div class='col-md-%s post-column'>", esc_attr($post_column_count));
+                                    printf("<div class='col-md-%s post-column'>", esc_attr($maester_post_column_count));
                                     get_template_part( 'template-parts/content', get_post_type() );
                                     printf("</div>"); // .col-md-*
 
@@ -59,7 +59,7 @@ maester_breadcrumbs();
                     </div><!-- #primary -->
                 </div><!-- .col-md-* -->
                 <div class="col-lg-4">
-                    <?php if($enable_archive_sidebar) get_sidebar(); ?>
+                    <?php if($maester_enable_archive_sidebar) get_sidebar(); ?>
                 </div><!-- .col-md-* -->
             </div><!-- .row -->
         </div><!-- .container -->

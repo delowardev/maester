@@ -1,10 +1,7 @@
 <?php
 
 
-	get_template_part('inc/maester', 'login-forms');
 	get_template_part('inc/maester', 'breadcrumbs');
-	get_template_part('inc/maester', 'login');
-	get_template_part('inc/maester', 'taxonomy');
 
 
 
@@ -25,7 +22,7 @@
 	        // Maester Styles
 	        wp_enqueue_style('maester-nice-select', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array(), '4.3.1');
-	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.css', array(), '1.0.0');
+	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.min.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700,700i', array());
 	        wp_enqueue_style('maester-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '5.8.1');
 
@@ -39,7 +36,9 @@
 
 	if(!function_exists('maester_admin_scripts')){
 		function maester_admin_scripts(){
-			wp_enqueue_script( 'maester-admin-js', MAESTER_JS . '/main.admin.js', array('jquery'), '1.0.0', true );
+			wp_enqueue_script( 'wp-color-picker' );
+			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_script( 'maester-admin-js', MAESTER_JS . '/main.admin.js', array('jquery', 'wp-color-picker'), '1.0.0', true );
 			wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.admin.css', array(), '1.0.0');
 		}
 		add_action('admin_enqueue_scripts', 'maester_admin_scripts');
@@ -112,7 +111,7 @@
 		        array(
 			        'name'                  => esc_html__( 'Elementor', 'maester' ),
 			        'slug'                  => 'elementor',
-			        'required'              => true,
+			        'required'              => false,
 			        'version'               => '',
 			        'force_activation'      => false,
 			        'force_deactivation'    => false
@@ -120,7 +119,7 @@
 		        array(
 			        'name'                  => esc_html__( 'Tutor LMS', 'maester' ),
 			        'slug'                  => 'tutor',
-			        'required'              => true,
+			        'required'              => false,
 			        'version'               => '',
 			        'force_activation'      => false,
 			        'force_deactivation'    => false
@@ -128,7 +127,7 @@
 		        array(
 			        'name'                  => esc_html__( 'Kirki Toolkit', 'maester' ),
 			        'slug'                  => 'kirki',
-			        'required'              => true,
+			        'required'              => false,
 			        'version'               => '',
 			        'force_activation'      => false,
 			        'force_deactivation'    => false
@@ -136,7 +135,7 @@
 		        array(
 			        'name'                  => esc_html__( 'Maester Toolkit', 'maester' ),
 			        'slug'                  => 'maester-toolkit',
-			        'required'              => true,
+			        'required'              => false,
 			        'version'               => '',
 			        'force_activation'      => false,
 			        'force_deactivation'    => false

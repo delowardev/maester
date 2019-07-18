@@ -92,6 +92,10 @@
         </div>
     </div>
 </div>
+<?php
+    $maester_en_menubar = get_theme_mod('maester_en_menubar', true);
+    if($maester_en_menubar) {
+?>
 <div class="header-menu-bar">
     <div class="container">
         <div class="row align-items-center">
@@ -106,7 +110,7 @@
                                 'container'      => 'nav',
                                 'container_class'=> 'responsive-menu primary-menu-container'
                             ));
-                        }else{
+                        }else if(is_user_logged_in()){
                             printf("%s Primary menu is empty, Click here to assign %s", "<a href='".admin_url('nav-menus.php')."'><i>", "</i></a>");
                         }
 
@@ -119,3 +123,4 @@
         </div>
     </div>
 </div>
+<?php } ?>

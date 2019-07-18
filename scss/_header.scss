@@ -15,8 +15,8 @@ header.site-header{
 
 .top-bar{
     background: #fafafa;
-    color: var(--mr-light-color);
-    font-size: 13px;
+    //color: var(--mr-light-color);
+    font-size: 14px;
     border-bottom: 1px solid var(--mr-border-color);
     p{
         margin: 0px;
@@ -42,7 +42,7 @@ header.site-header{
         }
     }
     p{
-        font-size: 12px;
+        font-size: 14px;
         margin: 5px 0 0;
         line-height: 16px;
     }
@@ -50,7 +50,9 @@ header.site-header{
 .custom-search-form,
 .site-branding,
 .secondary-menu-container > ul{
-    margin-top: 15px !important;
+    @media (max-width: 991px) {
+        margin-top: 15px !important;
+    }
 }
 
 
@@ -141,10 +143,15 @@ header.site-header{
  * Header Main
  */
 
+.header-menu-bar,
 .header-main{
-    padding-top: 15px;
-    padding-bottom: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    + .header-menu-bar{
+        padding-top: 0;
+    }
 }
+
 
 
 /**

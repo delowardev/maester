@@ -10,7 +10,7 @@
 	 */
 	function jqueryPlugins() {
 		if($.fn.wpColorPicker()){
-			$('.maester_colorpicker').wpColorPicker();
+			$('.maester_toolkit_colorpicker').wpColorPicker();
 		}
 	}
 
