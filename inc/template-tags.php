@@ -133,7 +133,7 @@ if ( ! function_exists( 'maester_post_thumbnail' ) ) :
 			</div><!-- .post-thumbnail -->
 
 		<?php else :
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'post-thumbnail');
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'maester-post-thumbnail');
         ?>
         <div class="post-image" style="background-image: url('<?php echo esc_url($featured_img_url); ?>')">
             <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">

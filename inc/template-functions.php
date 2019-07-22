@@ -78,8 +78,8 @@ function maester_search_pupup(){
     <form action='<?php esc_url(home_url()); ?>' id='maester-popup-search-form' style='display: none;'>
         <div class='maester-popup-search-overlay'></div>
         <div class='maester-pupup-search-inner'>
-            <input type='search' name='s' placeholder='<?php esc_html_e('Search anything...', 'maester'); ?>'>
-            <input type='submit' value='<?php esc_html_e('Search', 'maester'); ?>'>
+            <input type='search' name='s' placeholder='<?php esc_attr_e('Search anything...', 'maester'); ?>'>
+            <input type='submit' value='<?php esc_attr_e('Search', 'maester'); ?>'>
         </div>
     </form>
     <?php
@@ -364,8 +364,8 @@ if ( ! function_exists( 'maester_comment' ) ) {
     }
 }
 
-add_action('maester_menubar_column_hook', 'header_right_menu', 30);
-function header_right_menu(){
+add_action('maester_menubar_column_hook', 'maester_header_right_menu', 30);
+function maester_header_right_menu(){
     global $wp;
     $enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
     $enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);
@@ -421,7 +421,7 @@ if(!function_exists('maester_course_loop')){
                     $post_thumbnail_id = (int) get_post_thumbnail_id( get_the_ID() );
 
                     if($post_thumbnail_id){
-                        $image = wp_get_attachment_image($post_thumbnail_id, 'post-thumbnail');
+                        $image = wp_get_attachment_image($post_thumbnail_id, 'maester-post-thumbnail');
                     }else{
                         $image = sprintf('<img alt="%s" src="' . get_template_directory_uri().'/img/course.jpg' . '" />', __('Placeholder', 'maester'));
                     }
@@ -513,7 +513,7 @@ function maester_site_notice(){
     $maester_notice_text = get_theme_mod('maester_notice_text', 'Notice text here');
     if($maester_enable_notice){
         ?>
-        <p class="maester-site-notice"><i class="fas fa-exclamation-circle"></i> <?php echo esc_html($maester_notice_text) ?> <a href="#" class="maester-notice-dismiss"><i class="fas fa-times-circle"></i> <?php _e('Dissmis', 'maester') ?></a></p>
+        <p class="maester-site-notice"><i class="fas fa-exclamation-circle"></i> <?php echo esc_html($maester_notice_text) ?> <a href="#" class="maester-notice-dismiss"><i class="fas fa-times-circle"></i> <?php esc_html_e('Dissmis', 'maester') ?></a></p>
         <?php
     }
 }
