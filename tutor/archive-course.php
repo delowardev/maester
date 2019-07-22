@@ -5,8 +5,8 @@
  *
  * @since v.1.0.0
  *
- * @author Themeum
- * @url https://themeum.com
+ * @author feehatheme
+ * @url https://feeha.net
  */
 
 get_header();
@@ -18,7 +18,9 @@ maester_breadcrumbs();
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
 					<?php tutor_course_archive_filter_bar(); ?>
-					<?php maester_course_loop(); ?>
+					<?php
+						maester_course_loop();
+					?>
 					<?php the_posts_pagination(); ?>
 				</main>
 			</div> <!--#primary-->

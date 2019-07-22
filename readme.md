@@ -29,23 +29,7 @@ Maester includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0.6 =
-* Minor Bug Fixed
-* Readme updated
-* wp_body_open function called
-* Typography updated
-
-= 1.0.5 =
-* Minor Bug Fixed
-* Readme updated
-* Unnecessary file removed
-
-= 1.0.4 =
-* Minor Bug Fixed
-* New empty/blank page template added
-* Notice option added
-
-= 1.0.0 =
+= 0.0.1 =
 * Initial release
 
 

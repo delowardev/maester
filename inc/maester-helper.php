@@ -118,6 +118,8 @@ if ( ! function_exists('maester_course_loop_price')) {
         $tutor_course_sell_by = apply_filters('tutor_course_sell_by', null);
         if(tutor_utils()->is_course_purchasable()){
             $enroll_btn = tutor_course_loop_add_to_cart(false);
+	        $enable_wc = tutor_utils()->get_option('enable_course_sell_by_woocommerce');
+	        var_dump($enable_wc);
             if('woocommerce' == $tutor_course_sell_by){
                 $product_id = tutor_utils()->get_course_product_id($course_id);
                 $product    = wc_get_product( $product_id );
@@ -133,4 +135,20 @@ if ( ! function_exists('maester_course_loop_price')) {
         $output = ob_get_clean();
         echo $output;
     }
+}
+
+function currency_symbol(){
+	$enable_tutor_edd = tutor_utils()->get_option('enable_tutor_edd');
+	$enable_wc = tutor_utils()->get_option('enable_course_sell_by_woocommerce');
+
+	$symbol = '&#36;';
+	if ($enable_tutor_edd && function_exists('edd_currency_symbol')){
+		$symbol = edd_currency_symbol();
+	}
+
+	if ($enable_wc && function_exists('get_woocommerce_currency_symbol') ){
+		$symbol = get_woocommerce_currency_symbol();
+	}
+
+	return apply_filters('get_tutor_currency_symbol', $symbol);
 }
