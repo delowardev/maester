@@ -29,7 +29,7 @@ function maester_category_list($taxonomy = 'category'){
  * @return array
  */
 
-function search_post_types (){
+function maester_search_post_types (){
     $get_post_types = get_post_types(array('public'=>true));
     $value = array();
     foreach ($get_post_types as $post){
@@ -45,7 +45,7 @@ function search_post_types (){
  * @param $post_type
  * @return string
  */
-function get_search_category_slug_by_post_type($post_type = 'post'){
+function maester_get_search_category_slug_by_post_type($post_type = 'post'){
     if(function_exists('tutor') && tutor()->course_post_type == $post_type){
         return 'course-category';
     }elseif(function_exists('WC') && 'product' == $post_type){
@@ -111,16 +111,13 @@ function maester_get_post_lists($post_type = 'post'){
 if ( ! function_exists('maester_course_loop_price')) {
     function maester_course_loop_price() {
         ob_start();
-
         $course_id = get_the_ID();
         $enroll_btn = '<a class="button" href="'. get_the_permalink(). '">'.__('Get Enrolled', 'maester'). '</a>';
         $price_html = '<div class="price"><span>'.__('Free', 'maester').'</span>'.$enroll_btn. '</div>';
-        $tutor_course_sell_by = apply_filters('tutor_course_sell_by', null);
         if(tutor_utils()->is_course_purchasable()){
             $enroll_btn = tutor_course_loop_add_to_cart(false);
 	        $enable_wc = tutor_utils()->get_option('enable_course_sell_by_woocommerce');
-	        var_dump($enable_wc);
-            if('woocommerce' == $tutor_course_sell_by){
+            if('1' == $enable_wc){
                 $product_id = tutor_utils()->get_course_product_id($course_id);
                 $product    = wc_get_product( $product_id );
                 if($product){
@@ -135,20 +132,4 @@ if ( ! function_exists('maester_course_loop_price')) {
         $output = ob_get_clean();
         echo $output;
     }
-}
-
-function currency_symbol(){
-	$enable_tutor_edd = tutor_utils()->get_option('enable_tutor_edd');
-	$enable_wc = tutor_utils()->get_option('enable_course_sell_by_woocommerce');
-
-	$symbol = '&#36;';
-	if ($enable_tutor_edd && function_exists('edd_currency_symbol')){
-		$symbol = edd_currency_symbol();
-	}
-
-	if ($enable_wc && function_exists('get_woocommerce_currency_symbol') ){
-		$symbol = get_woocommerce_currency_symbol();
-	}
-
-	return apply_filters('get_tutor_currency_symbol', $symbol);
 }

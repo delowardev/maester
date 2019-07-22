@@ -364,8 +364,8 @@ if ( ! function_exists( 'maester_comment' ) ) {
     }
 }
 
-add_action('maester_menubar_column_hook', 'header_right_menu', 30);
-function header_right_menu(){
+add_action('maester_menubar_column_hook', 'maester_header_right_menu', 30);
+function maester_header_right_menu(){
     global $wp;
     $enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
     $enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);

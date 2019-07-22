@@ -75,6 +75,12 @@
 					color: var(--mr-major-color);
 					text-decoration: none;
 				}
+				&:not(:last-child){
+					margin-right: 4px;
+					&::after{
+						content: ',';
+					}
+				}
 			}
 		}
 	}
