@@ -225,7 +225,7 @@ if ( ! function_exists( 'maester_single_post_meta' ) ) {
     /**
      * Display the post meta
      *
-     * @since 1.0.0
+     * @since 0.0.1
      */
     function maester_single_post_meta() {
         if ( 'post' !== get_post_type() ) {
@@ -309,7 +309,7 @@ if ( ! function_exists( 'maester_comment' ) ) {
      * @param array $comment the comment array.
      * @param array $args the comment args.
      * @param int   $depth the comment depth.
-     * @since 1.0.0
+     * @since 0.0.1
      */
     function maester_comment( $comment, $args, $depth ) {
         if ( 'div' === $args['style'] ) {
@@ -524,7 +524,7 @@ add_action('maester_after_footer_hook', 'maester_site_notice');
  * Get Copyright Credits
  * @param bool $strip_tags
  * @return array|mixed|void
- * @Since 1.0.4
+ * @since 0.0.1
  */
 
 function maester_get_copyright_credits($strip_tags = false){
