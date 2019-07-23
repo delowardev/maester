@@ -19,7 +19,22 @@ maester_breadcrumbs();
 				<main id="main" class="site-main">
 					<?php tutor_course_archive_filter_bar(); ?>
 					<?php
-						maester_course_loop();
+						if(function_exists('maester_toolkit_course_loop')){
+							maester_toolkit_course_loop();
+						}else{
+							if ( have_posts() ) :
+								tutor_course_loop_start();
+								while ( have_posts() ) : the_post();
+									do_action('tutor_course/archive/before_loop_course');
+									tutor_load_template('loop.course');
+									do_action('tutor_course/archive/after_loop_course');
+								endwhile;
+								tutor_course_loop_end();
+
+							else :
+								tutor_load_template('course-none');
+							endif;
+						}
 					?>
 					<?php the_posts_pagination(); ?>
 				</main>
