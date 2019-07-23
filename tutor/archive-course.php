@@ -25,9 +25,9 @@ maester_breadcrumbs();
 							if ( have_posts() ) :
 								tutor_course_loop_start();
 								while ( have_posts() ) : the_post();
-									do_action('tutor_course/archive/before_loop_course');
+									tutor_course_loop_before_content();
 									tutor_load_template('loop.course');
-									do_action('tutor_course/archive/after_loop_course');
+									tutor_course_loop_after_content();
 								endwhile;
 								tutor_course_loop_end();
 
