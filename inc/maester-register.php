@@ -20,15 +20,15 @@
 	        }
 
 	        // Maester Styles
-	        wp_enqueue_style('maester-nice-select', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css', array(), '1.0.0');
-	        wp_enqueue_style('maester-bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array(), '4.3.1');
+	        wp_enqueue_style('maester-nice-select', MAESTER_CSS.'/nice-select.min.css', array(), '1.0.0');
+	        wp_enqueue_style('maester-bootstrap', MAESTER_CSS.'/bootstrap-grid.min.css', array(), '4.3.1');
 	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.min.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700,700i', array());
-	        wp_enqueue_style('maester-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '5.8.1');
+	        wp_enqueue_style('maester-fontawesome', MAESTER_CSS.'/fontawesome.min.css', array(), '5.9.0');
 
 	        //Maester JS
 	        wp_enqueue_script( 'maester-main-js', MAESTER_JS . '/main.js', array('jquery'), '1.0.0', true );
-	        wp_enqueue_script( 'maester-nice-select-js', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
+	        wp_enqueue_script( 'maester-nice-select-js', MAESTER_JS . '/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
 
 	    }
 	    add_action( 'wp_enqueue_scripts', 'maester_scripts' );
@@ -153,10 +153,12 @@
 	            'strings'           => array(
 	                'page_title'                                => esc_html__( 'Install Required Plugins', 'maester' ),
 	                'menu_title'                                => esc_html__( 'Install Plugins', 'maester' ),
+		            /* translators: %s: plugin name */
 	                'installing'                                => esc_html__( 'Installing Plugin: %s', 'maester' ),
 	                'oops'                                      => esc_html__( 'Something went wrong with the plugin API.', 'maester'),
 	                'return'                                    => esc_html__( 'Return to Required Plugins Installer', 'maester'),
 	                'plugin_activated'                          => esc_html__( 'Plugin activated successfully.','maester'),
+		            /* translators: %s: plugin name */
 	                'complete'                                  => esc_html__( 'All plugins installed and activated successfully. %s', 'maester' )
 	            )
 	        );

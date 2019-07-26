@@ -51,7 +51,7 @@ function maester_pagination(){
         <?php
         global $wp_query;
         $big = 999999999; // need an unlikely integer
-
+	    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo paginate_links( array(
             'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
             'format' => '?paged=%#%',

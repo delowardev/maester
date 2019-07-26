@@ -25,7 +25,9 @@ if ( post_password_required() ) {
         ?>
         <h2 class="comments-title">
             <?php
-            printf( // WPCS: XSS OK.
+            printf(
+            // WPCS: XSS OK.
+            // phpcs:ignore WordPress.Security.EscapeOutput.DeprecatedWhitelistCommentFound
             /* translators: 1: number of comments, 2: post title */
                 esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'maester' ) ),
                 esc_html(number_format_i18n( get_comments_number() )),

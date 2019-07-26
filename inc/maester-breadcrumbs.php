@@ -6,14 +6,21 @@
 function maester_get_breadcrumb() {
 
     /* === OPTIONS === */
+
     $text['home']     = '<i class="fas fa-home"></i> '. __(' Home', 'maester'); // text for the 'Home' link
-    $text['category'] =  __('Archive by Category "%s"', 'maester') ; // text for a category page
-    $text['search']   = __('Search Results for "%s" Query', 'maester'); // text for a search results page
-    $text['tag']      = __('Posts Tagged "%s"', 'maester'); // text for a tag page
-    $text['author']   = __('Articles Posted by %s', 'maester'); // text for an author page
+	/* translators: %s: category name */
+    $text['category'] =  __('Archive by Category "%s"', 'maester') ;
+	/* translators: %s: search term */
+    $text['search']   = __('Search Results for "%s" Query', 'maester');
+	/* translators: %s: tag name */
+    $text['tag']      = __('Posts Tagged "%s"', 'maester');
+	/* translators: %s: author name */
+    $text['author']   = __('Articles Posted by %s', 'maester');
     $text['404']      = __('Error 404', 'maester'); // text for the 404 page
+	/* translators: %s: page name */
     $text['page']     = __('Page %s', 'maester'); // text 'Page N'
-    $text['cpage']    = 'Comment Page %s'; // text 'Comment Page N'
+	/* translators: %s: comment page name */
+    $text['cpage']    = __('Comment Page %s', 'maester'); // text 'Comment Page N'
     $wrap_before    = '<div class="maester-breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; // the opening wrapper tag
     $wrap_after     = '</div><!-- .breadcrumbs -->'; // the closing wrapper tag
     $sep            = '<span class="breadcrumbs__separator"> &#8250; </span>'; // separator between crumbs
@@ -66,7 +73,27 @@ function maester_get_breadcrumb() {
                     $output .= $before . sprintf( $text['category'], single_cat_title( '', false ) ) . $after;
                 } elseif ( $show_last_sep ) $output .= $sep;
             }
-        } elseif ( is_search() ) {
+        }
+        elseif(is_tax(get_object_taxonomies( 'course-category' ))){
+	        $parents = get_ancestors( get_query_var('cat'), 'course-category' );
+	        foreach ( array_reverse( $parents ) as $cat ) {
+		        $position += 1;
+		        if ( $position > 1 ) $output .= $sep;
+		        $output .= sprintf( $link, get_category_link( $cat ), get_cat_name( $cat ), $position );
+	        }
+	        if ( get_query_var( 'paged' ) ) {
+		        $position += 1;
+		        $cat = get_query_var('cat');
+		        $output .= $sep . sprintf( $link, get_category_link( $cat ), get_cat_name( $cat ), $position );
+		        $output .= $sep . $before . sprintf( $text['page'], get_query_var( 'paged' ) ) . $after;
+	        } else {
+		        if ( $show_current ) {
+			        if ( $position >= 1 ) $output .= $sep;
+			        $output .= $before . sprintf( $text['category'], single_cat_title( '', false ) ) . $after;
+		        } elseif ( $show_last_sep ) $output .= $sep;
+	        }
+        }
+        elseif ( is_search() ) {
             if ( get_query_var( 'paged' ) ) {
                 $position += 1;
                 if ( $show_home_link ) $output .= $sep;
