@@ -47,7 +47,7 @@ add_action( 'wp_head', 'maester_pingback_header' );
 
 function maester_custom_excerpt( $content_str, $length = 150, $echo = true ) {
     if($echo) {
-        echo substr(strip_tags($content_str), 0, $length).'...';
+        echo esc_html(substr(strip_tags($content_str), 0, $length).'...');
         return;
     }
     return substr(strip_tags($content_str), 0, $length).'...';
@@ -96,7 +96,30 @@ function maester_breadcrumbs(){
                 <div class="row">
                     <div class="col">
                         <?php
-                        echo maester_get_breadcrumb();
+                        echo wp_kses(
+	                        maester_get_breadcrumb(),
+	                        array(
+		                        'i' => array(
+			                        'class' => array()
+		                        ),
+		                        'div' => array(
+			                        'class' => array(),
+			                        'itemprop' => array(),
+			                        'itemscope' => array(),
+			                        'itemtype' => array()
+		                        ),
+		                        'span' => array(
+			                        'class' => array(),
+			                        'itemprop' => array(),
+			                        'itemscope' => array(),
+			                        'itemtype' => array()
+		                        ),
+		                        'meta' => array(
+			                        'content' => array(),
+			                        'itemprop' => array()
+		                        )
+	                        )
+                        );
                         ?>
                     </div>
                 </div>
@@ -333,7 +356,7 @@ if ( ! function_exists( 'maester_comment' ) ) {
             <?php endif; ?>
 
             <a href="<?php echo esc_url( htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ); ?>" class="comment-date">
-                <?php echo '<time datetime="' . get_comment_date( 'c' ) . '">' . get_comment_date() . '</time>'; ?>
+                <?php echo '<time datetime="' . esc_attr(get_comment_date( 'c' )) . '">' . esc_attr(get_comment_date()) . '</time>'; ?>
             </a>
         </div>
         <?php if ( 'div' !== $args['style'] ) : ?>
@@ -364,139 +387,35 @@ if ( ! function_exists( 'maester_comment' ) ) {
     }
 }
 
-add_action('maester_menubar_column_hook', 'maester_header_right_menu', 30);
-function maester_header_right_menu(){
-    global $wp;
-    $enable_header_cart = function_exists('WC') ? get_theme_mod('enable_header_cart', true) : false;
-    $enable_header_login_icon = get_theme_mod('enable_header_login_icon', true);
-    if($enable_header_cart || $enable_header_login_icon){
-        ?>
-        <div class="col-auto">
-            <ul class="header-right-menu">
-                <?php if($enable_header_cart) {?>
-                    <li class="header-cart-menu">
-                        <div class="cart-menu-parent">
-                            <?php echo maester_header_cart(); ?><i class="fas fa-shopping-basket"></i>
-                        </div>
-                    </li>
-                <?php } if($enable_header_login_icon) {
-                    if(is_user_logged_in()){ ?>
-                        <li>
-                            <a href='<?php echo esc_url(wp_logout_url(home_url($wp->request))); ?>'>
-                                <i class='fas fa-sign-out-alt'></i>
-                            </a>
-                        </li>
-                        <?php
-
-                    }else{
-                        ?>
-                        <li><a href='#open_user_modal'><i class='fas fa-lock'></i></a></li>
-                        <?php
-                    }
-                } ?>
-            </ul>
-        </div>
-    <?php  }
-}
-
-
-
-/**
- * Course Loop Function
- * @param bool $rating
- * @param bool $meta
- * @param bool $wishlist
- * @param bool $price
- */
-if(!function_exists('maester_course_loop')){
-    function maester_course_loop($rating = true, $meta = true, $wishlist = true, $price = true, $column = 'column-4'){
-        ob_start();
-        if( function_exists('tutor') && have_posts()){
-            ?>
-            <div class="maester-tutor-courses <?php echo esc_attr($column); ?>">
-                <?php
-                while (have_posts()){
-                    the_post();
-                    $profile_url = tutor_utils()->profile_url(get_the_author_meta('ID'));
-                    $post_thumbnail_id = (int) get_post_thumbnail_id( get_the_ID() );
-
-                    if($post_thumbnail_id){
-                        $image = wp_get_attachment_image($post_thumbnail_id, 'maester-post-thumbnail');
-                    }else{
-                        $image = sprintf('<img alt="%s" src="' . get_template_directory_uri().'/img/course.jpg' . '" />', __('Placeholder', 'maester'));
-                    }
-
-                    ?>
-                    <div class="maester-tutor-course">
-                        <a class="maester-course-image-wrap" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
-                            <?php echo $image; ?>
-                        </a>
-                        <div class="maester-course-content">
-                            <?php
-                            if($rating){
-                                tutor_course_loop_rating();
-                            }
-                            ?>
-                            <?php if($meta) { ?>
-                                <ul class="maester-course-meta">
-                                    <li>
-                                        <strong><?php esc_html_e('By', 'maester') ?> </strong>
-                                        <a href="<?php esc_url($profile_url); ?>"><?php the_author(); ?></a>
-                                    </li>
-                                    <li>
-                                        <?php
-                                        $category = get_tutor_course_categories();
-                                        if(!empty($category) && is_array($category ) && count($category)){
-                                            ?>
-                                            <strong><?php esc_html_e('In', 'maester') ?> </strong>
-                                            <?php
-                                            foreach ($category as $course_category){
-                                                $category_name = $course_category->name;
-                                                $category_link = get_term_link($course_category->term_id);
-                                                echo "<a href='$category_link'>$category_name </a>";
-                                            }
-                                        }
-                                        ?>
-                                    </li>
-                                </ul>
-                            <?php } ?>
-                            <h3>
-                                <?php
-                                if($wishlist) {
-                                    $is_wishlisted = tutor_utils()->is_wishlisted(get_the_ID());
-                                    $wishlist_class = $is_wishlisted ? 'wishlisted' : '';
-                                    $bookmark_msg = $is_wishlisted ? __('Remove from bookmark', 'maester') : __('Add to bookmark', 'maester');
-                                    ?>
-                                    <i data-course-id="<?php echo get_the_ID(); ?>" title="<?php echo esc_attr($bookmark_msg); ?>" class="<?php echo esc_attr($wishlist_class); ?> far fa-bookmark course-bookmark-icon"></i>
-                                    <?php
-                                }
-                                ?>
-                                <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-                            </h3>
-                            <?php
-                            if($price){
-                                maester_course_loop_price();
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-            <?php
-        }
-        $output = ob_get_clean();
-        echo $output;
-    }
-}
-
 /**
  * Tutor Template Hooks
  */
 
 function maester_tutor_breadcrumb(){
-    echo maester_get_breadcrumb();
+    echo wp_kses(
+        maester_get_breadcrumb(),
+        array(
+            'i' => array(
+                'class' => array()
+            ),
+            'div' => array(
+                'class' => array(),
+                'itemprop' => array(),
+                'itemscope' => array(),
+                'itemtype' => array()
+            ),
+            'span' => array(
+                'class' => array(),
+                'itemprop' => array(),
+                'itemscope' => array(),
+                'itemtype' => array()
+            ),
+            'meta' => array(
+                'content' => array(),
+                'itemprop' => array()
+            )
+        )
+    );
 }
 
 add_action('tutor_course/single/before/wrap', 'maester_breadcrumbs', 10, 2);
@@ -530,11 +449,11 @@ add_action('maester_after_footer_hook', 'maester_site_notice');
 function maester_get_copyright_credits($strip_tags = false){
     $copyright_link = apply_filters('maester_copyright_link', "https://wordpress.org/themes/maester-lite/");
     $credits = apply_filters('maester_copyright_credits', array(
-        "credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
-        "credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
-        "credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
-        "credit_4" => sprintf(__("A WordPress Website | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
-        "credit_5" => sprintf(__("Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='$copyright_link' rel='author'>", "</a>"),
+        "credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
+        "credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
+        "credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
+        "credit_4" => sprintf(__("A WordPress Website | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
+        "credit_5" => sprintf(__("Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
     ));
     if($strip_tags == true){
         $credits = array_map( function($item){

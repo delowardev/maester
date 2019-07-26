@@ -65,13 +65,13 @@
                         if(!empty($maester_custom_logo)){
                             the_custom_logo();
                         }else{
-                            $maester_site_url = esc_url(home_url('/'));
-                            $maester_site_title = esc_html(get_bloginfo('name'));
-                            echo "<a href='$maester_site_url'>".esc_html($maester_site_title)."</a>";
+                            $maester_site_url = home_url('/');
+                            $maester_site_title = get_bloginfo('name');
+                            echo "<a href='".esc_url($maester_site_url)."'>".esc_html($maester_site_title)."</a>";
                         }
                     ?>
                     <p class="site-description">
-                        <?php bloginfo('description'); ?>
+                        <?php echo esc_html(get_bloginfo('description')); ?>
                     </p>
                 </div><!-- .site-branding -->
             </div>
@@ -111,7 +111,7 @@
                                 'container_class'=> 'responsive-menu primary-menu-container'
                             ));
                         }else if(is_user_logged_in()){
-                            printf("%s Primary menu is empty, Click here to assign %s", "<a href='".admin_url('nav-menus.php')."'><i>", "</i></a>");
+                            printf("%s Primary menu is empty, Click here to assign %s", "<a href='".esc_url(admin_url('nav-menus.php'))."'><i>", "</i></a>");
                         }
 
                     ?>
