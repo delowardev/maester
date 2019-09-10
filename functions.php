@@ -106,17 +106,15 @@ add_action( 'after_setup_theme', 'maester_setup' );
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @global int $maester_content_width
+ * @global int $content_width
  */
 function maester_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['maester_content_width'] = apply_filters( 'maester_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'maester_content_width', 1170 );
 }
 add_action( 'after_setup_theme', 'maester_content_width', 0 );
-
-if ( ! isset( $content_width ) ) $content_width = 1170;
 
 /**
  * Helper Functions.
@@ -161,6 +159,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Maester custom image size
  */
 
-add_image_size('post-thumbnail', 700, 380 );
-add_image_size('post-vertical', 450, 550 );
+add_image_size('maester-post-thumbnail', 700, 380 );
 

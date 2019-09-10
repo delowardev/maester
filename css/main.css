@@ -3598,6 +3598,12 @@ p.stars a:after,
   color: var(--mr-major-color);
   text-decoration: none;
 }
+.maester-tutor-course .maester-course-meta li a:not(:last-child) {
+  margin-right: 4px;
+}
+.maester-tutor-course .maester-course-meta li a:not(:last-child)::after {
+  content: ',';
+}
 .maester-tutor-course .maester-course-content {
   padding: 25px 15px 0;
 }
