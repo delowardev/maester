@@ -1,7 +1,7 @@
 <?php
 
 
-    require_once(get_template_directory().'/inc/maester-breadcrumbs.php');
+    get_template_part('maester', 'breadcrumbs');
 
 
 	/**
