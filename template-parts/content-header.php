@@ -45,7 +45,7 @@
                             'container_class'=> 'responsive-menu top-bar-menu-container'
                         ));
                     }else if(is_customize_preview()){
-	                    printf(__("%s Topbar menu is empty, Set topbar menu first %s", "maester-lite"), "<i>", "</i>");
+                        echo "<i>". esc_html__('Topbar menu is empty, Set topbar menu first', 'maester-lite') . "</i>";
                     }
                 ?>
             </div>
@@ -111,7 +111,7 @@
                                 'container_class'=> 'responsive-menu primary-menu-container'
                             ));
                         }else if(is_user_logged_in()){
-                            printf(__("%s Primary menu is empty, Click here to assign %s", "maester-lite"), "<a href='".esc_url(admin_url('nav-menus.php'))."'><i>", "</i></a>");
+                            echo "<a href='".esc_url(admin_url('nav-menus.php'))."'><i>". esc_html__('Primary menu is empty, Click here to assign', 'maester-lite') . "</i></a>";
                         }
 
                     ?>
