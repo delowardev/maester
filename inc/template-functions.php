@@ -38,37 +38,6 @@ add_action( 'wp_head', 'maester_lite_pingback_header' );
 
 
 /**
- * Post content length
- * @param $content_str
- * @param int $length
- * @param boolean $echo
- * @return bool|string
- */
-
-function maester_lite_custom_excerpt( $content_str, $length = 150, $echo = true ) {
-    if($echo) {
-        echo esc_html(substr(strip_tags($content_str), 0, $length).'...');
-        return;
-    }
-    return substr(strip_tags($content_str), 0, $length).'...';
-}
-
-/**
- * Filter the except length to 150 words.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
- */
-function maester_lite_custom_excerpt_length( $length ) {
-    $maester_lite_excerpt_lenght = get_theme_mod('maester_lite_excerpt_length', 25);
-    return $maester_lite_excerpt_lenght;
-}
-
-add_filter( 'excerpt_length', 'maester_lite_custom_excerpt_length', 999 );
-
-
-
-/**
  * Search Popup
  */
 add_filter('maester_lite_after_footer_hook', 'maester_lite_search_pupup', 10, 2);
@@ -208,40 +177,6 @@ if ( ! function_exists( 'maester_lite_is_woocommerce_activated' ) ) {
         return class_exists( 'WooCommerce' ) ? true : false;
     }
 }
-
-
-
-if ( ! function_exists( 'maester_lite_header_cart' ) ) {
-    /**
-     * Display Header Cart
-     *
-     * @since  1.0.0
-     * @uses  maester_lite_is_woocommerce_activated() check if WooCommerce is activated
-     * @return void
-     */
-    function maester_lite_header_cart() {
-        if ( maester_lite_is_woocommerce_activated() ) {
-            if ( is_cart() ) {
-                $class = 'current-menu-item';
-            } else {
-                $class = '';
-            }
-            ob_start();
-            ?>
-            <ul id="site-header-cart" class="site-header-cart menu">
-                <li class="<?php echo esc_attr( $class ); ?>">
-                    <?php maester_lite_cart_link(); ?>
-                </li>
-                <li>
-                    <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-                </li>
-            </ul>
-            <?php
-            return ob_get_clean();
-        }
-    }
-}
-
 
 
 if ( ! function_exists( 'maester_lite_single_post_meta' ) ) {
@@ -428,8 +363,8 @@ add_action('tutor_course/single/enrolled/before/wrap', 'maester_lite_breadcrumbs
 
 
 function maester_lite_site_notice(){
-    $maester_lite_enable_notice = get_theme_mod('maester_lite_enable_notice', false);
-    $maester_lite_notice_text = get_theme_mod('maester_lite_notice_text', 'Notice text here');
+    $maester_lite_enable_notice = get_theme_mod('maester_enable_notice', false);
+    $maester_lite_notice_text = get_theme_mod('maester_notice_text', 'Notice text here');
     if($maester_lite_enable_notice){
         ?>
         <p class="maester-site-notice"><i class="fas fa-exclamation-circle"></i> <?php echo esc_html($maester_lite_notice_text) ?> <a href="#" class="maester-notice-dismiss"><i class="fas fa-times-circle"></i> <?php esc_html_e('Dissmis', 'maester-lite') ?></a></p>

@@ -44,10 +44,7 @@ Maester Lite bundles the following third-party resources:
 
     Screenshot images
     Licenses: CC0 Public Domain
-	https://pixabay.com/en/interior-bedroom-lifestyle-3575816/
-	https://pixabay.com/en/tea-green-green-tea-leaf-teacup-2356775/
-	https://pixabay.com/en/art-artist-blogger-blueberry-cafe-3343890/
-	https://pixabay.com/photos/mosaic-fish-tile-art-ceramic-200864/
+	https://pxhere.com/en/photo/723648
 
 == Changelog ==
 
