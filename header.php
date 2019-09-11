@@ -27,7 +27,7 @@
      <?php esc_html_e( 'Skip to content', 'maester-lite' ); ?></a>
 
 	<?php
-		do_action('maester_before_header_hook');
+		do_action('maester_lite_before_header_hook');
 	?>
 
 	<header id="masthead" class="site-header">
@@ -35,7 +35,7 @@
 	</header><!-- #masthead -->
 
 	<?php
-		do_action('maester_after_header_hook');
+		do_action('maester_lite_after_header_hook');
 	?>
 
 

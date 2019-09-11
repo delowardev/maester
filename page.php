@@ -13,7 +13,7 @@
  */
 
 get_header();
-maester_breadcrumbs();
+maester_lite_breadcrumbs();
 ?>
     <div id="content" class="site-content">
         <div class="container">

@@ -13,13 +13,13 @@
  */
 
 get_header();
-$maester_enable_search_sidebar = get_theme_mod('enable_search_sidebar', true);
-maester_breadcrumbs();
+$maester_lite_enable_search_sidebar = get_theme_mod('enable_search_sidebar', true);
+maester_lite_breadcrumbs();
 ?>
     <div id="content" class="site-content">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-<?php echo esc_attr($maester_enable_search_sidebar ? 8 : 12); ?>">
+                <div class="col-12 col-lg-<?php echo esc_attr($maester_lite_enable_search_sidebar ? 8 : 12); ?>">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
 
@@ -64,7 +64,7 @@ maester_breadcrumbs();
                     </div><!-- #primary -->
                 </div><!-- .col-md-* -->
                 <div class="col-lg-4">
-                    <?php if($maester_enable_search_sidebar) get_sidebar(); ?>
+                    <?php if($maester_lite_enable_search_sidebar) get_sidebar(); ?>
                 </div><!-- .col-md-* -->
             </div><!-- .row -->
         </div><!-- .container -->

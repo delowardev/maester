@@ -12,14 +12,14 @@
 ?>
 
 <?php
-    $maester_enable_topbar = get_theme_mod('enable_topbar', true);
-    $maester_topbar_text = get_theme_mod('topbar_text');
+    $maester_lite_enable_topbar = get_theme_mod('enable_topbar', true);
+    $maester_lite_topbar_text = get_theme_mod('topbar_text');
 
-    if(empty($maester_topbar_text) && !has_nav_menu('topbar')){
-        $maester_enable_topbar = false;
+    if(empty($maester_lite_topbar_text) && !has_nav_menu('topbar')){
+        $maester_lite_enable_topbar = false;
     }
 
-    if($maester_enable_topbar) {
+    if($maester_lite_enable_topbar) {
 ?>
 
 <div class="top-bar">
@@ -28,8 +28,8 @@
             <div class="col">
                 <p class='top-bar-description'>
                 <?php
-                    if($maester_topbar_text){
-                        echo esc_html($maester_topbar_text);
+                    if($maester_lite_topbar_text){
+                        echo esc_html($maester_lite_topbar_text);
                     }
                 ?>
                 </p>
@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<?php } //$maester_enable_topbar ?>
+<?php } //$maester_lite_enable_topbar ?>
 
 <div class="header-main">
     <div class="container">
@@ -61,13 +61,13 @@
             <div class="col">
                 <div class="site-branding">
                     <?php
-                        $maester_custom_logo = get_theme_mod( 'custom_logo' );
-                        if(!empty($maester_custom_logo)){
+                        $maester_lite_custom_logo = get_theme_mod( 'custom_logo' );
+                        if(!empty($maester_lite_custom_logo)){
                             the_custom_logo();
                         }else{
-                            $maester_site_url = home_url('/');
-                            $maester_site_title = get_bloginfo('name');
-                            echo "<a href='".esc_url($maester_site_url)."'>".esc_html($maester_site_title)."</a>";
+                            $maester_lite_site_url = home_url('/');
+                            $maester_lite_site_title = get_bloginfo('name');
+                            echo "<a href='".esc_url($maester_lite_site_url)."'>".esc_html($maester_lite_site_title)."</a>";
                         }
                     ?>
                     <p class="site-description">
@@ -88,13 +88,13 @@
                     }
                 ?>
             </div>
-            <?php do_action('maester_header_item_hook'); ?>
+            <?php do_action('maester_lite_header_item_hook'); ?>
         </div>
     </div>
 </div>
 <?php
-    $maester_en_menubar = get_theme_mod('maester_en_menubar', true);
-    if($maester_en_menubar) {
+    $maester_lite_en_menubar = get_theme_mod('maester_lite_en_menubar', true);
+    if($maester_lite_en_menubar) {
 ?>
 <div class="header-menu-bar">
     <div class="container">
@@ -118,7 +118,7 @@
                 </div><!-- #site-navigation -->
             </div>
 
-            <?php do_action('maester_menubar_item_hook'); ?>
+            <?php do_action('maester_lite_menubar_item_hook'); ?>
 
         </div>
     </div>

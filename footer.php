@@ -11,12 +11,12 @@
 
 ?>
 
-<?php do_action('maester_before_footer_hook'); ?>
+<?php do_action('maester_lite_before_footer_hook'); ?>
 <footer id="colophon" class="site-footer">
 	<?php get_template_part( 'template-parts/content', 'footer' ); ?>
 
 </footer><!-- #colophon -->
-<?php do_action('maester_after_footer_hook'); ?>
+<?php do_action('maester_lite_after_footer_hook'); ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

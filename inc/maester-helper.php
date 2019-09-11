@@ -1,21 +1,11 @@
 <?php
 
 /**
- * @param $val
- * ver_dump function with pre tag
- */
-function maester_var_dump($val){
-    echo "<pre>";
-    var_dump($val);
-    echo "</pre>";
-}
-
-/**
  * @param string $taxonomy
  * @return array
  * Category List Funtion
  */
-function maester_category_list($taxonomy = 'category'){
+function maester_lite_category_list($taxonomy = 'category'){
     $terms = get_terms($taxonomy);
     $term_array = array();
     foreach ($terms as $term){
@@ -29,7 +19,7 @@ function maester_category_list($taxonomy = 'category'){
  * @param $post_type
  * @return string
  */
-function maester_get_search_category_slug_by_post_type($post_type = 'post'){
+function maester_lite_get_search_category_slug_by_post_type($post_type = 'post'){
     if(function_exists('tutor') && tutor()->course_post_type == $post_type){
         return 'course-category';
     }elseif(function_exists('WC') && 'product' == $post_type){
@@ -45,7 +35,7 @@ function maester_get_search_category_slug_by_post_type($post_type = 'post'){
  * custom pagination
  */
 
-function maester_pagination(){
+function maester_lite_pagination(){
     ?>
     <div class="maester-pagination-wrap">
         <?php

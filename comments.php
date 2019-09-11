@@ -50,7 +50,7 @@ if ( post_password_required() ) {
                 array(
                     'style'      => 'ol',
                     'short_ping' => true,
-                    'callback'   => 'maester_comment',
+                    'callback'   => 'maester_lite_comment',
                 )
             );
             ?>
@@ -73,14 +73,14 @@ if ( post_password_required() ) {
     <?php
     endif;
 
-    $maester_args = apply_filters(
-        'maester_comment_form_args', array(
+    $maester_lite_args = apply_filters(
+        'maester_lite_comment_form_args', array(
             'title_reply_before' => '<span id="reply-title" class="h3 comment-reply-title">',
             'title_reply_after'  => '</span>',
         )
     );
 
-    comment_form( $maester_args );
+    comment_form( $maester_lite_args );
     ?>
 
 </section><!-- #comments -->

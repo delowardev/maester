@@ -16,14 +16,14 @@
 
             if ( 'post' === get_post_type() ) {
                 echo "<div class='maester-single-post-meta'>";
-                    maester_single_post_meta();
+                    maester_lite_single_post_meta();
                 echo "</div>";
             }
             the_title( '<h1 class="entry-title">', '</h1>' );
          ?>
     </header><!-- .entry-header -->
 
-    <?php maester_post_thumbnail(); ?>
+    <?php maester_lite_post_thumbnail(); ?>
 
     <div class="entry-content">
         <?php
@@ -48,6 +48,6 @@
     </div><!-- .entry-content -->
 
     <footer class="entry-footer">
-        <?php maester_entry_footer(); ?>
+        <?php maester_lite_entry_footer(); ?>
     </footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

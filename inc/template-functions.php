@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function maester_body_classes( $classes ) {
+function maester_lite_body_classes( $classes ) {
     // Adds a class of hfeed to non-singular pages.
     if ( ! is_singular() ) {
         $classes[] = 'hfeed';
@@ -24,17 +24,17 @@ function maester_body_classes( $classes ) {
 
     return $classes;
 }
-add_filter( 'body_class', 'maester_body_classes' );
+add_filter( 'body_class', 'maester_lite_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function maester_pingback_header() {
+function maester_lite_pingback_header() {
     if ( is_singular() && pings_open() ) {
         printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
     }
 }
-add_action( 'wp_head', 'maester_pingback_header' );
+add_action( 'wp_head', 'maester_lite_pingback_header' );
 
 
 /**
@@ -45,7 +45,7 @@ add_action( 'wp_head', 'maester_pingback_header' );
  * @return bool|string
  */
 
-function maester_custom_excerpt( $content_str, $length = 150, $echo = true ) {
+function maester_lite_custom_excerpt( $content_str, $length = 150, $echo = true ) {
     if($echo) {
         echo esc_html(substr(strip_tags($content_str), 0, $length).'...');
         return;
@@ -59,21 +59,21 @@ function maester_custom_excerpt( $content_str, $length = 150, $echo = true ) {
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
  */
-function maester_custom_excerpt_length( $length ) {
-    $maester_excerpt_lenght = get_theme_mod('maester_excerpt_length', 25);
-    return $maester_excerpt_lenght;
+function maester_lite_custom_excerpt_length( $length ) {
+    $maester_lite_excerpt_lenght = get_theme_mod('maester_lite_excerpt_length', 25);
+    return $maester_lite_excerpt_lenght;
 }
 
-add_filter( 'excerpt_length', 'maester_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'maester_lite_custom_excerpt_length', 999 );
 
 
 
 /**
  * Search Popup
  */
-add_filter('maester_after_footer_hook', 'maester_search_pupup', 10, 2);
+add_filter('maester_lite_after_footer_hook', 'maester_lite_search_pupup', 10, 2);
 
-function maester_search_pupup(){
+function maester_lite_search_pupup(){
     ?>
     <form action='<?php esc_url(home_url()); ?>' id='maester-popup-search-form' style='display: none;'>
         <div class='maester-popup-search-overlay'></div>
@@ -87,17 +87,17 @@ function maester_search_pupup(){
 }
 
 
-//add_action('maester_after_header_hook', 'maester_breadcrumbs', 10);
-function maester_breadcrumbs(){
-    $get_breadcrumb = maester_get_breadcrumb();
-    if(function_exists('maester_get_breadcrumb') && !empty($get_breadcrumb)){ ?>
+//add_action('maester_lite_after_header_hook', 'maester_lite_breadcrumbs', 10);
+function maester_lite_breadcrumbs(){
+    $get_breadcrumb = maester_lite_get_breadcrumb();
+    if(function_exists('maester_lite_get_breadcrumb') && !empty($get_breadcrumb)){ ?>
         <div class="maester-breadcrumb-area">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <?php
                         echo wp_kses(
-	                        maester_get_breadcrumb(),
+	                        maester_lite_get_breadcrumb(),
 	                        array(
 		                        'i' => array(
 			                        'class' => array()
@@ -129,7 +129,7 @@ function maester_breadcrumbs(){
     }
 }
 
-if ( ! function_exists( 'maester_cart_link_fragment' ) ) {
+if ( ! function_exists( 'maester_lite_cart_link_fragment' ) ) {
     /**
      * Cart Fragments
      * Ensure cart contents update when products are added to the cart via AJAX
@@ -137,15 +137,15 @@ if ( ! function_exists( 'maester_cart_link_fragment' ) ) {
      * @param  array $fragments Fragments to refresh via AJAX.
      * @return array            Fragments to refresh via AJAX
      */
-    function maester_cart_link_fragment( $fragments ) {
+    function maester_lite_cart_link_fragment( $fragments ) {
         global $woocommerce;
 
         ob_start();
-        maester_cart_link();
+        maester_lite_cart_link();
         $fragments['a.cart-contents'] = ob_get_clean();
 
         ob_start();
-        maester_handheld_footer_bar_cart_link();
+        maester_lite_handheld_footer_bar_cart_link();
         $fragments['a.footer-cart-contents'] = ob_get_clean();
 
         return $fragments;
@@ -153,7 +153,7 @@ if ( ! function_exists( 'maester_cart_link_fragment' ) ) {
 }
 
 
-if ( ! function_exists( 'maester_cart_link' ) ) {
+if ( ! function_exists( 'maester_lite_cart_link' ) ) {
     /**
      * Cart Link
      * Displayed a link to the cart including the number of items present and the cart total
@@ -161,7 +161,7 @@ if ( ! function_exists( 'maester_cart_link' ) ) {
      * @return void
      * @since  1.0.0
      */
-    function maester_cart_link() {
+    function maester_lite_cart_link() {
         ?>
         <a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'maester-lite' ); ?>">
             <?php /* translators: %d: number of items in cart */ ?>
@@ -174,23 +174,23 @@ if ( ! function_exists( 'maester_cart_link' ) ) {
 /**
  * Cart fragment
  *
- * @see maester_cart_link_fragment()
+ * @see maester_lite_cart_link_fragment()
  */
 if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
-    add_filter( 'woocommerce_add_to_cart_fragments', 'maester_cart_link_fragment' );
+    add_filter( 'woocommerce_add_to_cart_fragments', 'maester_lite_cart_link_fragment' );
 } else {
-    add_filter( 'add_to_cart_fragments', 'maester_cart_link_fragment' );
+    add_filter( 'add_to_cart_fragments', 'maester_lite_cart_link_fragment' );
 }
 
 
 
-if ( ! function_exists( 'maester_handheld_footer_bar_cart_link' ) ) {
+if ( ! function_exists( 'maester_lite_handheld_footer_bar_cart_link' ) ) {
     /**
      * The cart callback function for the handheld footer bar
      *
      * @since 2.0.0
      */
-    function maester_handheld_footer_bar_cart_link() {
+    function maester_lite_handheld_footer_bar_cart_link() {
         ?>
         <a class="footer-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'maester-lite' ); ?>">
             <span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ); ?></span>
@@ -200,27 +200,27 @@ if ( ! function_exists( 'maester_handheld_footer_bar_cart_link' ) ) {
 }
 
 
-if ( ! function_exists( 'maester_is_woocommerce_activated' ) ) {
+if ( ! function_exists( 'maester_lite_is_woocommerce_activated' ) ) {
     /**
      * Query WooCommerce activation
      */
-    function maester_is_woocommerce_activated() {
+    function maester_lite_is_woocommerce_activated() {
         return class_exists( 'WooCommerce' ) ? true : false;
     }
 }
 
 
 
-if ( ! function_exists( 'maester_header_cart' ) ) {
+if ( ! function_exists( 'maester_lite_header_cart' ) ) {
     /**
      * Display Header Cart
      *
      * @since  1.0.0
-     * @uses  maester_is_woocommerce_activated() check if WooCommerce is activated
+     * @uses  maester_lite_is_woocommerce_activated() check if WooCommerce is activated
      * @return void
      */
-    function maester_header_cart() {
-        if ( maester_is_woocommerce_activated() ) {
+    function maester_lite_header_cart() {
+        if ( maester_lite_is_woocommerce_activated() ) {
             if ( is_cart() ) {
                 $class = 'current-menu-item';
             } else {
@@ -230,7 +230,7 @@ if ( ! function_exists( 'maester_header_cart' ) ) {
             ?>
             <ul id="site-header-cart" class="site-header-cart menu">
                 <li class="<?php echo esc_attr( $class ); ?>">
-                    <?php maester_cart_link(); ?>
+                    <?php maester_lite_cart_link(); ?>
                 </li>
                 <li>
                     <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
@@ -244,13 +244,13 @@ if ( ! function_exists( 'maester_header_cart' ) ) {
 
 
 
-if ( ! function_exists( 'maester_single_post_meta' ) ) {
+if ( ! function_exists( 'maester_lite_single_post_meta' ) ) {
     /**
      * Display the post meta
      *
      * @since 0.0.1
      */
-    function maester_single_post_meta() {
+    function maester_lite_single_post_meta() {
         if ( 'post' !== get_post_type() ) {
             return;
         }
@@ -325,7 +325,7 @@ if ( ! function_exists( 'maester_single_post_meta' ) ) {
 }
 
 
-if ( ! function_exists( 'maester_comment' ) ) {
+if ( ! function_exists( 'maester_lite_comment' ) ) {
     /**
      * Maester comment template
      *
@@ -334,7 +334,7 @@ if ( ! function_exists( 'maester_comment' ) ) {
      * @param int   $depth the comment depth.
      * @since 0.0.1
      */
-    function maester_comment( $comment, $args, $depth ) {
+    function maester_lite_comment( $comment, $args, $depth ) {
         if ( 'div' === $args['style'] ) {
             $tag       = 'div';
             $add_below = 'comment';
@@ -391,9 +391,9 @@ if ( ! function_exists( 'maester_comment' ) ) {
  * Tutor Template Hooks
  */
 
-function maester_tutor_breadcrumb(){
+function maester_lite_tutor_breadcrumb(){
     echo wp_kses(
-        maester_get_breadcrumb(),
+        maester_lite_get_breadcrumb(),
         array(
             'i' => array(
                 'class' => array()
@@ -418,8 +418,8 @@ function maester_tutor_breadcrumb(){
     );
 }
 
-add_action('tutor_course/single/before/wrap', 'maester_breadcrumbs', 10, 2);
-add_action('tutor_course/single/enrolled/before/wrap', 'maester_breadcrumbs', 10, 2);
+add_action('tutor_course/single/before/wrap', 'maester_lite_breadcrumbs', 10, 2);
+add_action('tutor_course/single/enrolled/before/wrap', 'maester_lite_breadcrumbs', 10, 2);
 
 
 /**
@@ -427,16 +427,16 @@ add_action('tutor_course/single/enrolled/before/wrap', 'maester_breadcrumbs', 10
  */
 
 
-function maester_site_notice(){
-    $maester_enable_notice = get_theme_mod('maester_enable_notice', false);
-    $maester_notice_text = get_theme_mod('maester_notice_text', 'Notice text here');
-    if($maester_enable_notice){
+function maester_lite_site_notice(){
+    $maester_lite_enable_notice = get_theme_mod('maester_lite_enable_notice', false);
+    $maester_lite_notice_text = get_theme_mod('maester_lite_notice_text', 'Notice text here');
+    if($maester_lite_enable_notice){
         ?>
-        <p class="maester-site-notice"><i class="fas fa-exclamation-circle"></i> <?php echo esc_html($maester_notice_text) ?> <a href="#" class="maester-notice-dismiss"><i class="fas fa-times-circle"></i> <?php esc_html_e('Dissmis', 'maester-lite') ?></a></p>
+        <p class="maester-site-notice"><i class="fas fa-exclamation-circle"></i> <?php echo esc_html($maester_lite_notice_text) ?> <a href="#" class="maester-notice-dismiss"><i class="fas fa-times-circle"></i> <?php esc_html_e('Dissmis', 'maester-lite') ?></a></p>
         <?php
     }
 }
-add_action('maester_after_footer_hook', 'maester_site_notice');
+add_action('maester_lite_after_footer_hook', 'maester_lite_site_notice');
 
 
 /**
@@ -446,9 +446,9 @@ add_action('maester_after_footer_hook', 'maester_site_notice');
  * @since 0.0.1
  */
 
-function maester_get_copyright_credits($strip_tags = false){
-    $copyright_link = apply_filters('maester_copyright_link', "https://wordpress.org/themes/maester-lite/");
-    $credits = apply_filters('maester_copyright_credits', array(
+function maester_lite_get_copyright_credits($strip_tags = false){
+    $copyright_link = apply_filters('maester_lite_copyright_link', "https://wordpress.org/themes/maester-lite/");
+    $credits = apply_filters('maester_lite_copyright_credits', array(
         "credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester-lite'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
         "credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester-lite'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
         "credit_3" => sprintf(__("Proudly powered by WordPress | Theme: %1\$s Maester Lite by FeehaThemes %2\$s", 'maester-lite'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),

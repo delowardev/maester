@@ -3,7 +3,7 @@
  * Breadcrumbs Functions
  */
 
-function maester_get_breadcrumb() {
+function maester_lite_get_breadcrumb() {
 
     /* === OPTIONS === */
 

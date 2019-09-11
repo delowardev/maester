@@ -12,8 +12,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('article-search'); ?>>
     <div class="entry-meta">
         <?php
-            maester_posted_on();
-            maester_posted_by();
+            maester_lite_posted_on();
+            maester_lite_posted_by();
         ?>
     </div><!-- .entry-meta -->
 	<header class="entry-header">

@@ -7,22 +7,22 @@
  * @package Maester
  */
 
-define( 'MAESTER_CSS', get_template_directory_uri().'/css' );
-define( 'MAESTER_JS', get_template_directory_uri().'/js' );
-define( 'MAESTER_DIR', get_template_directory() );
-define( 'MAESTER_URI', trailingslashit(get_template_directory_uri()));
+define( 'MAESTER_LITE_CSS', get_template_directory_uri().'/css' );
+define( 'MAESTER_LITE_JS', get_template_directory_uri().'/js' );
+define( 'MAESTER_LITE_DIR', get_template_directory() );
+define( 'MAESTER_LITE_URI', trailingslashit(get_template_directory_uri()));
 
 /**
  *  TGM Activation
  */
-require_once( MAESTER_DIR . '/lib/tgmpa/class-tgm-plugin-activation.php');
+require_once( MAESTER_LITE_DIR . '/lib/tgmpa/class-tgm-plugin-activation.php');
 
 
 /**
  * Theme setup function
  */
 
-if ( ! function_exists( 'maester_setup' ) ) :
+if ( ! function_exists( 'maester_lite_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -30,7 +30,7 @@ if ( ! function_exists( 'maester_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function maester_setup() {
+	function maester_lite_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -78,7 +78,7 @@ if ( ! function_exists( 'maester_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'maester_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'maester_lite_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -99,7 +99,7 @@ if ( ! function_exists( 'maester_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'maester_setup' );
+add_action( 'after_setup_theme', 'maester_lite_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -108,13 +108,13 @@ add_action( 'after_setup_theme', 'maester_setup' );
  *
  * @global int $content_width
  */
-function maester_content_width() {
+function maester_lite_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'maester_content_width', 1170 );
+	$GLOBALS['content_width'] = apply_filters( 'maester_lite_content_width', 1170 );
 }
-add_action( 'after_setup_theme', 'maester_content_width', 0 );
+add_action( 'after_setup_theme', 'maester_lite_content_width', 0 );
 
 /**
  * Helper Functions.

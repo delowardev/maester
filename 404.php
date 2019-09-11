@@ -8,7 +8,7 @@
  */
 
 get_header();
-maester_breadcrumbs();
+maester_lite_breadcrumbs();
 ?>
     <div id="content" class="site-content">
         <div class="container">
@@ -47,8 +47,8 @@ maester_breadcrumbs();
                                 <div class="col-md-6">
                                     <?php
                                         /* translators: %1$s: smiley */
-                                        $maester_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'maester-lite' ), convert_smilies( ':)' ) ) . '</p>';
-                                        the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$maester_archive_content" );
+                                        $maester_lite_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'maester-lite' ), convert_smilies( ':)' ) ) . '</p>';
+                                        the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$maester_lite_archive_content" );
                                         the_widget( 'WP_Widget_Tag_Cloud' );
                                     ?>
                                 </div>
