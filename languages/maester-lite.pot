@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Maester Lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 17:41+0000\n"
+"POT-Creation-Date: 2019-09-11 17:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -30,16 +30,6 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
-
-#: template-parts/content-header.php:114
-#, php-format
-msgid "%s Primary menu is empty, Click here to assign %s"
-msgstr ""
-
-#: template-parts/content-header.php:48
-#, php-format
-msgid "%s Topbar menu is empty, Set topbar menu first %s"
-msgstr ""
 
 #: comments.php:42 comments.php:62
 msgid "&larr; Older Comments"
@@ -330,6 +320,10 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
+#: template-parts/content-header.php:114
+msgid "Primary menu is empty, Click here to assign"
+msgstr ""
+
 #: inc/template-functions.php:389
 #, php-format
 msgid ""
@@ -388,6 +382,10 @@ msgstr ""
 #: inc/template-functions.php:391
 #, php-format
 msgid "Theme: %1$s Maester Lite by FeehaThemes %2$s"
+msgstr ""
+
+#: template-parts/content-header.php:48
+msgid "Topbar menu is empty, Set topbar menu first"
 msgstr ""
 
 #. %1$s: smiley
