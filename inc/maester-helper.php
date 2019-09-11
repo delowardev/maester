@@ -25,22 +25,6 @@ function maester_category_list($taxonomy = 'category'){
 }
 
 /**
- * Get possible search post types
- * @return array
- */
-
-function maester_search_post_types (){
-    $get_post_types = get_post_types(array('public'=>true));
-    $value = array();
-    foreach ($get_post_types as $post){
-        if(function_exists('tutor') && tutor()->course_post_type == $post) $value[$post] = 'Course';
-        if('product' == $post) $value[$post] = 'Product';
-        if('post' == $post) $value[$post] = 'Post';
-    }
-    return $value;
-}
-
-/**
  * Get Post Types for header search
  * @param $post_type
  * @return string
@@ -67,7 +51,7 @@ function maester_pagination(){
         <?php
         global $wp_query;
         $big = 999999999; // need an unlikely integer
-
+	    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo paginate_links( array(
             'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
             'format' => '?paged=%#%',
@@ -77,59 +61,4 @@ function maester_pagination(){
         ?>
     </div>
     <?php
-}
-
-/**
- * @param string $post_type
- * @return array
- * Get post list as array
- */
-function maester_get_post_lists($post_type = 'post'){
-    wp_reset_query();
-    query_posts(array(
-        'post_type' => $post_type,
-        'post_status' => 'publish'
-    ));
-    $post_list = array();
-
-    if(have_posts()){
-        while(have_posts()){
-            the_post();
-            $post_list[get_the_ID()] = get_the_title();
-        }
-    }
-    wp_reset_query();
-    return $post_list;
-}
-
-
-
-/**
- * Get formatted price with cart form
- */
-
-if ( ! function_exists('maester_course_loop_price')) {
-    function maester_course_loop_price() {
-        ob_start();
-        $course_id = get_the_ID();
-        $enroll_btn = '<a class="button" href="'. get_the_permalink(). '">'.__('Get Enrolled', 'maester'). '</a>';
-        $price_html = '<div class="price"><span>'.__('Free', 'maester').'</span>'.$enroll_btn. '</div>';
-        if(tutor_utils()->is_course_purchasable()){
-            $enroll_btn = tutor_course_loop_add_to_cart(false);
-	        $enable_wc = tutor_utils()->get_option('enable_course_sell_by_woocommerce');
-            if('1' == $enable_wc){
-                $product_id = tutor_utils()->get_course_product_id($course_id);
-                $product    = wc_get_product( $product_id );
-                if($product){
-                    $price_html = '<div class="price"> '.$product->get_price_html().$enroll_btn.' </div>';
-                }
-            }else{
-                $price_html = '<div class="price"> '.$enroll_btn.' </div>';
-            }
-        }
-
-        echo $price_html;
-        $output = ob_get_clean();
-        echo $output;
-    }
 }

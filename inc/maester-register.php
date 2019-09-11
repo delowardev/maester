@@ -20,15 +20,15 @@
 	        }
 
 	        // Maester Styles
-	        wp_enqueue_style('maester-nice-select', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css', array(), '1.0.0');
-	        wp_enqueue_style('maester-bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array(), '4.3.1');
+	        wp_enqueue_style('maester-nice-select', MAESTER_CSS.'/nice-select.min.css', array(), '1.0.0');
+	        wp_enqueue_style('maester-bootstrap', MAESTER_CSS.'/bootstrap-grid.min.css', array(), '4.3.1');
 	        wp_enqueue_style('maester-main-css', MAESTER_CSS. '/main.min.css', array(), '1.0.0');
 	        wp_enqueue_style('maester-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700,700i', array());
-	        wp_enqueue_style('maester-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '5.8.1');
+	        wp_enqueue_style('maester-fontawesome', MAESTER_CSS.'/fontawesome.min.css', array(), '5.9.0');
 
 	        //Maester JS
 	        wp_enqueue_script( 'maester-main-js', MAESTER_JS . '/main.js', array('jquery'), '1.0.0', true );
-	        wp_enqueue_script( 'maester-nice-select-js', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
+	        wp_enqueue_script( 'maester-nice-select-js', MAESTER_JS . '/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
 
 	    }
 	    add_action( 'wp_enqueue_scripts', 'maester_scripts' );
@@ -52,45 +52,45 @@
 	 */
 	function maester_widgets_init() {
 	    register_sidebar( array(
-	        'name'          => esc_html__( 'Sidebar', 'maester' ),
+	        'name'          => esc_html__( 'Sidebar', 'maester-lite' ),
 	        'id'            => 'sidebar-1',
-	        'description'   => esc_html__( 'Add widgets here.', 'maester' ),
+	        'description'   => esc_html__( 'Add widgets here.', 'maester-lite' ),
 	        'before_widget' => '<section id="%1$s" class="widget %2$s">',
 	        'after_widget'  => '</section>',
 	        'before_title'  => '<h4 class="widget-title">',
 	        'after_title'   => '</h4>',
 	    ) );
 	    register_sidebar( array(
-	        'name'          => esc_html__( 'Footer Widget 1', 'maester' ),
+	        'name'          => esc_html__( 'Footer Widget 1', 'maester-lite' ),
 	        'id'            => 'footer-1',
-	        'description'   => esc_html__( 'Add widgets here.', 'maester' ),
+	        'description'   => esc_html__( 'Add widgets here.', 'maester-lite' ),
 	        'before_widget' => '<section id="%1$s" class="widget footer-widget %2$s">',
 	        'after_widget'  => '</section>',
 	        'before_title'  => '<h4 class="widget-title">',
 	        'after_title'   => '</h4>',
 	    ) );
 	    register_sidebar( array(
-	        'name'          => esc_html__( 'Footer Widget 2', 'maester' ),
+	        'name'          => esc_html__( 'Footer Widget 2', 'maester-lite' ),
 	        'id'            => 'footer-2',
-	        'description'   => esc_html__( 'Add widgets here.', 'maester' ),
+	        'description'   => esc_html__( 'Add widgets here.', 'maester-lite' ),
 	        'before_widget' => '<section id="%1$s" class="widget footer-widget %2$s">',
 	        'after_widget'  => '</section>',
 	        'before_title'  => '<h4 class="widget-title">',
 	        'after_title'   => '</h4>',
 	    ) );
 	    register_sidebar( array(
-	        'name'          => esc_html__( 'Footer Widget 3', 'maester' ),
+	        'name'          => esc_html__( 'Footer Widget 3', 'maester-lite' ),
 	        'id'            => 'footer-3',
-	        'description'   => esc_html__( 'Add widgets here.', 'maester' ),
+	        'description'   => esc_html__( 'Add widgets here.', 'maester-lite' ),
 	        'before_widget' => '<section id="%1$s" class="widget footer-widget %2$s">',
 	        'after_widget'  => '</section>',
 	        'before_title'  => '<h4 class="widget-title">',
 	        'after_title'   => '</h4>',
 	    ) );
 	    register_sidebar( array(
-	        'name'          => esc_html__( 'Footer Widget 4', 'maester' ),
+	        'name'          => esc_html__( 'Footer Widget 4', 'maester-lite' ),
 	        'id'            => 'footer-4',
-	        'description'   => esc_html__( 'Add widgets here.', 'maester' ),
+	        'description'   => esc_html__( 'Add widgets here.', 'maester-lite' ),
 	        'before_widget' => '<section id="%1$s" class="widget footer-widget %2$s">',
 	        'after_widget'  => '</section>',
 	        'before_title'  => '<h4 class="widget-title">',
@@ -109,7 +109,7 @@
 	    function maester_plugins_include() {
 	        $plugins = apply_filters('maester_plugin_include', array(
 		        array(
-			        'name'                  => esc_html__( 'Elementor', 'maester' ),
+			        'name'                  => esc_html__( 'Elementor', 'maester-lite' ),
 			        'slug'                  => 'elementor',
 			        'required'              => false,
 			        'version'               => '',
@@ -117,7 +117,7 @@
 			        'force_deactivation'    => false
 		        ),
 		        array(
-			        'name'                  => esc_html__( 'Tutor LMS', 'maester' ),
+			        'name'                  => esc_html__( 'Tutor LMS', 'maester-lite' ),
 			        'slug'                  => 'tutor',
 			        'required'              => false,
 			        'version'               => '',
@@ -125,7 +125,7 @@
 			        'force_deactivation'    => false
 		        ),
 		        array(
-			        'name'                  => esc_html__( 'Kirki Toolkit', 'maester' ),
+			        'name'                  => esc_html__( 'Kirki Toolkit', 'maester-lite' ),
 			        'slug'                  => 'kirki',
 			        'required'              => false,
 			        'version'               => '',
@@ -133,7 +133,7 @@
 			        'force_deactivation'    => false
 		        ),
 		        array(
-			        'name'                  => esc_html__( 'Maester Toolkit', 'maester' ),
+			        'name'                  => esc_html__( 'Maester Toolkit', 'maester-lite' ),
 			        'slug'                  => 'maester-toolkit',
 			        'required'              => false,
 			        'version'               => '',
@@ -142,7 +142,7 @@
 		        )
 	        ));
 	        $config = array(
-	            'domain'            => 'maester',
+	            'domain'            => 'maester-lite',
 	            'default_path'      => '',
 	            'parent_slug'  => 'themes.php',
 	            'capability'  => 'manage_options',
@@ -151,13 +151,15 @@
 	            'is_automatic'      => false,
 	            'message'           => '',
 	            'strings'           => array(
-	                'page_title'                                => esc_html__( 'Install Required Plugins', 'maester' ),
-	                'menu_title'                                => esc_html__( 'Install Plugins', 'maester' ),
-	                'installing'                                => esc_html__( 'Installing Plugin: %s', 'maester' ),
-	                'oops'                                      => esc_html__( 'Something went wrong with the plugin API.', 'maester'),
-	                'return'                                    => esc_html__( 'Return to Required Plugins Installer', 'maester'),
-	                'plugin_activated'                          => esc_html__( 'Plugin activated successfully.','maester'),
-	                'complete'                                  => esc_html__( 'All plugins installed and activated successfully. %s', 'maester' )
+	                'page_title'                                => esc_html__( 'Install Required Plugins', 'maester-lite' ),
+	                'menu_title'                                => esc_html__( 'Install Plugins', 'maester-lite' ),
+		            /* translators: %s: plugin name */
+	                'installing'                                => esc_html__( 'Installing Plugin: %s', 'maester-lite' ),
+	                'oops'                                      => esc_html__( 'Something went wrong with the plugin API.', 'maester-lite'),
+	                'return'                                    => esc_html__( 'Return to Required Plugins Installer', 'maester-lite'),
+	                'plugin_activated'                          => esc_html__( 'Plugin activated successfully.','maester-lite'),
+		            /* translators: %s: plugin name */
+	                'complete'                                  => esc_html__( 'All plugins installed and activated successfully. %s', 'maester-lite' )
 	            )
 	        );
 

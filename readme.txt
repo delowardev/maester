@@ -3,8 +3,8 @@ Contributors: feehatheme
 Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 5.6
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0
 
 Maester Lite is the perfect theme for LMS based eLearning & Educational Websites
 
@@ -21,19 +21,38 @@ Maester LMS theme is beautifully and logically designed for all kind of educatio
 
 == Copyright  ==
 
-* This theme is licensed under the GPL. Use it to make something cool, have fun, and share what you've learned with others. Maester Lite is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-* Twitter Bootstrap: https://getbootstrap.com (C) 2019, MIT
-* FontAwesome Free: All code under MIT License, Fonts under SIL OFL 1.1 License & Icon under CC BY 4.0 License
-* jQuery Nice Select: https://github.com/hernansartorio/jquery-nice-select , MIT
+Maester Lite WordPress Theme, Copyright 2019 FeehaTheme
+Maester Lite is distributed under the terms of the GNU GPL
+
+Maester Lite bundles the following third-party resources:
+
+	Font Awesome by Dave Gandy
+    Licenses: SIL OFL 1.1, MIT, CC BY 3.0
+    Source: https://github.com/FortAwesome/Font-Awesome
+
+    Bootstrap by Twitter, Copyright (c) 2011-2019 Twitter, Inc.
+    Licenses: MIT, CC BY 3.0
+    Source: https://github.com/twbs/bootstrap
+
+    TGM-Plugin-Activation, Copyright (c) 2011, Thomas Griffin
+    License: GNU GPL, Version 2
+    Source: https://github.com/TGMPA/TGM-Plugin-Activation
+
+    jQuery Nice Select, Copyright (c) 2017 Hernán Sartorio
+    License: MIT
+    Source: https://github.com/hernansartorio/jquery-nice-select
+
+    Screenshot images
+    Licenses: CC0 Public Domain
+	https://pixabay.com/en/interior-bedroom-lifestyle-3575816/
+	https://pixabay.com/en/tea-green-green-tea-leaf-teacup-2356775/
+	https://pixabay.com/en/art-artist-blogger-blueberry-cafe-3343890/
+	https://pixabay.com/photos/mosaic-fish-tile-art-ceramic-200864/
 
 == Changelog ==
 
-= 0.0.1 =
+= 1.0.0 =
 * Initial release
 
-== Upgrade Notice ==
-
-= 0.0.1 =
-* Initial Release
 
 

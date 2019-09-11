@@ -24,10 +24,18 @@
             <?php
 
             /* translators: used between list items, there is a space after the comma */
-            $maester_categories_list = get_the_category_list( esc_html__( ', ', 'maester' ) );
+            $maester_categories_list = get_the_category_list( ', ' );
             if ( $maester_enable_blog_category && $maester_categories_list ) {
                 /* translators: 1: list of categories. */
-                printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'maester' ) . '</span>', $maester_categories_list ); // WPCS: XSS OK.
+                printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'maester-lite' ) . '</span>', wp_kses(
+	                $maester_categories_list,
+                    array(
+                        "a" => array(
+                                "href" => array(),
+                                "rel" => array()
+                        )
+	                )
+                ) );
             }
 
             the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );

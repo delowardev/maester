@@ -18,16 +18,18 @@ if ( post_password_required() ) {
 }
 ?>
 
-<section id="comments" class="comments-area" aria-label="<?php esc_html_e( 'Post Comments', 'maester' ); ?>">
+<section id="comments" class="comments-area" aria-label="<?php esc_html_e( 'Post Comments', 'maester-lite' ); ?>">
 
     <?php
     if ( have_comments() ) :
         ?>
         <h2 class="comments-title">
             <?php
-            printf( // WPCS: XSS OK.
+            printf(
+            // WPCS: XSS OK.
+            // phpcs:ignore WordPress.Security.EscapeOutput.DeprecatedWhitelistCommentFound
             /* translators: 1: number of comments, 2: post title */
-                esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'maester' ) ),
+                esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'maester-lite' ) ),
                 esc_html(number_format_i18n( get_comments_number() )),
                 '<span>' . esc_html(get_the_title()) . '</span>'
             );
@@ -35,10 +37,10 @@ if ( post_password_required() ) {
         </h2>
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through. ?>
-        <nav id="comment-nav-above" class="comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comment Navigation Above', 'maester' ); ?>">
-            <span class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'maester' ); ?></span>
-            <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'maester' ) ); ?></div>
-            <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'maester' ) ); ?></div>
+        <nav id="comment-nav-above" class="comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comment Navigation Above', 'maester-lite' ); ?>">
+            <span class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'maester-lite' ); ?></span>
+            <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'maester-lite' ) ); ?></div>
+            <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'maester-lite' ) ); ?></div>
         </nav><!-- #comment-nav-above -->
     <?php endif; // Check for comment navigation. ?>
 
@@ -55,10 +57,10 @@ if ( post_password_required() ) {
         </ol><!-- .comment-list -->
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through. ?>
-        <nav id="comment-nav-below" class="comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comment Navigation Below', 'maester' ); ?>">
-            <span class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'maester' ); ?></span>
-            <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'maester' ) ); ?></div>
-            <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'maester' ) ); ?></div>
+        <nav id="comment-nav-below" class="comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comment Navigation Below', 'maester-lite' ); ?>">
+            <span class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'maester-lite' ); ?></span>
+            <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'maester-lite' ) ); ?></div>
+            <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'maester-lite' ) ); ?></div>
         </nav><!-- #comment-nav-below -->
     <?php
     endif; // Check for comment navigation.
@@ -67,7 +69,7 @@ if ( post_password_required() ) {
 
     if ( ! comments_open() && 0 !== intval( get_comments_number() ) && post_type_supports( get_post_type(), 'comments' ) ) :
         ?>
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'maester' ); ?></p>
+        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'maester-lite' ); ?></p>
     <?php
     endif;
 

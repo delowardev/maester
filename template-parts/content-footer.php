@@ -57,7 +57,19 @@
                                 echo esc_html($maester_footer_text). " ";
                             }
 
-                            echo "none" != $maester_footer_credit ? $maester_copyright_credit[$maester_footer_credit] : '';
+                            if('none' != $maester_footer_credit){
+	                            echo wp_kses(
+	                            	$maester_copyright_credit[$maester_footer_credit],
+		                            array(
+			                            'a' => array(
+				                            'href'   => array(),
+				                            'title'  => array(),
+				                            'target' => array(),
+				                            'rel' => array()
+			                            )
+		                            )
+	                            );
+                            }
 
                         ?>
                     </p>

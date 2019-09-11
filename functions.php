@@ -35,9 +35,9 @@ if ( ! function_exists( 'maester_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Maester, use a find and replace
-		 * to change 'maester' to the name of your theme in all the template files.
+		 * to change 'maester-lite' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'maester', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'maester-lite', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -59,10 +59,10 @@ if ( ! function_exists( 'maester_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary Menu', 'maester' ),
-            'menu-2' => esc_html('Secondary Menu', 'maester'),
-            'menu-3' => esc_html('Footer Menu', 'maester'),
-            'topbar' => esc_html('Top Bar Menu', 'maester'),
+			'menu-1' => esc_html__( 'Primary Menu', 'maester-lite' ),
+            'menu-2' => esc_html('Secondary Menu', 'maester-lite'),
+            'menu-3' => esc_html('Footer Menu', 'maester-lite'),
+            'topbar' => esc_html('Top Bar Menu', 'maester-lite'),
 		) );
 
 		/*
@@ -111,7 +111,7 @@ add_action( 'after_setup_theme', 'maester_setup' );
 function maester_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'maester_content_width', 1170 );
 }
 add_action( 'after_setup_theme', 'maester_content_width', 0 );

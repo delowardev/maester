@@ -26,10 +26,10 @@ if ( ! function_exists( 'maester_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'maester' ),
+			esc_html_x( 'Posted on %s', 'post date', 'maester-lite' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
-
+		// phpcs:ignore WordPress.Security.EscapeOutput.DeprecatedWhitelistCommentFound
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 	}
@@ -42,10 +42,10 @@ if ( ! function_exists( 'maester_posted_by' ) ) :
 	function maester_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'maester' ),
+			esc_html_x( 'by %s', 'post author', 'maester-lite' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
-
+		// phpcs:ignore WordPress.Security.EscapeOutput.DeprecatedWhitelistCommentFound
 		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
@@ -61,17 +61,33 @@ if ( ! function_exists( 'maester_entry_footer' ) ) :
             $enable_single_blog_category = get_theme_mod('enable_single_blog_category', true);
             $enable_single_blog_tag = get_theme_mod('enable_single_blog_tag', true);
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'maester' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'maester-lite' ) );
 			if ( $enable_single_blog_category && $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'maester' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'maester-lite' ) . '</span>', wp_kses(
+					$categories_list,
+					array(
+						"a" => array(
+							"href" => array(),
+							"rel" => array()
+						)
+					)
+				) );
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'maester' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'maester-lite' ) );
 			if ( $enable_single_blog_tag && $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'maester' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'maester-lite' ) . '</span>', wp_kses(
+					$tags_list,
+					array(
+						"a" => array(
+							"href" => array(),
+							"rel" => array()
+						)
+					)
+				) );
 			}
 		}
 
@@ -81,7 +97,7 @@ if ( ! function_exists( 'maester_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'maester' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'maester-lite' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -98,7 +114,7 @@ if ( ! function_exists( 'maester_entry_footer' ) ) :
 //			sprintf(
 //				wp_kses(
 //					/* translators: %s: Name of current post. Only visible to screen readers */
-//					__( 'Edit <span class="screen-reader-text">%s</span>', 'maester' ),
+//					__( 'Edit <span class="screen-reader-text">%s</span>', 'maester-lite' ),
 //					array(
 //						'span' => array(
 //							'class' => array(),
