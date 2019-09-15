@@ -50,6 +50,7 @@ if ( ! function_exists( 'maester_lite_header_style' ) ) :
 		<style type="text/css">
 		<?php
 		// Has the text been hidden?
+
 		if ( ! display_header_text() ) :
 			?>
 			.site-title,

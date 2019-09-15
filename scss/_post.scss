@@ -48,15 +48,15 @@ article.post-listing{
   }
   .entry-summary{
     margin: 0 0 20px;
-    font-size: 14px;
-    color: var(--mr-light-color);
+    font-size: 15px;
+    color: var(--mr-text-color);
   }
   .entry-footer {
     border-top: 1px solid var(--mr-border-color);
     padding: 10px 15px 0;
     margin: 0 -15px;
     .entry-meta{
-      font-size: 13px;
+      font-size: 14px;
       display: flex;
       justify-content: space-between;
       font-style: italic;
@@ -123,6 +123,7 @@ article.post-listing{
 }
 
 .post-navigation{
+  margin-top: 20px;
   .nav-links{
     display: flex;
     font-size: 16px;
@@ -137,6 +138,9 @@ article.post-listing{
         text-decoration: underline;
         color: var(--mr-text-color);
         padding: 0 20px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &:hover{
           color: var(--mr-major-color);
         }

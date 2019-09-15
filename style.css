@@ -4,8 +4,8 @@ Theme URI:      http://themes.feeha.net/maester-lite/
 Author:         feehatheme
 Author URI:     https://feeha.net/
 Description:    Maester Lite LMS theme is beautifully and logically designed for all kind of educational platforms. You can build any kind of eLearning platform using Maester Lite theme, it's an all-in-one WordPress LMS theme based on Tutor LMS Plugin to create & sell online courses. Maester Lite LMS theme is perfectly built for individual educators, schools, training institutes, coachinc centers and any other type of academises
-Version:        1.2.2
-Stable Tag:     1.2.2
+Version:        1.2.5
+Stable Tag:     1.2.5
 License:        GNU General Public License v2 or later
 License URI:    http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:    maester-lite
@@ -495,7 +495,8 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0;
+	padding-left: 20px;
 }
 
 dt {
@@ -762,6 +763,11 @@ a:hover, a:active {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.page-links a,
+.page-links span{
+	padding: 0 4px;
 }
 
 /*--------------------------------------------------------------

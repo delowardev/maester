@@ -4,7 +4,7 @@ Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 5.6
 License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Maester Lite is the perfect theme for LMS based eLearning & Educational Websites
 
@@ -48,7 +48,7 @@ Maester Lite bundles the following third-party resources:
 
 == Changelog ==
 
-= 1.2.1 =
+= 1.2.4 =
 * Initial release
 
 

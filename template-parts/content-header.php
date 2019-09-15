@@ -35,19 +35,17 @@
                 </p>
             </div>
             <div class="col-auto">
-                <button style="display:none;" class="menu-toggle" aria-controls="top-bar-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-                <?php
-                    if(has_nav_menu('topbar')){
-                        wp_nav_menu( array(
-                            'theme_location' => 'topbar',
-                            'menu_id'        => 'top-bar-menu',
-                            'container'      => 'nav',
-                            'container_class'=> 'responsive-menu top-bar-menu-container'
-                        ));
-                    }else if(is_customize_preview()){
-                        echo "<i>". esc_html__('Topbar menu is empty, Set topbar menu first', 'maester-lite') . "</i>";
-                    }
-                ?>
+                <button style="display:none;" class="menu-toggle" aria-controls="top-bar-menu-container" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                <div id="top-bar-menu-container" class="responsive-menu">
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'topbar',
+                        'menu_id'        => 'top-bar-menu',
+                        'container'      => 'nav',
+                        'container_class'=> 'top-bar-menu-container'
+                    ));
+                    ?>
+                </div>
             </div>
         </div>
     </div>
@@ -58,16 +56,18 @@
 <div class="header-main">
     <div class="container">
         <div class="row align-items-center">
+            <?php
+                $maester_lite_custom_logo = get_theme_mod( 'custom_logo' );
+            ?>
             <div class="col">
                 <div class="site-branding">
                     <?php
-                        $maester_lite_custom_logo = get_theme_mod( 'custom_logo' );
                         if(!empty($maester_lite_custom_logo)){
                             the_custom_logo();
                         }else{
                             $maester_lite_site_url = home_url('/');
                             $maester_lite_site_title = get_bloginfo('name');
-                            echo "<a href='".esc_url($maester_lite_site_url)."'>".esc_html($maester_lite_site_title)."</a>";
+                            echo "<a class='site-title' href='".esc_url($maester_lite_site_url)."'>".esc_html($maester_lite_site_title)."</a>";
                         }
                     ?>
                     <p class="site-description">
@@ -76,17 +76,17 @@
                 </div><!-- .site-branding -->
             </div>
             <div class="col-auto">
-                <button style="display:none;" class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-                <?php
-                    if(has_nav_menu('menu-2')){
+                <button style="display:none;" class="menu-toggle" aria-controls="secondary-menu-container" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                <div id="secondary-menu-container" class="responsive-menu">
+                    <?php
                         wp_nav_menu( array(
                             'theme_location' => 'menu-2',
                             'menu_id'        => 'secondary-menu',
                             'container'      => 'nav',
-                            'container_class'=> 'responsive-menu secondary-menu-container'
+                            'container_class'=> 'secondary-menu-container'
                         ));
-                    }
-                ?>
+                    ?>
+                </div>
             </div>
             <?php do_action('maester_lite_header_item_hook'); ?>
         </div>
@@ -100,20 +100,15 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col">
-                <div id="site-navigation" class="main-navigation">
-                    <button style="display:none;" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                <div id="site-navigation" class="main-navigation responsive-menu">
+                    <button style="display:none;" class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
                     <?php
-                        if(has_nav_menu('menu-1')){
-                            wp_nav_menu( array(
-                                'theme_location' => 'menu-1',
-                                'menu_id'        => 'primary-menu',
-                                'container'      => 'nav',
-                                'container_class'=> 'responsive-menu primary-menu-container'
-                            ));
-                        }else if(is_user_logged_in()){
-                            echo "<a href='".esc_url(admin_url('nav-menus.php'))."'><i>". esc_html__('Primary menu is empty, Click here to assign', 'maester-lite') . "</i></a>";
-                        }
-
+                        wp_nav_menu( array(
+                            'theme_location' => 'menu-1',
+                            'container_id'        => 'primary-menu',
+                            'container'      => 'nav',
+                            'container_class'=> 'primary-menu-container',
+                        ));
                     ?>
                 </div><!-- #site-navigation -->
             </div>

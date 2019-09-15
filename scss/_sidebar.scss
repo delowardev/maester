@@ -39,9 +39,9 @@ aside.widget-area {
     a {
         overflow-wrap: break-word;
         text-decoration: underline;
-        color: var(--mr-text-color);
+        //color: var(--mr-text-color);
         &:hover {
-            color: var(--mr-major-color);
+            color: var(--mr-major-color-hover);
         }
     }
 }

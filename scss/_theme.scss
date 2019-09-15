@@ -10,7 +10,7 @@
 :root{
     --mr-font: "Source Sans Pro", HelveticaNeue-Light, Helvetica,Arial, "Lucida Grande", sans-serif;
     --mr-body-bg: #ffffff;
-    --mr-text-color: #60646c;
+    --mr-text-color: #444444;
     --mr-heading-color: #252525;
     --mr-light-color: #999999;
     --mr-border-color: #ececec;
@@ -70,7 +70,7 @@ blockquote{
     padding: 10px 0 0 18px;
     margin-bottom: 20px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 400;
     opacity: .9;
     cite{
         font-weight: 600;

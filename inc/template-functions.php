@@ -68,6 +68,11 @@ function maester_lite_breadcrumbs(){
                         echo wp_kses(
 	                        maester_lite_get_breadcrumb(),
 	                        array(
+                                'a' => array(
+                                    'href' => array(),
+                                    'class' => array(),
+                                    'itemprop' => array(),
+                                ),
 		                        'i' => array(
 			                        'class' => array()
 		                        ),
@@ -330,6 +335,11 @@ function maester_lite_tutor_breadcrumb(){
     echo wp_kses(
         maester_lite_get_breadcrumb(),
         array(
+            'a' => array(
+                'href' => array(),
+                'class' => array(),
+                'itemprop' => array(),
+            ),
             'i' => array(
                 'class' => array()
             ),
@@ -382,7 +392,7 @@ add_action('maester_lite_after_footer_hook', 'maester_lite_site_notice');
  */
 
 function maester_lite_get_copyright_credits($strip_tags = false){
-    $copyright_link = apply_filters('maester_lite_copyright_link', "https://wordpress.org/themes/maester-lite/");
+    $copyright_link = apply_filters('maester_lite_copyright_link', "http://themes.feeha.net/maester-lite/");
     $credits = apply_filters('maester_lite_copyright_credits', array(
         "credit_1" => sprintf(__("Built with %1\$s Maester Lite WordPress Theme %2\$s", 'maester-lite'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),
         "credit_2" => sprintf(__("Powered by %1\$s Maester Lite by FeehaThemes %2\$s", 'maester-lite'), "<a href='".esc_url($copyright_link)."' rel='author'>", "</a>"),

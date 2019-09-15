@@ -19,7 +19,7 @@
 	        }
 
 	        // Maester Styles
-	        wp_enqueue_style('jquery-nice-select', MAESTER_LITE_CSS.'/nice-select.min.css', array(), '1.0.0');
+	        wp_enqueue_style('select2', MAESTER_LITE_CSS.'/select2.min.css', array(), '4.0.10');
 	        wp_enqueue_style('bootstrap-grid', MAESTER_LITE_CSS.'/bootstrap-grid.min.css', array(), '4.3.1');
 	        wp_enqueue_style('maester-main-css', MAESTER_LITE_CSS. '/main.min.css', array(), '1.0.0');
 	        wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700,700i', array());
@@ -27,7 +27,7 @@
 
 	        //Maester JS
 	        wp_enqueue_script( 'maester-main-js', MAESTER_LITE_JS . '/main.js', array('jquery'), '1.0.0', true );
-	        wp_enqueue_script( 'jquery-nice-select', MAESTER_LITE_JS . '/jquery.nice-select.min.js', array('jquery'), '1.0.0', true );
+	        wp_enqueue_script( 'select2', MAESTER_LITE_JS . '/select2.min.js', array('jquery'), '4.0.10', true );
 
 	    }
 	    add_action( 'wp_enqueue_scripts', 'maester_lite_scripts' );

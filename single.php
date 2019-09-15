@@ -11,12 +11,13 @@ get_header();
 $maester_lite_enable_single_blog_navigation = get_theme_mod('enable_single_blog_navigation', true);
 $maester_lite_enable_single_blog_comments = get_theme_mod('enable_single_blog_comments', true);
 $maester_lite_enable_single_blog_sidebar = get_theme_mod('enable_single_blog_sidebar', true);
+$maester_lite_blog_column_class = !$maester_lite_enable_single_blog_sidebar || !is_active_sidebar( 'sidebar-1' ) ? 'col-12' : 'col-lg-8';
 maester_lite_breadcrumbs();
 ?>
     <div id="content" class="site-content">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-<?php echo esc_attr($maester_lite_enable_single_blog_sidebar ? 8 : 12); ?>">
+                <div class="<?php echo esc_attr($maester_lite_blog_column_class) ?>">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
 
@@ -39,9 +40,7 @@ maester_lite_breadcrumbs();
                         </main><!-- #main -->
                     </div><!-- #primary -->
                 </div><!-- .col-md-* -->
-                <div class="col-lg-4">
-                    <?php if($maester_lite_enable_single_blog_sidebar) get_sidebar(); ?>
-                </div><!-- .col-md-* -->
+                <?php if($maester_lite_enable_single_blog_sidebar) get_sidebar(); ?>
             </div><!-- .row -->
         </div><!-- .container -->
     </div><!-- #content -->

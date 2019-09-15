@@ -34,8 +34,12 @@
     font-size: 16px;
     .comment-list{
         padding-left: 0;
+        list-style: none;
         ol{
             margin-left: 0;
+            &.children{
+                list-style: none;
+            }
         }
     }
     .comment-body{
@@ -46,9 +50,9 @@
             clear: both;
         }
         .comment-meta{
-            width: 17.6470588235%;
+            width: 16.6470588235%;
             float: left;
-            margin-right: 5.8823529412%;
+            margin-right: 3.8823529412%;
             text-align: right;
             .avatar{
                 margin-bottom: 1em;
@@ -66,7 +70,7 @@
             }
         }
         .comment-content{
-            width: 76.4705882353%;
+            width: 79.4705882353%;
             float: right;
             margin-right: 0;
             padding-bottom: 1.618em;

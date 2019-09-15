@@ -1,4 +1,4 @@
-#top-bar-menu {
+#top-bar-menu-container > nav > ul {
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -27,8 +27,8 @@
  * Main Navigation Menu
  */
 
-#secondary-menu,
-#primary-menu {
+#secondary-menu-container > nav > ul,
+#site-navigation > nav > ul {
     font-size: 16px;
     margin: 0;
     padding: 0;
@@ -50,7 +50,7 @@
     }
 }
 
-#secondary-menu {
+#secondary-menu-container > nav > ul {
     font-size: 14px;
     >li {
         >a {
@@ -131,11 +131,12 @@
  * Dropdown Menu
  */
 
-#secondary-menu,
-#primary-menu,
-#top-bar-menu {
+#secondary-menu-container > nav > ul,
+#site-navigation > nav > ul,
+#top-bar-menu-container > nav > ul {
     li {
         position: relative;
+        &.page_item_has_children,
         &.menu-item-has-children {
             >a {
                 &::after {
@@ -210,8 +211,9 @@
     }
 }
 
-#secondary-menu,
-#top-bar-menu {
+
+#secondary-menu-container > nav > ul,
+#top-bar-menu-container > nav > ul {
     li ul {
         left: auto;
         right: 0;
@@ -236,7 +238,7 @@
     }
 }
 
-#secondary-menu {
+#secondary-menu-container > nav > ul {
     li ul li a {
         padding: 7px 20px;
     }
@@ -253,7 +255,7 @@
     }
 }
 
-#masthead nav.responsive-menu {
+#masthead .responsive-menu > nav {
     position: relative;
     @media screen and (max-width: 767px) {
         ul {
@@ -294,9 +296,11 @@
             }
         }
     }
-    #top-bar-menu,
-    #secondary-menu {
-        left: auto;
-        right: 0;
-    }
+}
+
+
+#top-bar-menu-container.responsive-menu > nav > ul,
+#secondary-menu-container.responsive-menu > nav > ul {
+    left: auto;
+    right: 0;
 }

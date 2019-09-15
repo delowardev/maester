@@ -88,7 +88,7 @@ ul.bullets {
     list-style: inside;
 }
 ol {
-    list-style-type: upper-roman;
+    //list-style-type: upper-roman;
     list-style-position: inside;
 }
 
@@ -146,18 +146,18 @@ h3{
 
 .h4,
 h4{
-    font-size: 17px;
+    font-size: 22px;
     line-height: 1.2;
 }
 
 .h5,
 h5{
-    font-size: 13px;
+    font-size: 18px;
     line-height: 1.2;
 }
 .h6,
 h6{
-    font-size: 11px;
+    font-size: 16px;
     line-height: 1.2;
 }
 
@@ -254,7 +254,7 @@ table{
             padding: 10px;
         }
         td{
-            background: #fdfdfd;
+            background: #f4f4f4;
             border: none;
             padding: 10px;
         }

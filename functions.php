@@ -122,6 +122,12 @@ add_action( 'after_setup_theme', 'maester_lite_content_width', 0 );
 require get_template_directory() . '/inc/maester-helper.php';
 
 /**
+ * Breadcrumbs Functions.
+ */
+
+require get_template_directory() . '/inc/maester-breadcrumbs.php';
+
+/**
  * Enqueue scripts and styles.
  */
 require get_template_directory() . '/inc/maester-register.php';

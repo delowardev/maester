@@ -3,6 +3,7 @@ var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var zip = require('gulp-zip');
 
 gulp.task('default', function() {
     return sass('scss/main.scss', { sourcemap: true, style: 'expanded' })
@@ -23,4 +24,25 @@ gulp.task('default.min', function() {
 gulp.task('watch', function() {
     gulp.watch('scss/*.scss', gulp.series('default'));
     gulp.watch('scss/*.scss', gulp.series('default.min'));
+});
+
+gulp.task('build', function () {
+    return gulp.src([
+        './**',
+        '!./dist/**',
+        '!./.sass-cache/**',
+        '!./.DS_Store',
+        '!./**/.DS_Store',
+        '!./node_modules/**',
+        '!./scss/**',
+        '!./.git',
+        '!./.gitignore',
+        '!./gulpfile.js',
+        '!./css/main.css.map',
+        '!./css/main.min.css.map',
+        '!./package.json',
+        '!./package-lock.json',
+    ])
+        .pipe(zip('maester-lite.zip'))
+        .pipe(gulp.dest('./dist'))
 });

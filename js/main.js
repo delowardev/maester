@@ -38,8 +38,7 @@
     function mobileMenuToggle(){
         $('.menu-toggle').on('click', function () {
             var menuId = $(this).attr('aria-controls');
-            $('.responsive-menu >ul ul').hide(0);
-            $('#'+menuId).slideToggle();
+            $('#'+menuId+'>nav>ul').slideToggle();
         });
 
     }
@@ -84,8 +83,8 @@
      * Active All jQuery Plugins - Since: 1.0.0
      */
     function jqueryPlugins() {
-        if($.fn.niceSelect()){
-            $('select').niceSelect();
+        if($.fn.select2()){
+            $('select').select2();
         }
     }
 
