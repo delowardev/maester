@@ -10,7 +10,6 @@
 define( 'MAESTER_LITE_CSS', get_template_directory_uri().'/css' );
 define( 'MAESTER_LITE_JS', get_template_directory_uri().'/js' );
 define( 'MAESTER_LITE_DIR', get_template_directory() );
-define( 'MAESTER_LITE_URI', trailingslashit(get_template_directory_uri()));
 
 /**
  *  TGM Activation
