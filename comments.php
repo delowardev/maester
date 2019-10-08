@@ -18,7 +18,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<section id="comments" class="comments-area" aria-label="<?php esc_html_e( 'Post Comments', 'maester-lite' ); ?>">
+<section id="comments" class="comments-area" aria-label="<?php esc_attr_e( 'Post Comments', 'maester-lite' ); ?>">
 
     <?php
     if ( have_comments() ) :
@@ -37,7 +37,7 @@ if ( post_password_required() ) {
         </h2>
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through. ?>
-        <nav id="comment-nav-above" class="comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comment Navigation Above', 'maester-lite' ); ?>">
+        <nav id="comment-nav-above" class="comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comment Navigation Above', 'maester-lite' ); ?>">
             <span class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'maester-lite' ); ?></span>
             <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'maester-lite' ) ); ?></div>
             <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'maester-lite' ) ); ?></div>
@@ -57,7 +57,7 @@ if ( post_password_required() ) {
         </ol><!-- .comment-list -->
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through. ?>
-        <nav id="comment-nav-below" class="comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comment Navigation Below', 'maester-lite' ); ?>">
+        <nav id="comment-nav-below" class="comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comment Navigation Below', 'maester-lite' ); ?>">
             <span class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'maester-lite' ); ?></span>
             <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'maester-lite' ) ); ?></div>
             <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'maester-lite' ) ); ?></div>

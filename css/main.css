@@ -2518,11 +2518,16 @@ button.menu-toggle {
   margin-left: 10px;
   content: '\f107';
 }
-#secondary-menu-container > nav > ul li:hover > ul,
+#secondary-menu-container > nav > ul li:focus-within > ul, #secondary-menu-container > nav > ul li.focus > ul, #secondary-menu-container > nav > ul li:hover > ul,
+#site-navigation > nav > ul li:focus-within > ul,
+#site-navigation > nav > ul li.focus > ul,
 #site-navigation > nav > ul li:hover > ul,
+#top-bar-menu-container > nav > ul li:focus-within > ul,
+#top-bar-menu-container > nav > ul li.focus > ul,
 #top-bar-menu-container > nav > ul li:hover > ul {
   visibility: visible;
   opacity: 1;
+  transition-delay: 0ms;
 }
 #secondary-menu-container > nav > ul li ul,
 #site-navigation > nav > ul li ul,
@@ -2538,6 +2543,7 @@ button.menu-toggle {
   visibility: hidden;
   opacity: 0;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition-delay: 50ms;
 }
 #secondary-menu-container > nav > ul li ul li,
 #site-navigation > nav > ul li ul li,

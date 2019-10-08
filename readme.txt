@@ -42,6 +42,10 @@ Maester Lite bundles the following third-party resources:
     License: MIT
     Source: https://github.com/hernansartorio/jquery-nice-select
 
+    Select2, Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
+    License: MIT
+    Source: https://github.com/select2/select2
+
     Screenshot images
     Licenses: CC0 Public Domain
 	https://pxhere.com/en/photo/723648

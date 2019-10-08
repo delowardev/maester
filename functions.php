@@ -96,6 +96,14 @@ if ( ! function_exists( 'maester_lite_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+
+        /**
+         * Maester custom image size
+         */
+
+        add_image_size('maester-post-thumbnail', 700, 380 );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'maester_lite_setup' );
@@ -160,9 +168,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/**
- * Maester custom image size
- */
-
-add_image_size('maester-post-thumbnail', 700, 380 );
 

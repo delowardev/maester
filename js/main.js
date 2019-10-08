@@ -96,6 +96,7 @@
             e.preventDefault();
             $(this).closest('.maester-site-notice').fadeOut(100);
         });
+
     }
 
 

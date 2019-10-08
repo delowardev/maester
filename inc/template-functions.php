@@ -283,7 +283,7 @@ if ( ! function_exists( 'maester_lite_comment' ) ) {
             $add_below = 'div-comment';
         }
         ?>
-        <<?php echo esc_attr( $tag ); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
+        <<?php echo esc_html( $tag ); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
         <div class="comment-body">
         <div class="comment-meta commentmetadata">
             <div class="comment-author vcard">
@@ -291,12 +291,12 @@ if ( ! function_exists( 'maester_lite_comment' ) ) {
                 <?php printf( wp_kses_post( '<cite class="fn">%s</cite>', 'maester-lite' ), get_comment_author_link() ); ?>
             </div>
             <?php if ( '0' === $comment->comment_approved ) : ?>
-                <em class="comment-awaiting-moderation"><?php esc_attr_e( 'Your comment is awaiting moderation.', 'maester-lite' ); ?></em>
+                <em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'maester-lite' ); ?></em>
                 <br />
             <?php endif; ?>
 
             <a href="<?php echo esc_url( htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ); ?>" class="comment-date">
-                <?php echo '<time datetime="' . esc_attr(get_comment_date( 'c' )) . '">' . esc_attr(get_comment_date()) . '</time>'; ?>
+                <?php echo '<time datetime="' . esc_attr(get_comment_date( 'c' )) . '">' . esc_html(get_comment_date()) . '</time>'; ?>
             </a>
         </div>
         <?php if ( 'div' !== $args['style'] ) : ?>
